@@ -1,0 +1,162 @@
+﻿0|0.0|6.28|Imagina una empresa que valía 200.000 millones de dólares, que fabricaba los servidores
+1|6.28|10.88|que sostenía en internet, que inventó el lenguaje de programación más usado del
+2|10.88|16.68|planeta, una empresa que en el año 2000 parecía intocable, eterna, el corazón mismo de Silicon
+3|16.68|24.44|Valley, 10 años después la vendieron por 7.400 millones, un descuento del 96%, y lo
+4|24.44|28.84|más loco de todo es que no quebró por culpa de la competencia, quebró por una idea que
+5|28.84|33.8|ellos mismos consideraban su mayor virtud. Esta es la historia de San Microsystems, la
+6|33.8|37.8|empresa que regaló el futuro y se quedó sin nada. Para entender esta caída hay que
+7|37.8|45.239999999999995|viajar a febrero de 1982. Cuatro tipos jóvenes, brillantes, casi insoportables de tan inteligentes,
+8|45.239999999999995|46.760000000000005|se juntan en California.
+9|46.760000000000005|50.8|Andy Bechtolsheim, un alemán obsesionado con el hardware.
+10|50.8|54.480000000000004|Vinod Kozla, un indio con la ambición de un emperador.
+11|54.48|59.76|Scott McNeely, un competidor nato que detestaba perder hasta jugando golf, y un cuarto que
+12|59.76|64.67999999999999|llegaría desde Berkeley poco después, Bill Joy, considerado por muchos el mejor programador
+13|64.67999999999999|69.28|vivo del mundo en ese momento. Le pusieron a la empresa un nombre que parecía poesía
+14|69.28|70.67999999999999|pero era puro acrónimo.
+15|70.67999999999999|76.56|Zoon, por Stanford University Network, la red de la universidad donde Andy había diseñado
+16|76.56|78.4|su primera estación de trabajo.
+17|78.4|83.24|En esa época, si querías una computadora potente, tenías que pedirse la IBM y firmar
+18|83.24|89.44|un contrato eterno. Lo que Zoon hizo fue distinto. Construyó máquinas abiertas basadas en Unix
+19|89.44|94.47999999999999|conectadas en red, máquinas para ingenieros, para científicos, para gente que necesitaba
+20|94.47999999999999|96.03999999999999|poder de verdad.
+21|96.03999999999999|101.08|Bendían cada estación de trabajo en 10.000 dólares y la gente las arrancaba de sus manos,
+22|101.08|105.91999999999999|pero entonces ocurrió algo que cambió la historia. Llegó internet y Zan ya estaba
+23|105.91999999999999|108.72|ahí esperando con la infraestructura perfecta.
+24|108.72|114.2|Su lema lo decía todo. La red es la computadora. Mientras Microsoft pensaba en escritorios
+25|114.2|118.64|y Apple pensaba en diseño, Zan pensaba en algo mucho más grande. Pensaba en conectar
+26|118.64|122.76|el mundo entero y por un instante glorioso fue exactamente lo que pasó.
+27|122.76|127.32|Al final, desde los 90s, Zan era una bestia. Sus servidores movían las páginas web de
+28|127.32|132.4|eBay y de Amazon, de cada startup recién nacida que necesitaba estar en línea hier mismo.
+29|132.4|137.48|Si abrías una empresa.com y no comprabas un servidor Zoon, eras invisible.
+30|137.48|143.56|Su procesador Z Park y su sistema operativo Solaris eran considerados lo mejor del mercado.
+31|143.56|148.28|Más rápidos, más confiables, más serios que cualquier alternativa. Cada servidor costaba
+32|148.28|152.88|entre 50.000 y varios millones de dólares. Y Zoon los vendía a montones.
+33|152.88|159.0|En el año fiscal 2000, Zoon reportó ganancias netas de 1.850 millones de dólares. Sus ingresos
+34|159.0|164.16|volaban. Su acción, que cotizaba a 5 dólares unos años antes, se disparó hasta superar
+35|164.16|170.24|los 64 dólares. La empresa llegó a valer 200.000 millones de dólares en bolsa. 200.000
+36|170.24|174.4|millones. Para que entiendas la magnitud, eso era más que el producto interno bruto
+37|174.4|179.64|de muchos países enteros. Scott Magnely aparecía en revistas, daba conferencias, se burlaba
+38|179.64|185.12|públicamente de Bill Gates en cada oportunidad. Tenía un Dardo y Microsoft era la Diana.
+39|185.12|189.8|Y en medio de toda esa locura, Zoon ya tenía guardada su joya más brillante. Algo que habían
+40|189.8|195.88000000000002|cocinado en silencio desde 1991. Un proyecto liderado por un canadiense con barba y mirada
+41|195.88000000000002|201.88000000000002|tímida llamado James Gosling. Al principio se llamaba Oak Roble, por el árbol que Gosling
+42|201.88000000000002|206.68|veía desde su ventana. Cuando descubrieron que ese nombre ya estaba registrado, lo cambiaron
+43|206.68|211.52|por algo más sencillo, más cálido, casi una broma de oficina, java, como el café que
+44|211.52|218.56|tomaban durante las jornadas eternas. El 23 de mayo de 1995, Zoon presentó java al mundo.
+45|218.56|223.4|Y el mundo no volvió a ser el mismo, java tenía una promesa revolucionaria, escribe
+46|223.4|227.92000000000002|el código una sola vez y córrelo en cualquier máquina, en tu teléfono, en tu computadora,
+47|227.92000000000002|233.08|en un cajero automático, en un satélite, daba igual, era universal. Y aquí viene la
+48|233.08|238.0|decisión que definió todo lo que vino después, Zoon decidió que java sería gratis. Lo
+49|238.0|242.52|regaló, cualquier programador en cualquier país podía descargarlo, usarlo, construir
+50|242.52|246.36|sobre él sin pagar un solo centavo. ¿Por qué hicieron eso? Porque creían en algo
+51|246.48000000000002|251.64000000000001|casi religioso. Creían que si miles de millones de personas usaban java, todos esos programas
+52|251.64000000000001|256.72|necesitarían correr en algún lugar. Y ese lugar, según Zoon, serían sus servidores.
+53|256.72|261.24|La lógica parecía perfecta, regalamos el lenguaje, vendemos el jargua. Cuanta más
+54|261.24|265.76|gente programaba en java, más servidores Zoon venderemos. Era un trato que en papel
+55|265.76|270.76|sonaba genial, pero entonces pasó algo que nadie en Zoon calculó bien. Java se volvió
+56|270.76|275.12|tan popular que terminó corriendo en máquinas que no eran de Zoon. Corría en servidores
+57|275.2|280.04|de IBM, de Hewlett-Packard, de Dell. Corría en computadoras con Linux que costaban una
+58|280.04|285.36|décima parte. Y años después java terminaría siendo la base de Android, el sistema operativo
+59|285.36|290.84000000000003|más usado del mundo. Propiedad de Google. Zoon había creado la tecnología que sostendría
+60|290.84000000000003|295.84000000000003|toda una generación de productos digitales. Y de cada uno de esos productos Zoon no recibió
+61|295.84000000000003|302.32|absolutamente nada. Ni un dólar de licencia. Ni una participación. Nada. Habían regalado
+62|302.32|307.32|el futuro pensando que el futuro volvería a casa. No volvió. Mientras Zoon se obsesionaba
+63|307.32|312.96|con vender máquinas grandes, caras y elegantes, en el mundo estaba pasando otra cosa. Algo
+64|312.96|318.36|silencioso. Algo que parecía irrelevante. Cientos de empresas estaban descubriendo que
+65|318.36|323.76|podías armar un servidor potente con piezas comunes y corrientes. Procesadores de Intel
+66|323.76|329.76|Baratos, sistema operativo Linux, gratis, discos duros estándar. Por unos pocos miles
+67|329.76|333.52|de dólares tenías una máquina que hacía casi lo mismo que un servidor Zoon de medio
+68|333.52|338.48|millón. Zoon miró ese mundo desde arriba, con desprecio. O en el orgullo del campeón
+69|338.48|342.96|que no se digna a pelear con aficionados. Macnilly y su equipo estaban convencidos de
+70|342.96|348.02|que sus servidores eran superiores. Que la calidad ganaría. Y ninguna empresa sería
+71|348.02|352.44|confiaría sus operaciones a un montón de hardware barato con un sistema operativo hecho
+72|352.44|357.46|por voluntarios o en sus ratos libres. El problema fue que sí confiaron. Y cada vez
+73|357.46|362.58|más, Google, la empresa que terminaría dominando Internet, construyó toda su infraestructura
+74|362.58|367.78|con servidores baratos corriendo Linux. Amazon hizo lo mismo. Facebook nació directamente
+75|367.78|372.46|sobre esa filosofía. Mientras tanto, Zoon seguía intentando vender máquinas de 200
+76|372.46|377.38|mil dólares a clientes que ya no las querían. Lo que cambió todo fue que el cliente típico
+77|377.38|382.14|de Zoon, la startup.com, dejó de existir de la noche a la mañana. Cuando la situación
+78|382.14|386.97999999999996|se puso fea, llegó un nuevo jefe. Jonathan Schwartz, un ejecutivo con cola de caballo
+79|386.98|391.86|y un blog personal donde escribía cosas que en otras empresas hubieran provocado infartos.
+80|391.86|396.90000000000003|Schwartz tenía una visión radical. Si todos están enamorados del software gratis y abiertos,
+81|396.90000000000003|402.86|Zoon debe ser la empresa más abierta de todas. Más que IBM. Más que cualquiera. Y empezó
+82|402.86|408.82|a regalarlo todo. Liberó Solaris, el sistema operativo estrella. Y creó Open Solaris para
+83|408.82|414.46000000000004|que cualquiera pudiera usarlo gratis. Liberó Java aún más, soltando partes que antes estaban
+84|414.46|421.7|protegidas. Y en enero de 2008 hizo la jugada más cara de su carrera. Compró MySQL, la base
+85|421.7|427.02|de datos abierta más usada del mundo, por mil millones de dólares, mil millones, en
+86|427.02|433.5|efectivo, por un producto que por definición era gratuito. La lógica de Schwartz era poética.
+87|433.5|438.17999999999995|Decía que el software gratis crea adopción, la adopción crea comunidad, la comunidad
+88|438.17999999999995|444.44|crea negocios alrededor, y esos negocios eventualmente compran soporte servicios hardware. Lo escribí
+89|444.44|448.78|una y otra vez en su famoso blog, pero el problema fue que la conversión de usuario
+90|448.78|454.28|gratuito a cliente que paga era miserable. Por cada 100 empresas que descargaban MySQL,
+91|454.28|459.28|quizás una pagaba algo. Y para sostener una compañía con decenas de miles de empleados,
+92|459.28|464.22|ese 1% era una sentencia de muerte lenta. Zoon gastaba como un gigante y cobraba como
+93|464.22|468.62|una organización benéfica. Volvamos atrás un momento porque hay un dato que lo explica
+94|468.62|474.76|casi todo. En el año 2000, justo antes del estallido de la vorbuja.com, la acción de
+95|474.76|480.92|Zoon cotizaba a unas 10 veces sus ingresos anuales, 10 veces. Años después, el propio
+96|480.92|486.44|Scott McNally publicaría una reflexión que se volvió legendaria en Wall Street. Dijo,
+97|486.44|491.8|palabras más, palabras menos, a 10 veces ingresos. Para darles a ustedes accionistas
+98|491.8|496.54|un retorno en 10 años, tendría que pagarles cada centavo que ingreso en bruto durante
+99|496.54|501.52000000000004|una década, sin pagar impuestos, sin pagar empleados, sin invertir en nada. Y aún así
+100|501.52000000000004|504.84000000000003|no tendría sentido. ¿En qué demonios estaban pensando ustedes
+101|504.84000000000003|510.0|al comprar mi acción a ese precio? Esa frase es una de los mea culpa más honestos en la
+102|510.0|516.2|historia de la tecnología. Pero ya era tarde. Cuando la vorbuja explotó en marzo de 2000,
+103|516.2|522.0|los clientes de Zoon, esas startups.com que pagaban cualquier precio por sus servidores,
+104|522.0|527.14|empezaron a desaparecer. Una tras otra, las órdenes de servidores de 50 mil dólares
+105|527.14|532.1|se evaporaron en cuestión de meses. En el año fiscal 2001, las ganancias de Zoon
+106|532.1|538.7|cayeron a la mitad. En 2002, la empresa registró pérdidas de 628 millones de dólares. La
+107|538.7|543.82|acción se desplomó, perdió más del 50% de su valor en un solo año y luego siguió
+108|543.82|549.62|cayendo. Miles de empleados fueron despedidos en oleadas que parecían no terminar nunca.
+109|549.62|553.92|La empresa que había sido sinónimo de orgullo en Silicon Valley se convirtió en sinónimo
+110|553.92|558.28|de advertencia. El 20 de abril de 2009. Ese es el día.
+111|558.28|564.12|Oralke Corporation anuncia que comprará Zoon Microsystems por 7.400 millones de dólares.
+112|564.12|569.32|9 dólares con 50 centavos por acción. Una empresa que 10 años antes valía 200 mil
+113|569.32|573.32|millones, vendida por menos del 4% de su valor máximo.
+114|573.32|578.4|Y el detalle que casi nadie recuerda es este, Zoon había estado coqueteando con IBM durante
+115|579.38|582.98|las semanas. Las negociaciones avanzaban. IBM iba a pagar más.
+116|582.98|588.86|Pero en el último minuto IBM bajó su oferta. McNeely, ya retirado de la dirección ejecutiva,
+117|588.86|593.98|y Schwartz, todavía al mando, se sintieron insultados. Cuando Larry Ellison, el legendario
+118|593.98|599.5799999999999|y agresivo fundador de Oracle, llamó con una oferta firme, Zoon aceptó casi de inmediato.
+119|599.5799999999999|605.3|La adquisición se completó oficialmente el 27 de enero de 2010. En el mismo edificio donde
+120|605.3|610.52|habían nacido los grandes sueños, ahora colgaba el logo rojo de Oracle. Jonathan Schwartz
+121|610.52|616.0799999999999|se despidió con un tweet en forma de haiku japonés, tres líneas, sin amargura aparente,
+122|616.0799999999999|620.4799999999999|como si estuviera diciendo adiós a un sueño que ya se había perdido hace mucho tiempo.
+123|620.4799999999999|624.92|Lo que pasó después fue brutal. Larry Ellison no era un sentimentalista y wassang con una
+124|624.92|630.28|motosierra. Despidió a miles de empleados en pocos meses. Cerró proyectos enteros
+125|630.28|636.02|que llevaban décadas en desarrollo. O pensó Larry, el sueño abierto de Schwartz, fue cancelado
+126|636.02|640.4599999999999|de la noche a la mañana. Los desarrolladores que habían dedicado años a esa comunidad
+127|640.4599999999999|645.4599999999999|se enteraron por filtraciones, no por la empresa. Ellison concentró todo el esfuerzo
+128|645.4599999999999|650.5799999999999|en lo que a él le importaba. Vender hardware caro junto con la base de datos de Oracle,
+129|650.5799999999999|656.14|su producto estrella. Java se convirtió en un activo legal antes que un activo técnico.
+130|656.24|662.16|Oracle demandó a Google por usar Java en Android. Pidió miles de millones de dólares. La batalla
+131|662.16|666.88|duró más de una década y llegó hasta la Corte Suprema de Estados Unidos. Google ganó
+132|666.88|672.96|la pelea final en 2021, pero esa demanda mostró el cambio cultural. Lo que parasaban fue un regalo
+133|672.96|677.52|al mundo para Oracle fue un arma de litigio. Mysacol, comprado por mil millones, quedó
+134|677.52|682.28|en un limbo extraño. Los creadores originales, encabezados por el sueco Michael Widenius,
+135|682.3|687.5|abandonaron la empresa y crearon una versión alternativa llamada MariaDB. Hoy gran parte
+136|687.5|691.3399999999999|del mundo usa MariaDB precisamente porque no confía en lo que ahora que le puede hacer
+137|691.3399999999999|697.4599999999999|con Mysacol. La comunidad que San había cultivado se dispersó. Algunos ingenieros legendarios como
+138|697.4599999999999|703.8199999999999|James Gosling, el padre de Java, renunciaron antes de un año. Gosling diría más tarde sin tapujos
+139|703.8199999999999|708.86|que no se sentía bienvenido en la nueva cultura de Oracle. Y aquí está la paradoja más hermosa
+140|708.86|713.32|y más triste de toda esta historia. San Microsystems desapareció como empresa,
+141|713.32|719.32|pero su tecnología está literalmente en todas partes. Si tu teléfono Android funciona es porque
+142|719.32|724.8000000000001|Java existe. Si una aplicación bancaria procesa tu transferencia, lo más probable es que esté
+143|724.8000000000001|731.24|escrita en Java. Si manejas datos en una empresa cualquiera, probablemente uses Mysacol o MariaDB,
+144|731.24|736.8000000000001|descendientes directos del trabajo de San. El sistema de archivos ZFS que hoy se usa en
+145|736.8|741.9|servidores avanzados de todo el mundo también nació en San. Hasta el concepto moderno de
+146|741.9|747.06|virtualización debe muchísimo a sus ingenieros. San perdió la batalla comercial pero ganó la batalla
+147|747.06|752.42|técnica. Su filosofía de regalar tecnología para que la red creciera terminó siendo profética.
+148|752.42|757.8599999999999|El problema fue que llegaron demasiado pronto, gastaron demasiado, y se aferraron a vender
+149|757.8599999999999|762.42|hardware caro cuando el mundo ya quería pagar barato. Cada vez que abres una aplicación en tu
+150|762.42|768.28|teléfono, hay una pequeña parte de San ahí adentro, trabajando silenciosamente casi 30 años
+151|768.28|772.4599999999999|después de que aquel canadiense barbudo viera un roble por la ventana y se le ocurrió escribir
+152|772.4599999999999|779.18|un lenguaje universal. La lección de su microstés es incómoda, pero brutalmente útil. Crear algo
+153|779.18|784.26|grande no es suficiente, regalar algo grande tampoco. Lo que define la supervivencia de una
+154|784.26|789.0799999999999|empresa no es la genialidad de su producto, sino la disciplina de saber cómo cobrarlo,
+155|789.08|794.12|cuándo defenderlo y cuándo aceptar que el mundo cambió. Sun construyó el futuro y se quedó
+156|794.12|799.8000000000001|esperando a que el futuro pasara por su caja a pagar. El futuro nunca paga, el futuro solo usa.
+157|799.8000000000001|804.2800000000001|Y si alguna vez escuchas a alguien decir que la tecnología abierta y gratis siempre gana,
+158|804.2800000000001|809.6|recuerda esto. Sun lo regaló todo y terminó vendida en una fracción de lo que valió. La
+159|809.6|814.44|generosidad sin estrategia no es virtud, es un boleto sin retorno hacia el olvido.
+160|814.48|819.96|Su microstés creó Java y Oracle, sin haber escrito una sola línea de ese código,
+161|819.96|821.72|terminó dueña de todo.

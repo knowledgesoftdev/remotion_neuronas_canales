@@ -1,0 +1,37 @@
+# Entornos Python
+backend/venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/*.pyc
+backend/.env
+
+# Base de datos local
+backend/neural_studio.db
+backend/oauth_state.json
+backend/youtube_token.json
+
+# Node modules
+frontend/node_modules/
+remotion/node_modules/
+
+# Builds
+frontend/dist/
+remotion/out/
+
+# Proyectos generados (audio, videos, datos de proyectos)
+projects/*/audio.mp3
+projects/*/video.mp4
+projects/*/whisper_output.json
+
+# Archivos temporales de análisis
+frame_*.png
+videoreferecncia.mp4
+
+# Secrets / credenciales
+.env
+*.env
+.credentials.json
+
+# OS
+.DS_Store
+Thumbs.db
