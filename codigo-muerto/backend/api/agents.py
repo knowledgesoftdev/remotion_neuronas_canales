@@ -235,6 +235,7 @@ def export_to_remotion(project_id: int, session: Session = Depends(get_session))
         (os.path.join(project.folder, "sequences.ts"),         os.path.join(remotion_dir, "src", "sequences.ts")),
         (os.path.join(project.folder, "paragraphSlides.json"), os.path.join(remotion_dir, "src", "paragraphSlides.json")),
         (os.path.join(project.folder, "visual_data.json"),     os.path.join(remotion_dir, "src", "visualData.json")),
+        (os.path.join(project.folder, "intro_data.json"),      os.path.join(remotion_dir, "src", "introData.json")),
     ]
     for src, dst in copies:
         if os.path.exists(src):

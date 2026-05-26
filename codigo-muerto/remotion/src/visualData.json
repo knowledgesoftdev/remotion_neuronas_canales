@@ -1,30 +1,30 @@
 {
-  "channel_header": "Lotus 1-2-3: El Gigante Que Se Suicidó",
-  "date_range": "1983 – 1995",
+  "channel_header": "MoviePass: La Promesa Imposible",
+  "date_range": "2011 – 2019",
   "gancho_lines": [
     {
-      "text": "En 1990 dominaba el 70% del mercado mundial de hojas de cálculo",
+      "text": "Menos de diez dólares al mes por ir al cine todos los días",
       "from": 10,
       "size": 52,
       "color": "text",
       "weight": 300
     },
     {
-      "text": "Wall Street corría sobre su código",
+      "text": "Una película distinta cada noche",
       "from": 50,
       "size": 68,
       "color": "accent",
       "weight": 700
     },
     {
-      "text": "Cinco años después, había desaparecido",
+      "text": "Sin trampas. Sin letra pequeña.",
       "from": 90,
       "size": 48,
       "color": "muted",
       "weight": 300
     },
     {
-      "text": "Y nadie lo mató — se suicidó solo",
+      "text": "Pero las cuentas eran imposibles desde el primer día",
       "from": 130,
       "size": 44,
       "color": "text",
@@ -33,27 +33,27 @@
   ],
   "legado_items": [
     {
-      "label": "Killer App",
-      "desc": "Lotus inventó el concepto: comprar la máquina por el software"
+      "label": "AMC A-List y Regal Unlimited",
+      "desc": "Las cadenas copiaron el modelo de suscripción que antes despreciaban"
     },
     {
-      "label": "Excel hereda el trono",
-      "desc": "Microsoft copió sus atajos y se quedó con el mercado para siempre"
+      "label": "Caso de estudio en escuelas de negocios",
+      "desc": "Ejemplo clásico de crecimiento sin unit economics viables"
     },
     {
-      "label": "Lección de plataforma",
-      "desc": "Apostar contra el sistema operativo dominante es firmar tu sentencia"
+      "label": "Condena federal a sus ejecutivos",
+      "desc": "Fraude bursátil documentado: el hype no salva un modelo roto"
     }
   ],
   "criterio_lines": [
     {
-      "text": "¿Cuántas empresas mueren defendiendo la decisión técnica que las hizo grandes?"
+      "text": "¿Era una idea brillante mal ejecutada o un fraude disfrazado de innovación?"
     },
     {
-      "text": "Lotus no perdió contra Excel: perdió contra su propio orgullo de ingeniería"
+      "text": "Ninguna cantidad de usuarios arregla un modelo que pierde dinero en cada transacción"
     },
     {
-      "text": "Optimizar el presente  ·  vs  ·  Adaptarse al futuro"
+      "text": "Crecimiento  ·  vs  ·  Sostenibilidad"
     }
   ]
 }

@@ -6,6 +6,21 @@ import { StatScene } from './StatScene';
 import { ListScene } from './ListScene';
 import { OutroScene } from './OutroScene';
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const VISUAL = require('../../visualData.json') as { date_range?: string };
+
+const SECTION_LABELS: Record<string, string> = {
+  GANCHO:     '',
+  CONTEXTO:   'Contexto',
+  LEGADO:     'El Legado',
+  CRITERIO:   'Reflexión Final',
+};
+
+function getSectionLabel(data: NewsCardData): string {
+  if (data.decisionNum) return `DECISIÓN ${String(data.decisionNum).padStart(2, '0')}`;
+  return SECTION_LABELS[data.section] ?? data.section.replace(/_/g, ' ');
+}
+
 export interface NewsCardData {
   from:        number;
   duration:    number;
@@ -148,7 +163,7 @@ const ChapterCard: React.FC<{ data: NewsCardData }> = ({ data }) => {
   const oExit  = interpolate(frame, [durationInFrames - 28, durationInFrames], [1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
   const decLabel = data.decisionNum
     ? `DECISIÓN ${String(data.decisionNum).padStart(2, '0')} / 06`
-    : data.section.replace(/_/g, ' ');
+    : getSectionLabel(data);
   const titleSize = data.displayText.length > 75 ? 54 : data.displayText.length > 50 ? 66 : 78;
 
   return (
@@ -221,9 +236,7 @@ const NewsBanner: React.FC<{ data: NewsCardData }> = ({ data }) => {
   const dividerO = interpolate(frame, [10, 30], [0, 1],   { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
   const oExit    = interpolate(frame, [durationInFrames - 28, durationInFrames], [1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
   const livePulse = Math.floor(frame / 22) % 2 === 0 ? 1 : 0.15;
-  const secLabel  = data.decisionNum
-    ? `DECISIÓN ${String(data.decisionNum).padStart(2, '0')}`
-    : data.section.replace(/_/g, ' ');
+  const secLabel  = getSectionLabel(data);
   const fontSize  = data.displayText.length > 95 ? 38 : data.displayText.length > 70 ? 48 : data.displayText.length > 50 ? 56 : 64;
 
   return (
@@ -256,7 +269,7 @@ const NewsBanner: React.FC<{ data: NewsCardData }> = ({ data }) => {
           </span>
         </div>
         <span style={{ fontFamily: FONTS.mono, fontSize: 12, color: THEME.muted, letterSpacing: 2, opacity: 0.6 }}>
-          1982 — 2010
+          {VISUAL.date_range ?? ''}
         </span>
       </div>
 
@@ -298,11 +311,6 @@ const NewsBanner: React.FC<{ data: NewsCardData }> = ({ data }) => {
           alignItems: 'center', justifyContent: 'center', gap: 22,
         }}>
           <AnimatedIcon data={data} size={190} entryFrame={8} />
-          <span style={{
-            fontFamily: FONTS.mono, fontSize: 15, color: hex(color, 0.8),
-            letterSpacing: 5, textTransform: 'uppercase',
-            opacity: interpolate(frame, [30, 46], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }),
-          }}>{data.icon.replace('-', ' ')}</span>
         </div>
       </div>
 

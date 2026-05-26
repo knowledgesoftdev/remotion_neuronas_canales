@@ -46,6 +46,19 @@ SECTION_ICON_SETS: dict = {
     "CRITERIO":   ["code", "jvm", "gear"],
 }
 
+SECTION_LABELS = {
+    "GANCHO":     "",
+    "CONTEXTO":   "Contexto",
+    "DECISION_1": "El Inicio",
+    "DECISION_2": "La Expansión",
+    "DECISION_3": "El Problema",
+    "DECISION_4": "La Crisis",
+    "DECISION_5": "El Intento",
+    "DECISION_6": "El Colapso",
+    "LEGADO":     "El Legado",
+    "CRITERIO":   "Reflexión Final",
+}
+
 # Palabras que no deben quedar al final del displayText
 _BAD_ENDINGS = {
     'de','del','y','a','o','en','la','el','un','lo','al','por','con','su',
@@ -97,6 +110,48 @@ def _display_text(text: str) -> str:
     return result[0].upper() + result[1:] if result else result
 
 
+def _rewrite_slides(slides: list) -> list:
+    ICONS = "database, code, server, cpu, globe, clock, gear, alert, network, rails, jvm, fanout, team, money, bullish, trending-down, calendar, statistics, manager, approval, document, expired, broken, workflow, lightbulb, activity"
+    items = [{"i": i, "s": s["section"], "t": s["text"][:120]} for i, s in enumerate(slides)]
+
+    print(f"[VisualAgent] Reescribiendo {len(slides)} slides con Claude...")
+    try:
+        msg = CLIENT.messages.create(
+            model="claude-opus-4-7",
+            max_tokens=4096,
+            messages=[{"role": "user", "content": f"""Eres director creativo de un documental tech para YouTube en español.
+
+Para cada slide tienes la sección y el texto literal que se está narrando.
+Genera un displayText visual e impactante (máx 8 palabras) que NO sea transcripción literal:
+sintetiza la idea clave del momento, usa sustantivos fuertes y datos concretos cuando los haya.
+También elige el icono más representativo del contenido de ese slide.
+
+Iconos disponibles: {ICONS}
+
+Slides:
+{json.dumps(items, ensure_ascii=False)}
+
+Devuelve SOLO un JSON array sin texto adicional:
+[{{"i": 0, "d": "frase visual", "ic": "icono"}}, ...]"""}],
+        )
+        text = msg.content[0].text.strip()
+        rewrites = json.loads(text[text.index('['):text.rindex(']') + 1])
+        rmap = {r["i"]: r for r in rewrites}
+    except Exception as e:
+        print(f"[VisualAgent] Reescritura fallida: {e}, usando displayText original.")
+        return slides
+
+    result = []
+    for i, s in enumerate(slides):
+        rw = rmap.get(i, {})
+        result.append({
+            **s,
+            "displayText": rw.get("d", s.get("displayText", s["text"][:80])),
+            "icon":        rw.get("ic", s.get("icon", "code")),
+        })
+    return result
+
+
 def _enrich_slides(slides: list, section_icons: dict) -> list:
     counters: dict = {}
     result = []
@@ -122,7 +177,7 @@ def _enrich_slides(slides: list, section_icons: dict) -> list:
             "icon": icon,
             "color": SECTION_COLORS.get(section, "#00d4ff"),
             "number": _extract_number(s["text"]) if count == 1 else None,
-            "lowerThird": section.replace("_", " ") if count == 1 else "",
+            "lowerThird": SECTION_LABELS.get(section, section.replace("_", " ")) if count == 1 else "",
         })
     return result
 
@@ -157,7 +212,7 @@ Guion (primeros 3500 caracteres):
 Secciones del video: GANCHO, CONTEXTO, DECISION_1, DECISION_2, DECISION_3, DECISION_4, DECISION_5, DECISION_6, LEGADO, CRITERIO
 
 Iconos disponibles (elige el más representativo para cada sección basándote en el contenido real):
-database, rails, jvm, network, fanout, team, gear, alert, clock, code
+database, code, server, cpu, globe, clock, gear, alert, network, rails, jvm, fanout, team, money, bullish, trending-down, calendar, statistics, manager, approval, document, expired, broken, workflow, lightbulb, activity
 
 Genera SOLO este JSON sin explicaciones adicionales:
 {{
@@ -176,8 +231,13 @@ Genera SOLO este JSON sin explicaciones adicionales:
     "CRITERIO": "icono"
   }},
   "gancho_icon": "icono del tema principal (database|rails|jvm|network|fanout|team|gear|alert|clock|code)",
+  "intro_title": "nombre corto de la empresa o producto protagonista (máx 3 palabras)",
+  "intro_subtitle1": "frase descriptiva del video (máx 8 palabras, qué fue o qué hizo)",
+  "intro_subtitle2": "frase de contraste dramático (máx 7 palabras, el giro o la caída)",
   "gancho_stat": "el número o porcentaje más impactante de la historia (ej: –96%, $200B, 80%)",
   "gancho_stat_desc": "descripción corta del stat (máx 6 palabras en mayúsculas con ·, ej: Caída en valor · 2000 → 2010)",
+  "intro_stat_line1": "oración que explica el stat (máx 12 palabras, número incluido)",
+  "intro_stat_line2": "oración de contraste dramático que cierra la intro (máx 12 palabras)",
   "gancho_lines": [
     {{"text": "frase 1 impactante sobre el tema (dato o hecho concreto)", "from": 10, "size": 52, "color": "text", "weight": 300}},
     {{"text": "frase 2 corta y poderosa — máximo 8 palabras", "from": 50, "size": 68, "color": "accent", "weight": 700}},
@@ -210,13 +270,25 @@ Genera SOLO este JSON sin explicaciones adicionales:
 
     section_icons = claude_data.get("section_icons", DEFAULT_ICONS)
     enriched = _enrich_slides(slides, section_icons)
+    enriched = _rewrite_slides(enriched)
 
+    gancho_lines = claude_data.get("gancho_lines", _default_data()["gancho_lines"])
     visual_data = {
         "channel_header": claude_data.get("channel_header", "Neural Studio"),
         "date_range":     claude_data.get("date_range", ""),
-        "gancho_lines":   claude_data.get("gancho_lines", _default_data()["gancho_lines"]),
+        "gancho_lines":   gancho_lines,
         "legado_items":   claude_data.get("legado_items", _default_data()["legado_items"]),
         "criterio_lines": claude_data.get("criterio_lines", _default_data()["criterio_lines"]),
+    }
+    intro_data = {
+        "title":     claude_data.get("intro_title", visual_data["channel_header"].split("·")[0].strip()),
+        "subtitle1": claude_data.get("intro_subtitle1", gancho_lines[0]["text"] if gancho_lines else ""),
+        "subtitle2": claude_data.get("intro_subtitle2", gancho_lines[2]["text"] if len(gancho_lines) > 2 else ""),
+        "dateRange": claude_data.get("date_range", ""),
+        "stat":      claude_data.get("gancho_stat", ""),
+        "statDesc":  claude_data.get("gancho_stat_desc", ""),
+        "statLine1": claude_data.get("intro_stat_line1", gancho_lines[0]["text"] if gancho_lines else ""),
+        "statLine2": claude_data.get("intro_stat_line2", gancho_lines[3]["text"] if len(gancho_lines) > 3 else ""),
     }
 
     with open(slides_path, "w", encoding="utf-8") as f:
@@ -224,6 +296,10 @@ Genera SOLO este JSON sin explicaciones adicionales:
 
     with open(visual_path, "w", encoding="utf-8") as f:
         json.dump(visual_data, f, ensure_ascii=False, indent=2)
+
+    intro_path = os.path.join(folder, "intro_data.json")
+    with open(intro_path, "w", encoding="utf-8") as f:
+        json.dump(intro_data, f, ensure_ascii=False, indent=2)
 
     print("[VisualAgent] Listo.")
 
