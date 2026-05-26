@@ -1,0 +1,81 @@
+Tengo todo lo necesario. Procedo a escribir.
+
+MOOD_VISUAL: dramático
+
+[professional broadcast tone] [GANCHO]
+
+En mil novecientos noventa, si entrabas a cualquier oficina del planeta, encontrabas el mismo programa parpadeando en las pantallas color ámbar. Se llamaba Lotus uno-dos-tres. Tenía más del setenta por ciento del mercado mundial de hojas de cálculo. Wall Street funcionaba con él. Los bancos funcionaban con él. Los contadores no sabían trabajar sin él. Era tan dominante que la frase que circulaba dentro de Microsoft era escalofriante: "D-O-S no está terminado hasta que Lotus deje de funcionar". Pero entonces, en apenas cinco años, ese gigante invencible se evaporó. Y lo más increíble es que no lo mató un competidor más inteligente. Lo mató una decisión técnica que su propio director ejecutivo defendió hasta el último día. ¿Cómo destruyes una empresa que vale más de tres mil millones de dólares? Le das un teclado y la dejas escribir su propio final.
+
+[CONTEXTO]
+
+Para entender el tamaño de la caída, hay que entender el tamaño del trono. Estamos en enero de mil novecientos ochenta y tres. Un exprogramador, exinstructor de meditación y exdisc jockey llamado Mitchell Kapor lanza un programa al mercado a cuatrocientos noventa y cinco dólares. Lo bautiza Lotus uno-dos-tres porque hace tres cosas en una: hoja de cálculo, gráficos y base de datos. Está escrito en lenguaje ensamblador, una forma de programación tan cercana al hardware que hace que el programa vuele en las computadoras I-B-M, mientras la competencia, VisiCalc, se arrastra. En su primer año, Lotus vende cincuenta y tres millones de dólares. Dos meses después de salir a la bolsa, ya es la segunda empresa de software más grande del mundo.
+
+Y aquí viene lo increíble. Lotus uno-dos-tres no fue simplemente un éxito. Fue el primer programa al que la industria le puso nombre propio: la "killer app", la aplicación asesina. La gente compraba la computadora I-B-M solo para poder usar Lotus. Repite eso: la gente no compraba el programa para la máquina, compraba la máquina para el programa. En mil novecientos ochenta y ocho, Lotus facturaba [emphasis] cuatrocientos sesenta y ocho millones de dólares [emphasis] al año. Tenía oficinas en Cambridge, Massachusetts, llenas de programadores arrogantes que creían, con razón, que habían escrito el software más importante del planeta.
+
+El hombre que tomaba las decisiones para esa época ya no era Mitchell Kapor. Kapor, agotado de dirigir una empresa enorme, le había pasado el mando en mil novecientos ochenta y seis a un exconsultor de la firma McKinsey llamado Jim Manzi. Manzi no era ingeniero. No escribía código. Era un estratega frío, ambicioso, obsesionado con los márgenes y con una idea fija: Lotus no podía depender de Microsoft para nada. Esa convicción, esa única idea, iba a costarle a la compañía absolutamente todo.
+
+[ASCENSO]
+
+Entre mil novecientos ochenta y cuatro y mil novecientos ochenta y nueve, Lotus uno-dos-tres reinó sin rival. Vendió más de cinco millones de copias. En enero de mil novecientos ochenta y nueve, era el producto de software más vendido del planeta, por encima de WordPerfect y de Norton Utilities. Las funciones que hoy damos por obvias en Excel, como las celdas con referencias, los gráficos integrados, las macros, las inventó Lotus o las popularizó Lotus. Los atajos de teclado de uno-dos-tres eran tan rápidos que los contadores podían cerrar un balance sin tocar el ratón. De hecho, no había ratón. Había una barra de comandos que se manejaba con la tecla diagonal y los expertos volaban encima de ella.
+
+Microsoft, mientras tanto, tenía un problema enorme. Su intento de competir en hojas de cálculo, un programa llamado Multiplan, había sido aplastado. Bill Gates estaba furioso. En mil novecientos ochenta y cinco, Microsoft lanzó Excel, pero solo para la computadora Macintosh de Apple, porque en el mundo I-B-M no tenían ninguna posibilidad contra Lotus. Excel para Mac fue un éxito modesto, pero irrelevante. Lotus se reía. Apple era un nicho. El verdadero dinero estaba en las oficinas, y las oficinas tenían I-B-M corriendo Lotus.
+
+[excited] Pero en noviembre de mil novecientos ochenta y cinco, Microsoft hizo algo que la mayoría de la industria consideró una broma de mal gusto. Lanzó la versión uno punto cero de un sistema operativo gráfico llamado Windows. Era lento, era feo, casi nadie lo usaba. Bill Gates, sin embargo, sabía algo que Jim Manzi se negaba a aceptar: el futuro no estaba en pantallas de texto verde. El futuro estaba en ventanas, ratones e íconos. Y Microsoft estaba dispuesto a perder dinero durante años hasta que el mundo entendiera eso.
+
+[DECISIÓN 1] — La apuesta por el barco equivocado
+
+Aquí empieza el desastre, y tiene nombre y fecha. En mil novecientos ochenta y siete, I-B-M y Microsoft anunciaron juntos un nuevo sistema operativo llamado O-S barra dos. Era ambicioso, técnicamente impresionante, y se suponía que iba a reemplazar al viejo D-O-S como el estándar del mundo corporativo. Jim Manzi miró ese anuncio y tomó la decisión que iba a definir el resto de su carrera: Lotus apostaría todo a O-S barra dos. No a Windows. A O-S barra dos.
+
+[serious] La lógica parecía impecable. I-B-M era el cliente más grande de Lotus. I-B-M estaba detrás de O-S barra dos. Los empleados de Lotus podrían trabajar codo a codo con los ingenieros de I-B-M. Microsoft, en cambio, era el enemigo, el dueño de Excel, la empresa que algún día querría comerse a Lotus viva. ¿Por qué portar el programa estrella a la plataforma del rival? Era estrategia de manual. El problema fue que la estrategia de manual ignoraba algo que solo se ve si entiendes a la gente real: las secretarias, los contadores, los gerentes medios, ninguno de ellos iba a comprar una computadora nueva y un sistema operativo nuevo solo porque I-B-M lo dijera. Iban a seguir usando lo que ya tenían. Y lo que ya tenían, cada vez más, era Windows.
+
+Lotus lanzó una versión llamada uno-dos-tres barra G para O-S barra dos en mil novecientos noventa. Era una pieza de software hermosa, técnicamente superior a casi todo lo que existía. ¿Y sabes cuántas copias vendió en serio? Una cantidad ridícula. O-S barra dos nunca despegó. Microsoft, mientras Lotus se concentraba en esa plataforma muerta, lanzó Windows tres punto cero en mayo de mil novecientos noventa. Vendió diez millones de copias en dos años. Y Excel para Windows, lanzado en mil novecientos ochenta y siete y refinado año tras año, se convirtió en el único programa de hoja de cálculo nativo, fluido, diseñado desde cero para ese entorno gráfico que estaba conquistando el mundo.
+
+[DECISIÓN 2] — La reescritura imposible
+
+[pause] Mientras Lotus apostaba al caballo equivocado, dentro de sus propias oficinas pasaba algo peor. La versión tres punto cero de Lotus uno-dos-tres, que debía ser la respuesta moderna al programa original, llevaba años de retraso. La razón era técnica, pero la consecuencia fue catastrófica. El programa original había sido escrito en lenguaje ensamblador, ese código ultrarrápido pegado al hardware. Para hacerlo funcionar en computadoras más nuevas y en distintos sistemas operativos, los ingenieros decidieron reescribirlo desde cero en lenguaje C, un lenguaje más moderno y portable.
+
+Suena razonable. En la práctica fue una pesadilla. La reescritura tardó más de un año más de lo planeado. Mientras los programadores de Lotus peleaban con bugs internos, Microsoft sacaba versiones nuevas de Excel cada doce o dieciocho meses. Excel dos punto cero, Excel tres punto cero, Excel cuatro punto cero. Cada versión más rápida, más bonita, más integrada con Windows. Lotus, en cambio, lanzaba parches y promesas.
+
+[laughing] Y aquí viene lo absurdo. Cuando finalmente apareció Lotus uno-dos-tres para Windows, no fue en mil novecientos ochenta y siete junto con la primera versión de Excel para Windows. No fue en mil novecientos ochenta y nueve. No fue en mil novecientos noventa. Apareció en mil novecientos noventa y uno. Casi cuatro años de ventaja regalados a Microsoft. Y la primera versión era tan torpe, tan lenta, tan parecida a la versión vieja de D-O-S, que los críticos la masacraron. Un usuario lo dijo perfecto en una entrevista de la época: "Es como si hubieran tomado el Lotus de D-O-S y le hubieran pintado ventanas alrededor".
+
+[DECISIÓN 3] — La guerra legal contra los clones
+
+Mientras Microsoft trabajaba sin descanso, Lotus tomó otra decisión que demostró dónde estaba realmente su cabeza. En lugar de invertir esa energía en mejorar el producto, Manzi metió a la empresa en una guerra de tribunales. En mil novecientos ochenta y siete, Lotus demandó a una empresa pequeña llamada Paperback Software por copiar la apariencia y la sensación, el famoso "look and feel", de uno-dos-tres. Después demandó a Borland, fabricante de un programa rival llamado Quattro Pro.
+
+El caso contra Paperback lo ganó Lotus en mil novecientos noventa. Una victoria sonada. Pero el caso contra Borland se arrastró durante años, llegó hasta la Corte Suprema, y al final Lotus perdió. Mientras tanto, los abogados cobraban millones, los ejecutivos pasaban semanas declarando, y los ingenieros de Microsoft escribían código tranquilamente en Redmond. La industria entera odiaba a Lotus por esas demandas. La prensa los pintaba como matones. Y lo peor, lo verdaderamente irónico, es que el competidor que terminó destruyéndolos, Microsoft, ni siquiera fue tocado por esos juicios.
+
+[serious] Esto es lo que nadie sabía dentro de Lotus: cada hora gastada en abogados era una hora que Excel ganaba en código. Manzi creía que estaba defendiendo el imperio. En realidad estaba defendiendo un castillo cuyas paredes ya se estaban derrumbando solas.
+
+[DECISIÓN 4] — Ignorar el paquete completo
+
+A principios de los noventa, Microsoft hizo algo que parecía un detalle administrativo y resultó ser una bomba nuclear. Empaquetó Word, Excel y PowerPoint en una sola caja con un solo precio. Lo llamó Microsoft Office. Para una empresa que necesitaba equipar a quinientos empleados, comprar Office era hasta un sesenta por ciento más barato que comprar los programas equivalentes por separado.
+
+Lotus tardó años en reaccionar. Recién en mil novecientos noventa y dos lanzó su propia suite, llamada SmartSuite. Tenía uno-dos-tres, un procesador de texto llamado Ami Pro, una base de datos llamada Approach y varios programas más. En papel era competitiva. En la práctica llegó tarde. Las grandes empresas ya habían firmado contratos masivos con Microsoft. Las universidades enseñaban Excel. Los nuevos empleados llegaban a sus trabajos sabiendo Excel, no uno-dos-tres.
+
+[emphasis] Y aquí viene el dato que duele. [emphasis] En mil novecientos ochenta y ocho, Excel vendía menos de la mitad que Lotus uno-dos-tres. En mil novecientos noventa y dos, ya lo había superado. En mil novecientos noventa y cinco, Excel tenía más del setenta por ciento del mercado, exactamente la posición que Lotus había ocupado cinco años antes. La inversión total se completó en menos de un mandato presidencial.
+
+[PUNTO DE QUIEBRE]
+
+Cinco de junio de mil novecientos noventa y cinco. I-B-M anunció una oferta hostil de compra por Lotus a sesenta dólares por acción. La cotización de Lotus saltó casi veintinueve dólares en un solo día, lo que demostraba la cifra real: la empresa estaba tan debilitada que el mercado la había dejado por muerta. Una semana después, el doce de junio, la junta directiva aceptó. I-B-M se quedó con Lotus por [emphasis] tres mil quinientos millones de dólares [emphasis] en efectivo. Era el final de la independencia. Era el final del sueño.
+
+Jim Manzi se quedó como ejecutivo dentro de I-B-M apenas tres meses. El once de octubre de mil novecientos noventa y cinco renunció. En sus propias palabras, dijo que los atributos que lo habían hecho efectivo dirigiendo una empresa independiente no servían dentro de una corporación gigante. La frase sonó digna. Lo que en realidad había pasado era que el hombre que tomó la decisión de no portar Lotus a Windows a tiempo ya no tenía nada más que dirigir.
+
+[CAÍDA O TRANSFORMACIÓN]
+
+Después de la compra, I-B-M intentó mantener vivo a Lotus uno-dos-tres durante años. Lanzó versiones nuevas. Lo incluyó en SmartSuite. Lo regaló prácticamente gratis a clientes corporativos. Nada funcionó. Para finales de los noventa, Excel ya no era simplemente el líder. Era el estándar absoluto. Los archivos de hoja de cálculo del mundo se llamaban punto X-L-S. Las clases en las universidades enseñaban Excel. Los anuncios de empleo pedían "dominio de Excel". Lotus uno-dos-tres había desaparecido del vocabulario de una generación entera.
+
+I-B-M terminó oficialmente la venta y el soporte de Lotus uno-dos-tres en mil novecientos noventa y dos mil trece. Treinta años exactos después de su lanzamiento. Una despedida silenciosa para un programa que alguna vez había definido la informática personal. Las cuatro mil personas que trabajaban en Lotus cuando I-B-M la compró se redujeron con los años a una fracción. La marca Lotus, en su momento más valiosa que la propia Microsoft, fue finalmente vendida por I-B-M a una empresa india llamada HCL en dos mil dieciocho, por aproximadamente mil ochocientos millones de dólares. Casi la mitad de lo que I-B-M había pagado veintitrés años antes.
+
+[serious] Piénsalo un segundo. Una empresa que en mil novecientos ochenta y tres era la segunda más grande del mundo del software, terminó sus días como una nota al pie. Y todo, absolutamente todo, comenzó con una decisión técnica tomada en una sala de juntas de Cambridge, Massachusetts, cuando alguien dijo: "Nosotros apostamos por O-S barra dos".
+
+[LEGADO]
+
+Hoy, cada vez que abres Excel, estás usando ideas que nacieron en Lotus uno-dos-tres. La forma de nombrar celdas con letras y números, los atajos de teclado para sumar columnas, la lógica de las macros, todo eso es herencia directa. De hecho, durante años, Excel tuvo una opción llamada "compatibilidad con Lotus" que reproducía los atajos viejos para que los usuarios pudieran migrar sin perder velocidad. Microsoft no destruyó a Lotus borrando su tecnología. La absorbió, la mejoró, y la presentó en un envase que el futuro quería comprar.
+
+La lección que dejó este caso transformó para siempre cómo las empresas de software piensan sus apuestas. Hoy, ninguna compañía seria ignora una plataforma emergente por lealtad a un socio corporativo. Cuando llegó el iPhone, todos los desarrolladores corrieron a hacer aplicaciones, aunque odiaran a Apple. Cuando llegó la nube, hasta los más conservadores migraron. Cuando llegó la inteligencia artificial generativa, nadie se permitió el lujo de esperar a ver. Porque todos saben, aunque no lo digan en voz alta, la historia de Lotus uno-dos-tres.
+
+[CRITERIO FINAL]
+
+La lección no es técnica. Es humana. Jim Manzi no era un idiota. Era un ejecutivo brillante con un equipo brillante y un producto brillante. Pero se enamoró de una estrategia, defendió esa estrategia con orgullo, y confundió "lo que debería pasar" con "lo que va a pasar". El mercado no premia a quien tiene razón. Premia a quien llega a tiempo. Lotus tenía razón en muchas cosas: O-S barra dos era técnicamente superior, sus demandas eran legalmente válidas, su producto era objetivamente potente. Y aun así, perdió.
+
+[pause] Porque en tecnología, llegar tarde con razón es exactamente lo mismo que llegar a tiempo equivocado. Y si la próxima vez que veas una hoja de cálculo en tu pantalla recuerdas esta historia, hazte la pregunta que Jim Manzi nunca se hizo a tiempo: ¿estoy apostando por el futuro, o solo defendiendo mi pasado?

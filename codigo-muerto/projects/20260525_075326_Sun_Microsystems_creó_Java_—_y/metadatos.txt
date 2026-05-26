@@ -1,0 +1,42 @@
+================================================================
+TÍTULO
+================================================================
+Sun Microsystems: Regaló el Futuro y Lo Perdió Todo
+
+================================================================
+DESCRIPCIÓN
+================================================================
+Valía 200.000 millones de dólares. Inventó el lenguaje que hoy mueve Android, los bancos y medio internet. Diez años después, la vendieron con un descuento del 96%.
+
+Esta es la historia de Sun Microsystems, la empresa que construyó la infraestructura sobre la que se levantó internet, creó Java y lo regaló al mundo, y terminó devorada por su propia generosidad estratégica. Una caída que no fue por mala tecnología, ni por falta de talento, sino por una decisión filosófica que parecía visionaria y resultó ser fatal.
+
+En este video recorremos el ascenso meteórico de Sun en los años noventa, el momento exacto en que su lema "la red es la computadora" se convirtió en profecía, y las decisiones que la llevaron del Olimpo de Silicon Valley a venderse a Oracle por 7.400 millones en 2010.
+
+Una historia sobre ambición, idealismo tecnológico y el precio brutal de regalar aquello que el mundo más necesita.
+
+📌 CAPÍTULOS
+00:00 — El gancho: la empresa que valía 200.000 millones
+01:16 — Contexto: cuatro genios y una idea llamada Sun
+02:28 — Decisión 1: regalar Java al mundo entero
+03:53 — Decisión 2: ignorar el hardware barato
+05:12 — Decisión 3: el error de subestimar Linux
+06:31 — Decisión 4: apostarlo todo al servidor premium
+08:00 — Decisión 5: la guerra perdida contra Microsoft
+09:24 — Decisión 6: la burbuja puntocom y el colapso
+10:45 — Legado: lo que Sun le dejó al mundo
+12:11 — Criterio: la lección que sigue vigente hoy
+
+================================================================
+ETIQUETAS
+================================================================
+sun microsystems, historia de sun, java, james gosling, scott mcnealy, silicon valley, caida de empresas, oracle, solaris, sparc, historia de la tecnologia, burbuja puntocom, linux vs unix, servidores, historia de internet, bill joy, vinod khosla, andy bechtolsheim, empresas que quebraron, fracasos empresariales, historia de java, android, microsoft vs sun, ibm, hewlett packard, dell, casos de estudio, estrategia empresarial, documental tecnologia, historia silicon valley
+
+================================================================
+HASHTAGS
+================================================================
+#SunMicrosystems #Java #SiliconValley #HistoriaTecnologia #Oracle #Linux #ScottMcNealy #JamesGosling #BurbujaPuntocom #Solaris #SPARC #HistoriaEmpresarial #Tecnologia #FracasosEmpresariales #Documental
+
+================================================================
+MINIATURA — PROMPT
+================================================================
+Cinematic nostalgic thumbnail in moody dark blue and amber tones with a vintage 90s tech aesthetic. Center composition: a glowing, slightly cracked Sun Microsystems logo (the purple-and-orange ambigram style) fading and dissolving into pixels on the right side, as if breaking apart. Behind it, a faded silhouette of a 1990s server rack with blinking LEDs casting warm orange light. On the left side, bold white text reading "REGALÓ EL FUTURO" with a smaller red text below saying "$200.000M → $7.4B". Subtle Java coffee cup steam icon in the bottom corner, almost ghostly. Film grain texture, dramatic chiaroscuro lighting, faint CRT scanlines overlay, melancholic and epic atmosphere. Style: documentary cinematic poster, hyper-detailed, 4K, shallow depth of field, evoking the fall of a tech empire.

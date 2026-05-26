@@ -1,0 +1,59 @@
+{
+  "channel_header": "SUN MICROSYSTEMS: EL IMPERIO QUE REGALÓ EL FUTURO",
+  "date_range": "1982 – 2010",
+  "gancho_lines": [
+    {
+      "text": "Valía 200 mil millones de dólares en el año 2000",
+      "from": 10,
+      "size": 52,
+      "color": "text",
+      "weight": 300
+    },
+    {
+      "text": "La vendieron por 7.400 millones",
+      "from": 50,
+      "size": 68,
+      "color": "accent",
+      "weight": 700
+    },
+    {
+      "text": "Un descuento del 96% en solo diez años",
+      "from": 90,
+      "size": 48,
+      "color": "muted",
+      "weight": 300
+    },
+    {
+      "text": "No la mató la competencia: la mató su mayor virtud",
+      "from": 130,
+      "size": 44,
+      "color": "text",
+      "weight": 400
+    }
+  ],
+  "legado_items": [
+    {
+      "label": "Java",
+      "desc": "El lenguaje que hoy mueve Android, bancos y medio internet del planeta"
+    },
+    {
+      "label": "La red es la computadora",
+      "desc": "Anticiparon la nube y el cloud computing dos décadas antes de tiempo"
+    },
+    {
+      "label": "Cultura open source",
+      "desc": "Solaris, MySQL y OpenOffice marcaron el camino del software libre moderno"
+    }
+  ],
+  "criterio_lines": [
+    {
+      "text": "¿Se puede inventar el futuro y aun así perderlo todo?"
+    },
+    {
+      "text": "Sun regaló las ideas que hicieron ricos a otros y se quedó sin imperio"
+    },
+    {
+      "text": "Innovar  ·  vs  ·  Capitalizar"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+================================================================
+TÍTULO
+================================================================
+Lotus tenía el 70% del mercado — y eligió mal
+
+================================================================
+DESCRIPCIÓN
+================================================================
+En 1990, Lotus 1-2-3 dominaba el 70% del mercado mundial de hojas de cálculo. Cinco años después, había desaparecido. Y no lo mató Microsoft: lo mató una sola decisión técnica que su propio CEO defendió hasta el final.
+
+En este documental descubrirás cómo la "killer app" original —el programa que hizo que la gente comprara la computadora para usarlo— se autodestruyó apostando al sistema operativo equivocado. Verás cómo Jim Manzi, obsesionado con no depender de Microsoft, condujo a Lotus directamente al abismo mientras Excel conquistaba el mundo. Una historia brutal sobre arrogancia corporativa, ceguera estratégica y cómo el miedo al rival puede ser más letal que el rival mismo.
+
+📌 CAPÍTULOS
+00:00 El imperio que se suicidó
+01:22 El trono de Lotus 1-2-3
+02:56 La apuesta por OS/2
+04:26 Ignorar Windows
+05:54 La guerra contra Microsoft
+07:23 El desastre del 1-2-3/G
+08:51 La compra de Ami Pro
+10:29 IBM al rescate (demasiado tarde)
+11:57 El legado enterrado
+13:35 La lección que nadie aprendió
+
+🔔 Suscríbete para más historias de tecnología que cambiaron el mundo.
+
+================================================================
+ETIQUETAS
+================================================================
+lotus 1-2-3, lotus corporation, jim manzi, mitchell kapor, historia de lotus, microsoft excel historia, os/2 fracaso, ibm os/2, killer app, hojas de calculo historia, lotus vs microsoft, caida de lotus, documental tecnologia, historia tech español, empresas que fracasaron, decisiones empresariales fallidas, bill gates excel, windows vs os2, software años 90, lotus development, por que cayo lotus, ascenso y caida lotus, tecnologia retro, historia de microsoft, guerra del software, documentales tecnologicos español
+
+================================================================
+HASHTAGS
+================================================================
+#Lotus123 #HistoriaTech #Microsoft #Excel #DocumentalTecnologico #LotusCorporation #JimManzi #OS2 #IBM #HistoriaDeLaTecnologia #KillerApp #BillGates #FracasosEmpresariales #TecnologiaRetro #SoftwareHistorico
+
+================================================================
+MINIATURA — PROMPT
+================================================================
+Cinematic high contrast thumbnail, dark moody background with deep black and dark red tones, vintage 1990s computer monitor on the left side displaying the iconic Lotus 1-2-3 amber-green spreadsheet interface, the monitor screen visibly cracking or shattering with glass fragments flying outward, dramatic red rim lighting, faint Microsoft Windows logo glowing ominously in the background smoke, bold large white and yellow sans-serif text on the right side reading "LOTUS SE SUICIDÓ" in 4 words maximum, text occupies right third of frame, rule of thirds composition with broken monitor on left and text on right, volumetric dust and smoke, dramatic chiaroscuro lighting, shocking and tragic atmosphere, photorealistic 4K detail, YouTube thumbnail style, high CTR documentary aesthetic

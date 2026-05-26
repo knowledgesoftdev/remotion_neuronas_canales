@@ -1,37 +1,35 @@
-# Entornos Python
-backend/venv/
-backend/__pycache__/
-backend/**/__pycache__/
-backend/*.pyc
-backend/.env
+# ── Python ────────────────────────────────────────────────
+**/venv/
+**/__pycache__/
+**/*.pyc
+**/*.pyo
 
-# Base de datos local
-backend/neural_studio.db
-backend/oauth_state.json
-backend/youtube_token.json
+# ── Bases de datos ────────────────────────────────────────
+**/neural_studio.db
 
-# Node modules
-frontend/node_modules/
-remotion/node_modules/
+# ── Credenciales / tokens ─────────────────────────────────
+**/.env
+**/*.env
+**/oauth_state.json
+**/youtube_token.json
+**/credentials.json
 
-# Builds
-frontend/dist/
-remotion/out/
+# ── Node ──────────────────────────────────────────────────
+**/node_modules/
+**/dist/
+**/out/
+**/.vite/
 
-# Proyectos generados (audio, videos, datos de proyectos)
-projects/*/audio.mp3
-projects/*/video.mp4
-projects/*/whisper_output.json
+# ── Archivos de proyecto generados (pesados) ──────────────
+**/projects/*/audio.mp3
+**/projects/*/video.mp4
+**/projects/*/whisper_output.json
 
-# Archivos temporales de análisis
-frame_*.png
-videoreferecncia.mp4
+# ── Phantom Directive (en desarrollo, no commitear aún) ───
+phantom-directive/
 
-# Secrets / credenciales
-.env
-*.env
-.credentials.json
-
-# OS
+# ── OS / temporales ───────────────────────────────────────
 .DS_Store
 Thumbs.db
+frame_*.png
+videoreferecncia.mp4
