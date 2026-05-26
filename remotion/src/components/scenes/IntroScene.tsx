@@ -5,6 +5,13 @@ import {
 import { FlatIcon } from '../../constants/icons';
 import { FONTS, THEME, hex } from '../../constants/theme';
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const INTRO = require('../../introData.json') as {
+  title: string; subtitle1: string; subtitle2: string;
+  dateRange: string; stat: string; statDesc: string;
+  statLine1: string; statLine2: string;
+};
+
 const ACCENT = '#ef4444';
 const PHASE2_START = 130;
 
@@ -133,7 +140,7 @@ const Phase1: React.FC<{ opacity: number }> = ({ opacity }) => {
           </span>
         </div>
         <span style={{ fontFamily: FONTS.mono, fontSize: 12, color: THEME.muted, letterSpacing: 2, opacity: 0.55 }}>
-          1982 — 2010
+          {INTRO.dateRange}
         </span>
       </div>
 
@@ -155,15 +162,15 @@ const Phase1: React.FC<{ opacity: number }> = ({ opacity }) => {
             </span>
           </div>
           <KineticText
-            text="Sun Microsystems"
+            text={INTRO.title}
             fontSize={82} color={ACCENT} startFrame={12} framePerWord={6} weight={800}
           />
           <KineticText
-            text="La empresa que regaló el futuro"
+            text={INTRO.subtitle1}
             fontSize={38} color={THEME.text} startFrame={28} framePerWord={4} weight={300}
           />
           <KineticText
-            text="y se quedó sin nada"
+            text={INTRO.subtitle2}
             fontSize={32} color={THEME.muted} startFrame={52} framePerWord={4} weight={300}
           />
         </div>
@@ -273,7 +280,7 @@ const Phase2: React.FC<{ opacity: number; startFrame: number }> = ({ opacity, st
           fontFamily: FONTS.mono, fontSize: 540, fontWeight: 900,
           color: ACCENT, opacity: 0.045, letterSpacing: '-0.06em',
           lineHeight: 1, userSelect: 'none', whiteSpace: 'nowrap',
-        }}>96</span>
+        }}>{INTRO.stat}</span>
       </div>
 
       {/* Barras */}
@@ -298,25 +305,25 @@ const Phase2: React.FC<{ opacity: number; startFrame: number }> = ({ opacity, st
           color: ACCENT, letterSpacing: '-0.04em', lineHeight: 1,
           textShadow: `0 0 70px ${hex(ACCENT, 0.7)}, 0 0 140px ${hex(ACCENT, 0.35)}`,
           marginBottom: 12,
-        }}>96%</div>
+        }}>{INTRO.stat}</div>
 
         <span style={{
           opacity: descO,
           fontFamily: FONTS.mono, fontSize: 18, color: THEME.muted,
           letterSpacing: 5, textTransform: 'uppercase', marginBottom: 40,
-        }}>Descuento al venderse</span>
+        }}>{INTRO.statDesc}</span>
 
         <div style={{ opacity: sub1O, textAlign: 'center', marginBottom: 10 }}>
           <span style={{
             fontFamily: FONTS.body, fontSize: 36, fontWeight: 300,
             color: THEME.text, lineHeight: 1.35,
-          }}>Valía <strong style={{ color: ACCENT }}>$200.000 millones</strong> en el año 2000</span>
+          }}>{INTRO.statLine1}</span>
         </div>
         <div style={{ opacity: sub2O, textAlign: 'center' }}>
           <span style={{
             fontFamily: FONTS.body, fontSize: 34, fontWeight: 300,
             color: THEME.muted, lineHeight: 1.35,
-          }}>La vendieron por <strong style={{ color: THEME.text }}>$7.400 millones</strong> en 2009</span>
+          }}>{INTRO.statLine2}</span>
         </div>
 
         <div style={{

@@ -4,9 +4,8 @@ import httpx
 FISH_API_KEY = os.environ.get("FISH_AUDIO_API_KEY", "")
 FISH_VOICE_ID = os.environ.get("FISH_VOICE_ID", "")
 
-# Máximo de caracteres por llamada a la API
-# Chunks grandes = menos cortes, más flujo natural
-CHUNK_MAX_CHARS = 3000
+# Chunks grandes = menos cortes entre llamadas, mejor flujo narrativo
+CHUNK_MAX_CHARS = 4500
 
 
 def run(project_id: int, folder: str, force: bool = False):
@@ -78,13 +77,13 @@ def _tts(text: str) -> bytes:
             "text": text,
             "reference_id": FISH_VOICE_ID,
             "format": "mp3",
-            "mp3_bitrate": 192,        # máxima calidad de audio
+            "mp3_bitrate": 192,        # máxima calidad
             "latency": "normal",       # calidad sobre velocidad
-            "normalize": True,         # normaliza texto (números, siglas)
-            "chunk_length": 300,       # S2-Pro: chunks grandes = contexto emocional continuo
+            "normalize": True,
+            "chunk_length": 500,       # más contexto por chunk = mejor prosodia emocional
             "prosody": {
-                "speed": 1.0,          # velocidad natural
-                "volume": 10,          # +10 dB sobre el nivel base de la voz clonada
+                "speed": 0.94,         # ligeramente más lento = más natural, menos robótico
+                "volume": 3,           # amplificación moderada, evita distorsión en picos
             },
         },
         timeout=300,
@@ -100,7 +99,7 @@ def _transcribe(audio_path: str, folder: str):
     result = subprocess.run(
         [
             sys.executable, "-m", "whisper", audio_path,
-            "--model", "small",
+            "--model", "medium",
             "--language", "es",
             "--output_format", "json",
             "--output_dir", folder,
