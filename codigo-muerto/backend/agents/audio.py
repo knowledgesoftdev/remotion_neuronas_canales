@@ -103,6 +103,7 @@ def _transcribe(audio_path: str, folder: str):
             "--output_format", "json",
             "--output_dir", folder,
             "--device", "cuda",
+            "--fp16", "False",
         ],
     )
     if result.returncode != 0:

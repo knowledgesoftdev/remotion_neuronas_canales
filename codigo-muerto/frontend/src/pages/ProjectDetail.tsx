@@ -188,7 +188,7 @@ export default function ProjectDetail() {
         <div className={styles.actions}>
           {project.mood && <span className={styles.moodBadge}>{project.mood}</span>}
           {isDone && <span className={styles.doneBadge}>Completado</span>}
-          {isAnyRunning && (
+          {st !== 'pending' && !isDone && (
             <button
               className={styles.resetBtn}
               onClick={() => resetStatus.mutate()}
