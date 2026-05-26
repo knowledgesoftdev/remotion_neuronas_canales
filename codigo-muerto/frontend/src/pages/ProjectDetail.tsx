@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
-import { Play, Loader, FileText, ChevronDown, ChevronUp, Save, Copy, Check, MonitorPlay, Film } from 'lucide-react'
+import { Play, Loader, FileText, ChevronDown, ChevronUp, Save, Copy, Check, MonitorPlay, Film, RotateCcw } from 'lucide-react'
 import styles from './ProjectDetail.module.css'
 
 const API = 'http://localhost:8000'
@@ -130,6 +130,14 @@ export default function ProjectDetail() {
     onSuccess: () => { setSavedNarration(true); setTimeout(() => setSavedNarration(false), 2000); refetchScript() },
   })
 
+  const resetStatus = useMutation({
+    mutationFn: () => axios.post(`${API}/projects/${id}/reset-status`),
+    onSuccess: () => {
+      setProgressLog([])
+      qc.invalidateQueries({ queryKey: ['project', id] })
+    },
+  })
+
   const exportRemotion = useMutation({
     mutationFn: () => axios.post(`${API}/agents/${id}/export-remotion`).then(r => r.data),
     onSuccess: (data) => window.open(data.url ?? 'http://localhost:3001', '_blank'),
@@ -180,6 +188,17 @@ export default function ProjectDetail() {
         <div className={styles.actions}>
           {project.mood && <span className={styles.moodBadge}>{project.mood}</span>}
           {isDone && <span className={styles.doneBadge}>Completado</span>}
+          {isAnyRunning && (
+            <button
+              className={styles.resetBtn}
+              onClick={() => resetStatus.mutate()}
+              disabled={resetStatus.isPending}
+              title="Resetear estado si la tarea se colgó"
+            >
+              {resetStatus.isPending ? <Loader size={13} className={styles.spin} /> : <RotateCcw size={13} />}
+              {resetStatus.isPending ? 'Reseteando...' : 'Resetear estado'}
+            </button>
+          )}
           {hasSync && (
             <>
               <button

@@ -377,5 +377,20 @@
   color: #22c55e;
 }
 
+.resetBtn {
+  display: flex; align-items: center; gap: 7px;
+  padding: 8px 14px;
+  background: rgba(239,68,68,0.12);
+  border: 1px solid rgba(239,68,68,0.5);
+  border-radius: 8px;
+  color: #ef4444;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.resetBtn:hover { background: rgba(239,68,68,0.22); }
+.resetBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+
 @keyframes spin { to { transform: rotate(360deg); } }
 .spin { animation: spin 1.2s linear infinite; }

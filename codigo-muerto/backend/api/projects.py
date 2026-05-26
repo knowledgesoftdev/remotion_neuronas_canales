@@ -90,3 +90,32 @@ def delete_project(project_id: int, session: Session = Depends(get_session)):
     session.delete(project)
     session.commit()
     return {"ok": True}
+
+
+@router.post("/{project_id}/reset-status")
+def reset_status(project_id: int, session: Session = Depends(get_session)):
+    project = session.get(Project, project_id)
+    if not project:
+        raise HTTPException(status_code=404, detail="Project not found")
+
+    f = project.folder or ""
+    def exists(name):
+        return os.path.exists(os.path.join(f, name))
+
+    if exists("metadatos.txt"):
+        status = "done"
+    elif exists("sequences.ts") and exists("paragraphSlides.json"):
+        status = "sync_done"
+    elif exists("whisper_output.json"):
+        status = "audio_done"
+    elif exists("audio.mp3"):
+        status = "guion_done"
+    elif exists("narration.txt"):
+        status = "guion_done"
+    else:
+        status = "pending"
+
+    project.status = status
+    session.add(project)
+    session.commit()
+    return {"status": status}

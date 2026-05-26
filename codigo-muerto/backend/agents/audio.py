@@ -93,11 +93,8 @@ def _tts(text: str) -> bytes:
 def _transcribe(audio_path: str, folder: str):
     import subprocess
     import sys
-    import torch
 
-    device = "cuda" if torch.cuda.is_available() else "cpu"
-    print(f"[AudioAgent] Whisper usando device: {device}")
-
+    print("[AudioAgent] Whisper usando device: cuda")
     result = subprocess.run(
         [
             sys.executable, "-m", "whisper", audio_path,
@@ -105,7 +102,7 @@ def _transcribe(audio_path: str, folder: str):
             "--language", "es",
             "--output_format", "json",
             "--output_dir", folder,
-            "--device", device,
+            "--device", "cuda",
         ],
     )
     if result.returncode != 0:
