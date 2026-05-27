@@ -1,0 +1,2095 @@
+[
+  {
+    "from": 228,
+    "duration": 300,
+    "section": "HOOK",
+    "text": "but there is a third name on the list at Fort Bragg, a name that does not appear in recruiting brochures, a name the Pentagon for decades refused to confirm even existed. They called it the activity, they called it orange,",
+    "displayText": "The Third Name At Fort Bragg",
+    "style": "chapter",
+    "number": null,
+    "icon": "database",
+    "color": "#dc2626",
+    "lowerThird": "CLASSIFIED",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/HOOK/000_pentagon_classified_building_exteri.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "FORT BRAGG",
+        "position": "mid-right"
+      },
+      {
+        "text": "THIRD NAME",
+        "position": "mid-left"
+      }
+    ]
+  },
+  {
+    "from": 528,
+    "duration": 300,
+    "section": "HOOK",
+    "text": "they called it gray fox, centrist spike, torn victor, quiet enable, cemetery wind, the names changed",
+    "displayText": "they called it gray fox, centrist spike, torn victor, quiet enable, cemetery wind, the names changed",
+    "style": "newscard",
+    "number": null,
+    "icon": "database",
+    "color": "#dc2626",
+    "lowerThird": "CLASSIFIED",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/HOOK/001_secret_military_code_names.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "GRAY FOX",
+        "position": "mid-left"
+      },
+      {
+        "text": "CENTRA SPIKE",
+        "position": "mid-right"
+      },
+      {
+        "text": "CEMETERY WIND",
+        "position": "center"
+      }
+    ]
+  },
+  {
+    "from": 828,
+    "duration": 300,
+    "section": "HOOK",
+    "text": "every few years for a reason, because the unit was never supposed to be named at all. To understand why this unit had to exist, you have to go back to the night of April 24, 1980, the Iranian desert,",
+    "displayText": "every few years for a reason, because the unit was never supposed to be named at all. To understand why this unit had to exist, you have to go back to the night of April 24, 1980, the Iranian desert,",
+    "style": "newscard",
+    "number": null,
+    "icon": "database",
+    "color": "#dc2626",
+    "lowerThird": "CLASSIFIED",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/HOOK/002_iran_desert_night_1980.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "NEVER NAMED",
+        "position": "center"
+      }
+    ]
+  },
+  {
+    "from": 1128,
+    "duration": 300,
+    "section": "HOOK",
+    "text": "a staging point called desert one, eight helicopters, 118 men and a plan to rescue 53 American hostages",
+    "displayText": "a staging point called desert one, eight helicopters, 118 men and a plan to rescue 53 American hostages",
+    "style": "newscard",
+    "number": null,
+    "icon": "database",
+    "color": "#dc2626",
+    "lowerThird": "CLASSIFIED",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/HOOK/003_desert_one_helicopter_wreckage.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "DESERT ONE",
+        "position": "mid-left"
+      },
+      {
+        "text": "53 HOSTAGES",
+        "position": "top-right"
+      },
+      {
+        "text": "118 MEN",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 1305,
+    "duration": 300,
+    "section": "CONTEXT",
+    "text": "a staging point called desert one, eight helicopters, 118 men and a plan to rescue 53 American hostages from the United States Embassy in Tehran, the mission was called Operation Eagle Claw, it collapsed",
+    "displayText": "Desert One: The Night Everything Burned",
+    "style": "chapter",
+    "number": "1980",
+    "icon": "trending-down",
+    "color": "#ef4444",
+    "lowerThird": "OPERATION EAGLE CLAW",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/CONTEXT/004_operation_eagle_claw_hostages_tehra.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "DESERT ONE",
+        "position": "mid-left"
+      },
+      {
+        "text": "EVERYTHING BURNED",
+        "position": "center"
+      }
+    ]
+  },
+  {
+    "from": 1605,
+    "duration": 300,
+    "section": "CONTEXT",
+    "text": "before it began, a sandstorm, mechanical failure, a helicopter colliding with a C-130 on the ground,",
+    "displayText": "before it began, a sandstorm, mechanical failure, a helicopter colliding with a C-130 on the ground,",
+    "style": "newscard",
+    "number": "1980",
+    "icon": "trending-down",
+    "color": "#ef4444",
+    "lowerThird": "OPERATION EAGLE CLAW",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/CONTEXT/005_helicopter_c_130_collision_desert.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "SANDSTORM",
+        "position": "mid-left"
+      },
+      {
+        "text": "C-130",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 1905,
+    "duration": 300,
+    "section": "CONTEXT",
+    "text": "eight Americans dead, the wreckage left behind in the sand, along with classified documents that the Iranians paraded for the world's cameras, President Jimmy Carter went on television and accepted",
+    "displayText": "eight Americans dead, the wreckage left behind in the sand, along with classified documents that the Iranians paraded for the world's cameras, President Jimmy Carter went on television and accepted",
+    "style": "newscard",
+    "number": "1980",
+    "icon": "trending-down",
+    "color": "#ef4444",
+    "lowerThird": "OPERATION EAGLE CLAW",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/CONTEXT/006_iranian_hostage_crisis_embassy.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "EIGHT DEAD",
+        "position": "mid-left"
+      },
+      {
+        "text": "IRANIANS",
+        "position": "mid-right"
+      },
+      {
+        "text": "CLASSIFIED DOCS",
+        "position": "top-right"
+      }
+    ]
+  },
+  {
+    "from": 2205,
+    "duration": 300,
+    "section": "CONTEXT",
+    "text": "responsibility, but inside the Pentagon, the after-action review delivered a different verdict,",
+    "displayText": "Eight Dead, Wreckage Left In The Sand",
+    "style": "stat",
+    "number": "8",
+    "icon": "activity",
+    "color": "#ef4444",
+    "lowerThird": "AMERICAN CASUALTIES",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/CONTEXT/007_jimmy_carter_oval_office_address.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "EIGHT DEAD",
+        "position": "mid-left"
+      },
+      {
+        "text": "WRECKAGE",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 2505,
+    "duration": 300,
+    "section": "CONTEXT",
+    "text": "the mission had not failed because of weather, it had failed because the United States military had no dedicated on the ground human intelligence inside Iran, no one to confirm the landing zone,",
+    "displayText": "Eight Dead, Wreckage Left In The Sand",
+    "style": "stat",
+    "number": "8",
+    "icon": "activity",
+    "color": "#ef4444",
+    "lowerThird": "AMERICAN CASUALTIES",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/CONTEXT/008_iran_tehran_embassy_1979.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "EIGHT DEAD",
+        "position": "mid-left"
+      },
+      {
+        "text": "WRECKAGE",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 2805,
+    "duration": 300,
+    "section": "CONTEXT",
+    "text": "no one to verify the hostages were still in the embassy, no one to drive the trucks that were supposed to carry the rescue force into Tehran, the central intelligence agency the CIA had been",
+    "displayText": "Eight Dead, Wreckage Left In The Sand",
+    "style": "stat",
+    "number": "8",
+    "icon": "activity",
+    "color": "#ef4444",
+    "lowerThird": "AMERICAN CASUALTIES",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/CONTEXT/009_us_embassy_tehran_hostages.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "EIGHT DEAD",
+        "position": "mid-left"
+      },
+      {
+        "text": "WRECKAGE",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 3105,
+    "duration": 300,
+    "section": "CONTEXT",
+    "text": "gutted in the late 1970s by the church committee reforms, its human networks in hostile countries were thin, in some places they did not exist at all, army chief of staff general Edward the 100th,",
+    "displayText": "gutted in the late 1970s by the church committee reforms, its human networks in hostile countries were thin, in some places they did not exist at all, army chief of staff general Edward the 100th,",
+    "style": "newscard",
+    "number": null,
+    "icon": "globe",
+    "color": "#ef4444",
+    "lowerThird": "INTELLIGENCE GAP",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/CONTEXT/010_cia_headquarters_langley_1970s.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "CHURCH COMMITTEE",
+        "position": "mid-left"
+      },
+      {
+        "text": "1970s",
+        "position": "top-right"
+      }
+    ]
+  },
+  {
+    "from": 3405,
+    "duration": 300,
+    "section": "CONTEXT",
+    "text": "Meyer looked at the report and reached a conclusion that would change American special operations",
+    "displayText": "Meyer looked at the report and reached a conclusion that would change American special operations",
+    "style": "newscard",
+    "number": null,
+    "icon": "globe",
+    "color": "#ef4444",
+    "lowerThird": "INTELLIGENCE GAP",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/CONTEXT/011_general_edward_meyer_army.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "MEYER",
+        "position": "mid-left"
+      },
+      {
+        "text": "CONCLUSION",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 3705,
+    "duration": 300,
+    "section": "CONTEXT",
+    "text": "forever, the military could no longer outsource its own intelligence, it needed its own spies, its own linguists, its own signals interceptors, its own men and civilian clothes on hostile ground",
+    "displayText": "forever, the military could no longer outsource its own intelligence, it needed its own spies, its own linguists, its own signals interceptors, its own men and civilian clothes on hostile ground",
+    "style": "newscard",
+    "number": null,
+    "icon": "globe",
+    "color": "#ef4444",
+    "lowerThird": "INTELLIGENCE GAP",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/CONTEXT/012_army_chief_of_staff_pentagon.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "OWN SPIES",
+        "position": "center"
+      },
+      {
+        "text": "OWN LINGUISTS",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 4005,
+    "duration": 300,
+    "section": "CONTEXT",
+    "text": "before the shooters ever arrived, something had to be created quietly, permanently, and outside",
+    "displayText": "before the shooters ever arrived, something had to be created quietly, permanently, and outside",
+    "style": "newscard",
+    "number": null,
+    "icon": "lightbulb",
+    "color": "#f59e0b",
+    "lowerThird": "PENTAGON PIVOT",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/CONTEXT/013_covert_agents_civilian_clothes.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "QUIETLY",
+        "position": "mid-left"
+      },
+      {
+        "text": "PERMANENTLY",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 4305,
+    "duration": 300,
+    "section": "CONTEXT",
+    "text": "the oversight of almost everyone in Washington, in the summer of 1980, a unit was stood up under the cover name Field Operations Group, the FOG, its first commander was Colonel Jerry King, a career",
+    "displayText": "the oversight of almost everyone in Washington, in the summer of 1980, a unit was stood up under the cover name Field Operations Group, the FOG, its first commander was Colonel Jerry King, a career",
+    "style": "newscard",
+    "number": null,
+    "icon": "lightbulb",
+    "color": "#f59e0b",
+    "lowerThird": "PENTAGON PIVOT",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/CONTEXT/014_classified_intelligence_operations.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "1980",
+        "position": "top-right"
+      },
+      {
+        "text": "FIELD OPERATIONS",
+        "position": "mid-left"
+      }
+    ]
+  },
+  {
+    "from": 4605,
+    "duration": 300,
+    "section": "CONTEXT",
+    "text": "intelligence officer who had been involved in the planning of a second never executed Iran rescue",
+    "displayText": "intelligence officer who had been involved in the planning of a second never executed Iran rescue",
+    "style": "newscard",
+    "number": null,
+    "icon": "lightbulb",
+    "color": "#f59e0b",
+    "lowerThird": "PENTAGON PIVOT",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/CONTEXT/015_field_operations_group_soldiers.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "IRAN RESCUE",
+        "position": "mid-right"
+      },
+      {
+        "text": "NEVER EXECUTED",
+        "position": "mid-left"
+      }
+    ]
+  },
+  {
+    "from": 4795,
+    "duration": 300,
+    "section": "ORIGIN",
+    "text": "intelligence officer who had been involved in the planning of a second never executed Iran rescue mission known as Operation Honey Badger, King's mandate was simple and almost impossible,",
+    "displayText": "Birth Of The Field Operations Group",
+    "style": "chapter",
+    "number": "1980",
+    "icon": "users",
+    "color": "#6366f1",
+    "lowerThird": "FOG / SUMMER 1980",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/ORIGIN/016_operation_honey_badger_iran.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "FIELD OPS GROUP",
+        "position": "mid-left"
+      },
+      {
+        "text": "BIRTH",
+        "position": "center"
+      }
+    ]
+  },
+  {
+    "from": 5095,
+    "duration": 300,
+    "section": "ORIGIN",
+    "text": "build a human and signals intelligence capability that could be inserted anywhere in the world in days, ahead of any delta force or special mission unit assault, in October of 1980 by Directive of",
+    "displayText": "build a human and signals intelligence capability that could be inserted anywhere in the world in days, ahead of any delta force or special mission unit assault, in October of 1980 by Directive of",
+    "style": "newscard",
+    "number": "1980",
+    "icon": "users",
+    "color": "#6366f1",
+    "lowerThird": "FOG / SUMMER 1980",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/ORIGIN/017_signals_intelligence_interception_e.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "HUMINT & SIGINT",
+        "position": "mid-left"
+      },
+      {
+        "text": "ANYWHERE",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 5395,
+    "duration": 300,
+    "section": "ORIGIN",
+    "text": "General Meyer, the Field Operations Group was formally reorganized into a permanent unit,",
+    "displayText": "General Meyer, the Field Operations Group was formally reorganized into a permanent unit,",
+    "style": "newscard",
+    "number": "1980",
+    "icon": "users",
+    "color": "#6366f1",
+    "lowerThird": "FOG / SUMMER 1980",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/ORIGIN/018_us_army_intelligence_unit_insignia.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "GENERAL MEYER",
+        "position": "mid-left"
+      },
+      {
+        "text": "PERMANENT UNIT",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 5695,
+    "duration": 300,
+    "section": "ORIGIN",
+    "text": "the official designation, United States Army Intelligence Support Activity, the ISA, the activity,",
+    "displayText": "the official designation, United States Army Intelligence Support Activity, the ISA, the activity,",
+    "style": "newscard",
+    "number": null,
+    "icon": "users",
+    "color": "#6366f1",
+    "lowerThird": "FIRST COMMANDER",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/ORIGIN/019_intelligence_support_activity_isa.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "ISA",
+        "position": "mid-left"
+      },
+      {
+        "text": "THE ACTIVITY",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 5995,
+    "duration": 300,
+    "section": "ORIGIN",
+    "text": "its existence was buried under a special access program, a classification tier so restrictive that even officers with top secret clearances could be told nothing about it, the unit's budget was",
+    "displayText": "its existence was buried under a special access program, a classification tier so restrictive that even officers with top secret clearances could be told nothing about it, the unit's budget was",
+    "style": "newscard",
+    "number": null,
+    "icon": "users",
+    "color": "#6366f1",
+    "lowerThird": "FIRST COMMANDER",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/ORIGIN/020_special_access_program_classified.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "SPECIAL ACCESS",
+        "position": "mid-left"
+      },
+      {
+        "text": "CLASSIFIED",
+        "position": "center"
+      }
+    ]
+  },
+  {
+    "from": 6295,
+    "duration": 300,
+    "section": "ORIGIN",
+    "text": "hidden inside other line items, its personnel files were sanitized, its members when asked what they did were trained to answer with cover stories rehearsed for years, how do you erase a unit from",
+    "displayText": "hidden inside other line items, its personnel files were sanitized, its members when asked what they did were trained to answer with cover stories rehearsed for years, how do you erase a unit from",
+    "style": "newscard",
+    "number": null,
+    "icon": "users",
+    "color": "#6366f1",
+    "lowerThird": "FIRST COMMANDER",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/ORIGIN/021_sanitized_personnel_files_redacted.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "SANITIZED",
+        "position": "mid-left"
+      },
+      {
+        "text": "TRAINED TO LIE",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 6595,
+    "duration": 300,
+    "section": "ORIGIN",
+    "text": "the record, you give it a new code name every two years, you change its parent command, you pay it",
+    "displayText": "Designated: Intelligence Support Activity",
+    "style": "stat",
+    "number": "OCT 1980",
+    "icon": "database",
+    "color": "#6366f1",
+    "lowerThird": "THE I-S-A",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/ORIGIN/022_gray_fox_military_unit.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "ISA",
+        "position": "mid-left"
+      },
+      {
+        "text": "DESIGNATED",
+        "position": "center"
+      }
+    ]
+  },
+  {
+    "from": 6895,
+    "duration": 300,
+    "section": "ORIGIN",
+    "text": "from accounts no congressional staffer has ever heard of, the activity rotated through cover names with deliberate frequency, centrist spike, capacity gear, torn victor, gray fox, each new name",
+    "displayText": "Designated: Intelligence Support Activity",
+    "style": "stat",
+    "number": "OCT 1980",
+    "icon": "database",
+    "color": "#6366f1",
+    "lowerThird": "THE I-S-A",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/ORIGIN/023_centra_spike_covert_operation.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "ISA",
+        "position": "mid-left"
+      },
+      {
+        "text": "DESIGNATED",
+        "position": "center"
+      }
+    ]
+  },
+  {
+    "from": 7195,
+    "duration": 300,
+    "section": "ORIGIN",
+    "text": "triggered a fresh compartment, a fresh access list, a fresh denial, even other tier one units were often kept in the dark about what the activity was doing in their own theater, by early 1981,",
+    "displayText": "Designated: Intelligence Support Activity",
+    "style": "stat",
+    "number": "OCT 1980",
+    "icon": "database",
+    "color": "#6366f1",
+    "lowerThird": "THE I-S-A",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/ORIGIN/024_delta_force_tier_one_operators.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "ISA",
+        "position": "mid-left"
+      },
+      {
+        "text": "DESIGNATED",
+        "position": "center"
+      }
+    ]
+  },
+  {
+    "from": 7495,
+    "duration": 300,
+    "section": "ORIGIN",
+    "text": "the ISA was operational, headquartered according to journalists Steven Emerson and Mark Bowden in",
+    "displayText": "the ISA was operational, headquartered according to journalists Steven Emerson and Mark Bowden in",
+    "style": "newscard",
+    "number": null,
+    "icon": "code",
+    "color": "#dc2626",
+    "lowerThird": "GRAY FOX / CENTRA SPIKE",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/ORIGIN/025_isa_intelligence_support_activity_h.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "OPERATIONAL",
+        "position": "mid-left"
+      },
+      {
+        "text": "N. VIRGINIA",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 7795,
+    "duration": 300,
+    "section": "ORIGIN",
+    "text": "non-descript office buildings in northern Virginia, recruiting quietly from army special forces, military intelligence and the signals community, its operators were not weightlifters and beards,",
+    "displayText": "non-descript office buildings in northern Virginia, recruiting quietly from army special forces, military intelligence and the signals community, its operators were not weightlifters and beards,",
+    "style": "newscard",
+    "number": null,
+    "icon": "code",
+    "color": "#dc2626",
+    "lowerThird": "GRAY FOX / CENTRA SPIKE",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/ORIGIN/026_northern_virginia_office_buildings.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "SPECIAL FORCES",
+        "position": "mid-left"
+      },
+      {
+        "text": "RECRUITING",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 8095,
+    "duration": 300,
+    "section": "ORIGIN",
+    "text": "they were linguists, cryptologists, case officers and suits, men and women who could rent an apartment",
+    "displayText": "they were linguists, cryptologists, case officers and suits, men and women who could rent an apartment",
+    "style": "newscard",
+    "number": null,
+    "icon": "code",
+    "color": "#dc2626",
+    "lowerThird": "GRAY FOX / CENTRA SPIKE",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/ORIGIN/027_cia_case_officer_linguist.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "LINGUISTS",
+        "position": "mid-left"
+      },
+      {
+        "text": "CASE OFFICERS",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 8395,
+    "duration": 300,
+    "section": "ORIGIN",
+    "text": "in Beirut, drive a taxi in Cartoum or pose as a businessman in Bogota and never be remembered by anyone they spoke to, and by the end of that year they had their first real mission, it would",
+    "displayText": "in Beirut, drive a taxi in Cartoum or pose as a businessman in Bogota and never be remembered by anyone they spoke to, and by the end of that year they had their first real mission, it would",
+    "style": "newscard",
+    "number": null,
+    "icon": "users",
+    "color": "#00d4ff",
+    "lowerThird": "RECRUITMENT PROFILE",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/ORIGIN/028_beirut_street_1980s.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "BEIRUT",
+        "position": "mid-right"
+      },
+      {
+        "text": "BOGOTA",
+        "position": "mid-left"
+      },
+      {
+        "text": "KHARTOUM",
+        "position": "center"
+      }
+    ]
+  },
+  {
+    "from": 8695,
+    "duration": 300,
+    "section": "ORIGIN",
+    "text": "not be in Iran, December 17, 1981, Verona, Italy, four members of the Italian Red Brigades",
+    "displayText": "not be in Iran, December 17, 1981, Verona, Italy, four members of the Italian Red Brigades",
+    "style": "newscard",
+    "number": null,
+    "icon": "users",
+    "color": "#00d4ff",
+    "lowerThird": "RECRUITMENT PROFILE",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/ORIGIN/029_italian_red_brigades_1981.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "DEC 17, 1981",
+        "position": "top-right"
+      },
+      {
+        "text": "VERONA, ITALY",
+        "position": "mid-right"
+      },
+      {
+        "text": "RED BRIGADES",
+        "position": "mid-left"
+      }
+    ]
+  },
+  {
+    "from": 8995,
+    "duration": 300,
+    "section": "ORIGIN",
+    "text": "dressed as plumbers forced their way into the apartment of United States Army Brigadier General James the 50th, Dozier, the senior American officer at NATO's southern European headquarters,",
+    "displayText": "dressed as plumbers forced their way into the apartment of United States Army Brigadier General James the 50th, Dozier, the senior American officer at NATO's southern European headquarters,",
+    "style": "newscard",
+    "number": null,
+    "icon": "users",
+    "color": "#00d4ff",
+    "lowerThird": "RECRUITMENT PROFILE",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/ORIGIN/030_general_james_dozier_kidnapping.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "GEN. DOZIER",
+        "position": "mid-left"
+      },
+      {
+        "text": "PLUMBERS",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 9103,
+    "duration": 300,
+    "section": "OPERATIONS",
+    "text": "dressed as plumbers forced their way into the apartment of United States Army Brigadier General James the 50th, Dozier, the senior American officer at NATO's southern European headquarters,",
+    "displayText": "First Mission: General Dozier Kidnapped",
+    "style": "chapter",
+    "number": "1981",
+    "icon": "activity",
+    "color": "#00d4ff",
+    "lowerThird": "VERONA, ITALY",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/OPERATIONS/031_verona_italy_apartment_1981.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "DOZIER KIDNAPPED",
+        "position": "mid-left"
+      },
+      {
+        "text": "FIRST MISSION",
+        "position": "center"
+      }
+    ]
+  },
+  {
+    "from": 9403,
+    "duration": 300,
+    "section": "OPERATIONS",
+    "text": "they beat him, chained him and disappeared him into a safe house in Padua, it was the first kidnapping of an American general by a terrorist organization in modern history, the response",
+    "displayText": "they beat him, chained him and disappeared him into a safe house in Padua, it was the first kidnapping of an American general by a terrorist organization in modern history, the response",
+    "style": "newscard",
+    "number": "1981",
+    "icon": "activity",
+    "color": "#00d4ff",
+    "lowerThird": "VERONA, ITALY",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/OPERATIONS/032_padua_italy_safe_house.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "PADUA",
+        "position": "mid-right"
+      },
+      {
+        "text": "SAFE HOUSE",
+        "position": "mid-left"
+      }
+    ]
+  },
+  {
+    "from": 9703,
+    "duration": 300,
+    "section": "OPERATIONS",
+    "text": "was code named Operation Winter Harvest, a small ISA signals intelligence team deployed to Italy",
+    "displayText": "was code named Operation Winter Harvest, a small ISA signals intelligence team deployed to Italy",
+    "style": "newscard",
+    "number": "1981",
+    "icon": "activity",
+    "color": "#00d4ff",
+    "lowerThird": "VERONA, ITALY",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/OPERATIONS/033_operation_winter_harvest_italy.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "WINTER HARVEST",
+        "position": "mid-left"
+      },
+      {
+        "text": "ITALY",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 10003,
+    "duration": 300,
+    "section": "OPERATIONS",
+    "text": "within days, working alongside Italian counterterrorism police and a handful of delta force technicians, they began intercepting communications across northern Italy, narrowing the search to specific",
+    "displayText": "within days, working alongside Italian counterterrorism police and a handful of delta force technicians, they began intercepting communications across northern Italy, narrowing the search to specific",
+    "style": "newscard",
+    "number": "1981",
+    "icon": "activity",
+    "color": "#00d4ff",
+    "lowerThird": "VERONA, ITALY",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/ORIGIN/017_signals_intelligence_interception_e.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "DELTA FORCE",
+        "position": "mid-left"
+      },
+      {
+        "text": "INTERCEPTS",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 10303,
+    "duration": 300,
+    "section": "OPERATIONS",
+    "text": "neighborhoods, specific buildings, specific apartments. On January 28, 1982, 42 days after the",
+    "displayText": "neighborhoods, specific buildings, specific apartments. On January 28, 1982, 42 days after the",
+    "style": "newscard",
+    "number": "1981",
+    "icon": "activity",
+    "color": "#00d4ff",
+    "lowerThird": "VERONA, ITALY",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/OPERATIONS/035_italian_counterterrorism_neighborho.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "JAN 28, 1982",
+        "position": "top-right"
+      },
+      {
+        "text": "42 DAYS",
+        "position": "center"
+      }
+    ]
+  },
+  {
+    "from": 10603,
+    "duration": 300,
+    "section": "OPERATIONS",
+    "text": "kidnapping, Italian NOS Commandos stormed an apartment in Padua and freed Dozier without firing a single shot, the Italians took the credit publicly and rightly, what was not said for years was",
+    "displayText": "Winter Harvest: Forty-Two Days To Find Him",
+    "style": "stat",
+    "number": "42 DAYS",
+    "icon": "check-circle",
+    "color": "#00d4ff",
+    "lowerThird": "OPERATION WINTER HARVEST",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/OPERATIONS/036_nocs_italian_commandos_raid.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "WINTER HARVEST",
+        "position": "mid-left"
+      },
+      {
+        "text": "42 DAYS",
+        "position": "top-right"
+      }
+    ]
+  },
+  {
+    "from": 10903,
+    "duration": 300,
+    "section": "OPERATIONS",
+    "text": "who had handed them the address, that was the activities first confirmed success, it would not be",
+    "displayText": "Winter Harvest: Forty-Two Days To Find Him",
+    "style": "stat",
+    "number": "42 DAYS",
+    "icon": "check-circle",
+    "color": "#00d4ff",
+    "lowerThird": "OPERATION WINTER HARVEST",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/OPERATIONS/037_dozier_rescue_padua_1982.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "WINTER HARVEST",
+        "position": "mid-left"
+      },
+      {
+        "text": "42 DAYS",
+        "position": "top-right"
+      }
+    ]
+  },
+  {
+    "from": 11203,
+    "duration": 300,
+    "section": "OPERATIONS",
+    "text": "the last. Months later, the unit was airborne over Central America, Operation Queens Hunter, beginning in 1982, put ISA signals operators in modified beach craft aircraft over El Salvador,",
+    "displayText": "Winter Harvest: Forty-Two Days To Find Him",
+    "style": "stat",
+    "number": "42 DAYS",
+    "icon": "check-circle",
+    "color": "#00d4ff",
+    "lowerThird": "OPERATION WINTER HARVEST",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/OPERATIONS/038_italian_police_padua_apartment.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "WINTER HARVEST",
+        "position": "mid-left"
+      },
+      {
+        "text": "42 DAYS",
+        "position": "top-right"
+      }
+    ]
+  },
+  {
+    "from": 11503,
+    "duration": 300,
+    "section": "OPERATIONS",
+    "text": "Honduras and Nicaragua, their target, the radio traffic of leftist guerrilla forces in El Salvador's",
+    "displayText": "Winter Harvest: Forty-Two Days To Find Him",
+    "style": "stat",
+    "number": "42 DAYS",
+    "icon": "check-circle",
+    "color": "#00d4ff",
+    "lowerThird": "OPERATION WINTER HARVEST",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/OPERATIONS/039_operation_queens_hunter_beechcraft.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "WINTER HARVEST",
+        "position": "mid-left"
+      },
+      {
+        "text": "42 DAYS",
+        "position": "top-right"
+      }
+    ]
+  },
+  {
+    "from": 11803,
+    "duration": 300,
+    "section": "OPERATIONS",
+    "text": "Civil War, the operation continued for years, the intelligence flowed to the Salvadoran military,",
+    "displayText": "Civil War, the operation continued for years, the intelligence flowed to the Salvadoran military,",
+    "style": "newscard",
+    "number": "1982",
+    "icon": "globe",
+    "color": "#00d4ff",
+    "lowerThird": "EL SALVADOR / HONDURAS",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/OPERATIONS/040_el_salvador_civil_war_guerrillas.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "EL SALVADOR",
+        "position": "mid-right"
+      },
+      {
+        "text": "CIVIL WAR",
+        "position": "mid-left"
+      }
+    ]
+  },
+  {
+    "from": 12103,
+    "duration": 300,
+    "section": "OPERATIONS",
+    "text": "a military whose record on human rights by the State Department's own reporting was catastrophic, the ISA's role in Queens Hunter has never been formally acknowledged by the Pentagon,",
+    "displayText": "a military whose record on human rights by the State Department's own reporting was catastrophic, the ISA's role in Queens Hunter has never been formally acknowledged by the Pentagon,",
+    "style": "newscard",
+    "number": "1982",
+    "icon": "globe",
+    "color": "#00d4ff",
+    "lowerThird": "EL SALVADOR / HONDURAS",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/OPERATIONS/041_salvadoran_military_1980s.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "HUMAN RIGHTS",
+        "position": "mid-left"
+      },
+      {
+        "text": "CATASTROPHIC",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 12403,
+    "duration": 300,
+    "section": "OPERATIONS",
+    "text": "the flights happened, the intercepts happened, what was done with the product is a question the United States government has chosen not to answer, then came Colombia, through the late 1980s",
+    "displayText": "the flights happened, the intercepts happened, what was done with the product is a question the United States government has chosen not to answer, then came Colombia, through the late 1980s",
+    "style": "newscard",
+    "number": "1982",
+    "icon": "globe",
+    "color": "#00d4ff",
+    "lowerThird": "EL SALVADOR / HONDURAS",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/OPERATIONS/042_state_department_human_rights_repor.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "INTERCEPTS",
+        "position": "mid-left"
+      },
+      {
+        "text": "UNANSWERED",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 12703,
+    "duration": 300,
+    "section": "OPERATIONS",
+    "text": "and into the early 1990s under the cover named Centra Spike, the activity flew small civilian",
+    "displayText": "and into the early 1990s under the cover named Centra Spike, the activity flew small civilian",
+    "style": "newscard",
+    "number": "1982",
+    "icon": "globe",
+    "color": "#00d4ff",
+    "lowerThird": "EL SALVADOR / HONDURAS",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/OPERATIONS/043_pentagon_classified_surveillance_fl.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "CENTRA SPIKE",
+        "position": "mid-left"
+      },
+      {
+        "text": "EARLY 1990s",
+        "position": "top-right"
+      }
+    ]
+  },
+  {
+    "from": 13003,
+    "duration": 300,
+    "section": "OPERATIONS",
+    "text": "marked aircraft over Medellin and Bogota, hunting the radio and telephone signals of Pablo Escobar, journalist Mark Bowden in his book Killing Pablo, documented their work in unprecedented detail,",
+    "displayText": "marked aircraft over Medellin and Bogota, hunting the radio and telephone signals of Pablo Escobar, journalist Mark Bowden in his book Killing Pablo, documented their work in unprecedented detail,",
+    "style": "newscard",
+    "number": "1993",
+    "icon": "cpu",
+    "color": "#00d4ff",
+    "lowerThird": "MEDELLÍN, COLOMBIA",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/OPERATIONS/044_colombia_medellin_1980s.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "MEDELLIN",
+        "position": "mid-right"
+      },
+      {
+        "text": "ESCOBAR",
+        "position": "mid-left"
+      }
+    ]
+  },
+  {
+    "from": 13303,
+    "duration": 300,
+    "section": "OPERATIONS",
+    "text": "Centra Spike's direction-finding equipment was reportedly so precise it could locate a phone call",
+    "displayText": "Centra Spike's direction-finding equipment was reportedly so precise it could locate a phone call",
+    "style": "newscard",
+    "number": "1993",
+    "icon": "cpu",
+    "color": "#00d4ff",
+    "lowerThird": "MEDELLÍN, COLOMBIA",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/OPERATIONS/045_centra_spike_surveillance_aircraft.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "200 METERS",
+        "position": "top-right"
+      },
+      {
+        "text": "CENTRA SPIKE",
+        "position": "mid-left"
+      }
+    ]
+  },
+  {
+    "from": 13603,
+    "duration": 300,
+    "section": "OPERATIONS",
+    "text": "to within 200 meters, on December 2, 1993, Colombian national police killed Escobar on a rooftop in Medellin, the intelligence that led them there came from multiple sources, the activity was one",
+    "displayText": "to within 200 meters, on December 2, 1993, Colombian national police killed Escobar on a rooftop in Medellin, the intelligence that led them there came from multiple sources, the activity was one",
+    "style": "newscard",
+    "number": "1993",
+    "icon": "cpu",
+    "color": "#00d4ff",
+    "lowerThird": "MEDELLÍN, COLOMBIA",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/OPERATIONS/046_pablo_escobar_medellin.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "DEC 2, 1993",
+        "position": "top-right"
+      },
+      {
+        "text": "ESCOBAR KILLED",
+        "position": "mid-left"
+      },
+      {
+        "text": "MEDELLIN",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 13903,
+    "duration": 300,
+    "section": "OPERATIONS",
+    "text": "of them, the United States government has never officially confirmed it, and then there was Mogadishu,",
+    "displayText": "of them, the United States government has never officially confirmed it, and then there was Mogadishu,",
+    "style": "newscard",
+    "number": "1993",
+    "icon": "cpu",
+    "color": "#00d4ff",
+    "lowerThird": "MEDELLÍN, COLOMBIA",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/OPERATIONS/047_radio_direction_finding_equipment.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "NEVER CONFIRMED",
+        "position": "center"
+      },
+      {
+        "text": "MOGADISHU",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 14203,
+    "duration": 300,
+    "section": "OPERATIONS",
+    "text": "October 1993, Operation Gothic Serpent, the mission that became Black Hawk Down, ISA operators were",
+    "displayText": "October 1993, Operation Gothic Serpent, the mission that became Black Hawk Down, ISA operators were",
+    "style": "newscard",
+    "number": "1993",
+    "icon": "cpu",
+    "color": "#00d4ff",
+    "lowerThird": "MEDELLÍN, COLOMBIA",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/OPERATIONS/048_pablo_escobar_killed_rooftop.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "OCT 1993",
+        "position": "top-right"
+      },
+      {
+        "text": "GOTHIC SERPENT",
+        "position": "mid-left"
+      },
+      {
+        "text": "BLACK HAWK DOWN",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 14503,
+    "duration": 300,
+    "section": "OPERATIONS",
+    "text": "on the ground in Somalia, embedded with task force ranger, providing the human and signals intelligence used to locate lieutenants of warlord Muhammad Farah Adeed, 18 Americans died in the streets of",
+    "displayText": "on the ground in Somalia, embedded with task force ranger, providing the human and signals intelligence used to locate lieutenants of warlord Muhammad Farah Adeed, 18 Americans died in the streets of",
+    "style": "newscard",
+    "number": "OCT 1993",
+    "icon": "trending-down",
+    "color": "#ef4444",
+    "lowerThird": "OPERATION GOTHIC SERPENT",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/OPERATIONS/049_mogadishu_black_hawk_down_1993.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "SOMALIA",
+        "position": "mid-right"
+      },
+      {
+        "text": "TASK FORCE RANGER",
+        "position": "mid-left"
+      }
+    ]
+  },
+  {
+    "from": 14803,
+    "duration": 300,
+    "section": "OPERATIONS",
+    "text": "Mogadishu that week, the activity's role in the operation has been confirmed in congressional record and in the memoirs of senior special operations commanders, what the activity saw,",
+    "displayText": "Mogadishu that week, the activity's role in the operation has been confirmed in congressional record and in the memoirs of senior special operations commanders, what the activity saw,",
+    "style": "newscard",
+    "number": "OCT 1993",
+    "icon": "trending-down",
+    "color": "#ef4444",
+    "lowerThird": "OPERATION GOTHIC SERPENT",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/OPERATIONS/050_battle_of_mogadishu_1993.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "MOGADISHU",
+        "position": "mid-right"
+      },
+      {
+        "text": "CONGRESS RECORD",
+        "position": "mid-left"
+      }
+    ]
+  },
+  {
+    "from": 15103,
+    "duration": 300,
+    "section": "OPERATIONS",
+    "text": "and what it could not prevent has never been spoken of publicly by the operators who were there.",
+    "displayText": "and what it could not prevent has never been spoken of publicly by the operators who were there.",
+    "style": "newscard",
+    "number": "OCT 1993",
+    "icon": "trending-down",
+    "color": "#ef4444",
+    "lowerThird": "OPERATION GOTHIC SERPENT",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/OPERATIONS/051_black_hawk_down_somalia.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "NEVER SPOKEN",
+        "position": "center"
+      }
+    ]
+  },
+  {
+    "from": 15403,
+    "duration": 300,
+    "section": "OPERATIONS",
+    "text": "After September 11, 2001, the unit, then operating under the name Grey Fox, was among the first American forces inside Afghanistan, weeks ahead of conventional units. They intercepted Taliban",
+    "displayText": "After September 11, 2001, the unit, then operating under the name Grey Fox, was among the first American forces inside Afghanistan, weeks ahead of conventional units. They intercepted Taliban",
+    "style": "newscard",
+    "number": "OCT 1993",
+    "icon": "trending-down",
+    "color": "#ef4444",
+    "lowerThird": "OPERATION GOTHIC SERPENT",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/OPERATIONS/052_afghanistan_special_forces_2001.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "9/11",
+        "position": "top-right"
+      },
+      {
+        "text": "GREY FOX",
+        "position": "mid-left"
+      },
+      {
+        "text": "AFGHANISTAN",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 15703,
+    "duration": 300,
+    "section": "OPERATIONS",
+    "text": "and al-Qaeda communications from observation posts at altitudes most soldiers could not reach.",
+    "displayText": "and al-Qaeda communications from observation posts at altitudes most soldiers could not reach.",
+    "style": "newscard",
+    "number": "2001",
+    "icon": "globe",
+    "color": "#00d4ff",
+    "lowerThird": "TASK FORCE SWORD",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/OPERATIONS/053_taliban_mountain_observation_post.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "AL-QAEDA",
+        "position": "mid-right"
+      },
+      {
+        "text": "OBSERVATION POSTS",
+        "position": "mid-left"
+      }
+    ]
+  },
+  {
+    "from": 16003,
+    "duration": 300,
+    "section": "OPERATIONS",
+    "text": "They worked alongside Delta Force, the British Special Air Service, and the CIA's Special Activities Division as part of task force sword, later task force 11, hunting Osama bin Laden through the",
+    "displayText": "They worked alongside Delta Force, the British Special Air Service, and the CIA's Special Activities Division as part of task force sword, later task force 11, hunting Osama bin Laden through the",
+    "style": "newscard",
+    "number": "2001",
+    "icon": "globe",
+    "color": "#00d4ff",
+    "lowerThird": "TASK FORCE SWORD",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/OPERATIONS/054_task_force_sword_afghanistan.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "DELTA FORCE",
+        "position": "mid-left"
+      },
+      {
+        "text": "SAS",
+        "position": "center"
+      },
+      {
+        "text": "CIA SAD",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 16303,
+    "duration": 300,
+    "section": "OPERATIONS",
+    "text": "caves of Torah Borah, they missed him, they kept hunting for more than a decade, but the story of",
+    "displayText": "caves of Torah Borah, they missed him, they kept hunting for more than a decade, but the story of",
+    "style": "newscard",
+    "number": "2001",
+    "icon": "globe",
+    "color": "#00d4ff",
+    "lowerThird": "TASK FORCE SWORD",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/OPERATIONS/055_tora_bora_caves_bin_laden.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "TORA BORA",
+        "position": "mid-right"
+      },
+      {
+        "text": "THEY MISSED HIM",
+        "position": "mid-left"
+      }
+    ]
+  },
+  {
+    "from": 16603,
+    "duration": 300,
+    "section": "OPERATIONS",
+    "text": "the activity is not only a story of operations, it is also a story of what happens when a unit is built outside the system that is supposed to control it. In 1983, the Pentagon authorized a covert",
+    "displayText": "the activity is not only a story of operations, it is also a story of what happens when a unit is built outside the system that is supposed to control it. In 1983, the Pentagon authorized a covert",
+    "style": "newscard",
+    "number": "2001",
+    "icon": "globe",
+    "color": "#00d4ff",
+    "lowerThird": "TASK FORCE SWORD",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/OPERATIONS/056_pentagon_covert_operations_1983.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "OUTSIDE THE SYSTEM",
+        "position": "center"
+      }
+    ]
+  },
+  {
+    "from": 16612,
+    "duration": 300,
+    "section": "COVERUP",
+    "text": "the activity is not only a story of operations, it is also a story of what happens when a unit is built outside the system that is supposed to control it. In 1983, the Pentagon authorized a covert",
+    "displayText": "Yellow Fruit: The Scandal That Leaked",
+    "style": "chapter",
+    "number": "1983",
+    "icon": "trending-down",
+    "color": "#dc2626",
+    "lowerThird": "COVERT SUPPORT CELL",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/COVERUP/057_isa_covert_logistics_safe_house.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "YELLOW FRUIT",
+        "position": "mid-left"
+      },
+      {
+        "text": "SCANDAL",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 16912,
+    "duration": 300,
+    "section": "COVERUP",
+    "text": "support cell to provide secure logistics, safe houses, and financial cover for ISA operations.",
+    "displayText": "support cell to provide secure logistics, safe houses, and financial cover for ISA operations.",
+    "style": "newscard",
+    "number": "1983",
+    "icon": "trending-down",
+    "color": "#dc2626",
+    "lowerThird": "COVERT SUPPORT CELL",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/COVERUP/058_yellow_fruit_scandal_washington_pos.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "SAFE HOUSES",
+        "position": "mid-left"
+      },
+      {
+        "text": "FINANCIAL COVER",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 17212,
+    "duration": 300,
+    "section": "COVERUP",
+    "text": "The code name was yellow fruit, within two years yellow fruit had collapsed in scandal. As reported by the Washington Post, the New York Times, then the Los Angeles Times in April of",
+    "displayText": "The code name was yellow fruit, within two years yellow fruit had collapsed in scandal. As reported by the Washington Post, the New York Times, then the Los Angeles Times in April of",
+    "style": "newscard",
+    "number": "1983",
+    "icon": "trending-down",
+    "color": "#dc2626",
+    "lowerThird": "COVERT SUPPORT CELL",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/COVERUP/059_swiss_bank_account_covert_funds.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "YELLOW FRUIT",
+        "position": "mid-left"
+      },
+      {
+        "text": "COLLAPSED",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 17512,
+    "duration": 300,
+    "section": "COVERUP",
+    "text": "1987, military investigators discovered that yellow fruit operators had set up a numbered Swiss bank account, allegedly mishandled hundreds of thousands of dollars in covert funds, and most",
+    "displayText": "Swiss Accounts And Missing Hundreds Of Thousands",
+    "style": "stat",
+    "number": null,
+    "icon": "database",
+    "color": "#ef4444",
+    "lowerThird": "FINANCIAL IRREGULARITIES",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/COVERUP/060_congressional_oversight_intelligenc.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "SWISS ACCOUNTS",
+        "position": "mid-left"
+      },
+      {
+        "text": "MISSING FUNDS",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 17812,
+    "duration": 300,
+    "section": "COVERUP",
+    "text": "damaging of all had operated effectively beyond the awareness of congressional oversight committees.",
+    "displayText": "Swiss Accounts And Missing Hundreds Of Thousands",
+    "style": "stat",
+    "number": null,
+    "icon": "database",
+    "color": "#ef4444",
+    "lowerThird": "FINANCIAL IRREGULARITIES",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/COVERUP/061_lieutenant_colonel_dale_duncan_cour.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "SWISS ACCOUNTS",
+        "position": "mid-left"
+      },
+      {
+        "text": "MISSING FUNDS",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 18112,
+    "duration": 300,
+    "section": "COVERUP",
+    "text": "Several yellow fruit personnel were court-martialed. The unit's commanding officer, Lieutenant Colonel Dale Duncan, was convicted in 1986 on multiple counts including conspiracy and",
+    "displayText": "Swiss Accounts And Missing Hundreds Of Thousands",
+    "style": "stat",
+    "number": null,
+    "icon": "database",
+    "color": "#ef4444",
+    "lowerThird": "FINANCIAL IRREGULARITIES",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/COVERUP/062_intelligence_support_activity_congr.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "SWISS ACCOUNTS",
+        "position": "mid-left"
+      },
+      {
+        "text": "MISSING FUNDS",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 18412,
+    "duration": 300,
+    "section": "COVERUP",
+    "text": "wrongful appropriation of government funds. In the aftermath, Congress demanded answers. What it found was that the intelligence support activity had been conducting operations on",
+    "displayText": "wrongful appropriation of government funds. In the aftermath, Congress demanded answers. What it found was that the intelligence support activity had been conducting operations on",
+    "style": "newscard",
+    "number": "1986",
+    "icon": "users",
+    "color": "#ef4444",
+    "lowerThird": "CONSPIRACY CONVICTION",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/COVERUP/063_general_richard_stilwell_pentagon.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "WRONGFUL APPROPRIATION",
+        "position": "mid-left"
+      },
+      {
+        "text": "NO OVERSIGHT",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 18712,
+    "duration": 300,
+    "section": "COVERUP",
+    "text": "multiple continents that no oversight committee had been briefed on. In 1982, a Pentagon review board",
+    "displayText": "multiple continents that no oversight committee had been briefed on. In 1982, a Pentagon review board",
+    "style": "newscard",
+    "number": "1986",
+    "icon": "users",
+    "color": "#ef4444",
+    "lowerThird": "CONSPIRACY CONVICTION",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/COVERUP/064_isa_unit_cover_designation.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "1982",
+        "position": "top-right"
+      },
+      {
+        "text": "STILWELL",
+        "position": "mid-left"
+      },
+      {
+        "text": "PENTAGON",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 19012,
+    "duration": 300,
+    "section": "COVERUP",
+    "text": "led by retired general Richard Stilwell, recommended tighter controls. In 1989, the commander of the ISA sent a tellax formally terminating the unit's name, only for the unit itself to continue",
+    "displayText": "led by retired general Richard Stilwell, recommended tighter controls. In 1989, the commander of the ISA sent a tellax formally terminating the unit's name, only for the unit itself to continue",
+    "style": "newscard",
+    "number": "1986",
+    "icon": "users",
+    "color": "#ef4444",
+    "lowerThird": "CONSPIRACY CONVICTION",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/COVERUP/065_classified_military_mission_briefin.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "NEW COVER",
+        "position": "mid-left"
+      },
+      {
+        "text": "SAME MISSION",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 19312,
+    "duration": 300,
+    "section": "COVERUP",
+    "text": "operating under a new cover designation. The name changed, the men did not, the mission did not,",
+    "displayText": "operating under a new cover designation. The name changed, the men did not, the mission did not,",
+    "style": "newscard",
+    "number": null,
+    "icon": "trending-down",
+    "color": "#dc2626",
+    "lowerThird": "OVERSIGHT BYPASSED",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/COVERUP/066_non_disclosure_agreement_military.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "DISCIPLINED ON PAPER",
+        "position": "mid-left"
+      },
+      {
+        "text": "PRESERVED",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 19612,
+    "duration": 300,
+    "section": "COVERUP",
+    "text": "the unit had been disciplined on paper and preserved in practice. And what of the men themselves? The operators of the activity sign non-disclosure agreements that by reporting from Sean Nailer and",
+    "displayText": "the unit had been disciplined on paper and preserved in practice. And what of the men themselves? The operators of the activity sign non-disclosure agreements that by reporting from Sean Nailer and",
+    "style": "newscard",
+    "number": null,
+    "icon": "trending-down",
+    "color": "#dc2626",
+    "lowerThird": "OVERSIGHT BYPASSED",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/COVERUP/067_covert_operator_sworn_secrecy.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "LIE UNDER OATH",
+        "position": "center"
+      }
+    ]
+  },
+  {
+    "from": 19912,
+    "duration": 300,
+    "section": "COVERUP",
+    "text": "others extend for life, they are trained to lie about their employment under oath to anyone",
+    "displayText": "others extend for life, they are trained to lie about their employment under oath to anyone",
+    "style": "newscard",
+    "number": null,
+    "icon": "trending-down",
+    "color": "#dc2626",
+    "lowerThird": "OVERSIGHT BYPASSED",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/COVERUP/068_arlington_unnamed_stars_memorial.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "OWN FAMILIES",
+        "position": "mid-left"
+      },
+      {
+        "text": "DIED ON OPS",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 20212,
+    "duration": 300,
+    "section": "COVERUP",
+    "text": "outside their compartment, including in some cases members of their own families. Some have died on operations whose locations cannot be marked on a public map. Their stars on the wall at",
+    "displayText": "outside their compartment, including in some cases members of their own families. Some have died on operations whose locations cannot be marked on a public map. Their stars on the wall at",
+    "style": "newscard",
+    "number": "1989",
+    "icon": "code",
+    "color": "#dc2626",
+    "lowerThird": "NAME CHANGE PROTOCOL",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/COVERUP/069_cia_memorial_wall_langley.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "ARLINGTON",
+        "position": "mid-left"
+      },
+      {
+        "text": "LANGLEY",
+        "position": "mid-right"
+      },
+      {
+        "text": "STARS, NO NAMES",
+        "position": "center"
+      }
+    ]
+  },
+  {
+    "from": 20512,
+    "duration": 300,
+    "section": "COVERUP",
+    "text": "Arlington and at CIA headquarters in Langley, when they exist at all, are stars without names. Today, the unit still exists. In 2003, it was transferred fully under joint special operations",
+    "displayText": "Arlington and at CIA headquarters in Langley, when they exist at all, are stars without names. Today, the unit still exists. In 2003, it was transferred fully under joint special operations",
+    "style": "newscard",
+    "number": "1989",
+    "icon": "code",
+    "color": "#dc2626",
+    "lowerThird": "NAME CHANGE PROTOCOL",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/COVERUP/070_joint_special_operations_command_js.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "JSOC",
+        "position": "mid-left"
+      },
+      {
+        "text": "MISSION SUPPORT",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 20812,
+    "duration": 300,
+    "section": "COVERUP",
+    "text": "command, the JSOC. It has reportedly been renamed several times since, mission support activity,",
+    "displayText": "command, the JSOC. It has reportedly been renamed several times since, mission support activity,",
+    "style": "newscard",
+    "number": "1989",
+    "icon": "code",
+    "color": "#dc2626",
+    "lowerThird": "NAME CHANGE PROTOCOL",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/COVERUP/071_mission_support_activity_jsoc.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "FCIG",
+        "position": "mid-left"
+      },
+      {
+        "text": "JSOC",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 21112,
+    "duration": 300,
+    "section": "COVERUP",
+    "text": "and according to multiple defense reporting outlets, the first capabilities integration group, airborne, within JSOC it is most commonly referred to internally as task force orange. Its current",
+    "displayText": "and according to multiple defense reporting outlets, the first capabilities integration group, airborne, within JSOC it is most commonly referred to internally as task force orange. Its current",
+    "style": "newscard",
+    "number": null,
+    "icon": "users",
+    "color": "#8b5cf6",
+    "lowerThird": "HUMAN COST",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/COVERUP/072_task_force_orange_classified.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "NOT PUBLIC",
+        "position": "mid-left"
+      },
+      {
+        "text": "NO BUDGET",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 21412,
+    "duration": 300,
+    "section": "COVERUP",
+    "text": "operational name is not publicly known. Its budget is not publicly itemized. Its personnel count",
+    "displayText": "operational name is not publicly known. Its budget is not publicly itemized. Its personnel count",
+    "style": "newscard",
+    "number": null,
+    "icon": "users",
+    "color": "#8b5cf6",
+    "lowerThird": "HUMAN COST",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/COVERUP/073_redacted_classified_budget_document.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "SEVERAL HUNDRED",
+        "position": "mid-left"
+      },
+      {
+        "text": "UNCONFIRMED",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 21712,
+    "duration": 300,
+    "section": "COVERUP",
+    "text": "last estimated by open source researchers at several hundred operators and support staff has never been officially confirmed. So consider what we are left with, a unit created in response to a",
+    "displayText": "last estimated by open source researchers at several hundred operators and support staff has never been officially confirmed. So consider what we are left with, a unit created in response to a",
+    "style": "newscard",
+    "number": null,
+    "icon": "users",
+    "color": "#8b5cf6",
+    "lowerThird": "HUMAN COST",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/COVERUP/074_secret_military_unit_formation.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "NATIONAL HUMILIATION",
+        "position": "center"
+      }
+    ]
+  },
+  {
+    "from": 21948,
+    "duration": 300,
+    "section": "CLOSING",
+    "text": "been officially confirmed. So consider what we are left with, a unit created in response to a national humiliation, a unit that helped rescue an American general, hunted the most wanted drug",
+    "displayText": "been officially confirmed. So consider what we are left with, a unit created in response to a national humiliation, a unit that helped rescue an American general, hunted the most wanted drug",
+    "style": "newscard",
+    "number": null,
+    "icon": "database",
+    "color": "#64748b",
+    "lowerThird": "LEGACY",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/CLOSING/075_general_dozier_rescue_italy_1981.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "AFGHANISTAN",
+        "position": "mid-right"
+      },
+      {
+        "text": "BURIED SCANDALS",
+        "position": "mid-left"
+      }
+    ]
+  },
+  {
+    "from": 22248,
+    "duration": 300,
+    "section": "CLOSING",
+    "text": "lord on earth, walked into Afghanistan ahead of the first conventional soldier, a unit whose scandals were buried, whose names were rotated like burner phones, whose operators are told to deny",
+    "displayText": "lord on earth, walked into Afghanistan ahead of the first conventional soldier, a unit whose scandals were buried, whose names were rotated like burner phones, whose operators are told to deny",
+    "style": "newscard",
+    "number": null,
+    "icon": "database",
+    "color": "#64748b",
+    "lowerThird": "LEGACY",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/CLOSING/076_pablo_escobar_manhunt_colombia.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "DENY EXISTENCE",
+        "position": "mid-left"
+      },
+      {
+        "text": "TO THE GRAVE",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 22548,
+    "duration": 300,
+    "section": "CLOSING",
+    "text": "their own existence and carry that denial to the grave. The question is not whether the activity should exist. Reasonable people in Washington have argued that question for 45 years. The question",
+    "displayText": "their own existence and carry that denial to the grave. The question is not whether the activity should exist. Reasonable people in Washington have argued that question for 45 years. The question",
+    "style": "newscard",
+    "number": null,
+    "icon": "database",
+    "color": "#64748b",
+    "lowerThird": "LEGACY",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/CLOSING/077_cia_operators_afghanistan_2001.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "ERASED FROM RECORD",
+        "position": "center"
+      }
+    ]
+  },
+  {
+    "from": 22848,
+    "duration": 300,
+    "section": "CLOSING",
+    "text": "is this, if a unit can be erased from the record, rebuilt under a new name, and continued in",
+    "displayText": "is this, if a unit can be erased from the record, rebuilt under a new name, and continued in",
+    "style": "newscard",
+    "number": null,
+    "icon": "activity",
+    "color": "#64748b",
+    "lowerThird": "CURRENT STATUS",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/CLOSING/078_classified_pentagon_redacted_files.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "DEFIANCE",
+        "position": "mid-left"
+      },
+      {
+        "text": "OVERSIGHT",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 23148,
+    "duration": 300,
+    "section": "CLOSING",
+    "text": "defiance of the oversight congress was constitutionally required to provide, what else can be done that way? What else has been? How much of the history we are told is the history that was approved",
+    "displayText": "defiance of the oversight congress was constitutionally required to provide, what else can be done that way? What else has been? How much of the history we are told is the history that was approved",
+    "style": "newscard",
+    "number": null,
+    "icon": "activity",
+    "color": "#64748b",
+    "lowerThird": "CURRENT STATUS",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/CLOSING/079_congressional_oversight_hearing_int.jpg",
+    "mediaType": "photo",
+    "keywords": [
+      {
+        "text": "PHANTOM DIRECTIVE",
+        "position": "mid-left"
+      },
+      {
+        "text": "DECLASSIFIED",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 23448,
+    "duration": 300,
+    "section": "CLOSING",
+    "text": "for release. This is phantom directive, classified history, declassified. If you served near these",
+    "displayText": "for release. This is phantom directive, classified history, declassified. If you served near these",
+    "style": "newscard",
+    "number": null,
+    "icon": "activity",
+    "color": "#64748b",
+    "lowerThird": "CURRENT STATUS",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/CLOSING/080_fort_bragg_special_operations_headq.mp4",
+    "mediaType": "video",
+    "keywords": [
+      {
+        "text": "NO PATCH",
+        "position": "mid-left"
+      },
+      {
+        "text": "COMMENT & SUBSCRIBE",
+        "position": "mid-right"
+      }
+    ]
+  },
+  {
+    "from": 23748,
+    "duration": 300,
+    "section": "CLOSING",
+    "text": "operations, if you knew someone who wore no patch and answered no questions, tell us what you can in the comments, subscribe because the next file is already open on the desk, and somewhere",
+    "displayText": "operations, if you knew someone who wore no patch and answered no questions, tell us what you can in the comments, subscribe because the next file is already open on the desk, and somewhere",
+    "style": "newscard",
+    "number": null,
+    "icon": "database",
+    "color": "#64748b",
+    "lowerThird": "PHANTOM DIRECTIVE",
+    "decisionNum": null,
+    "mediaUrl": "http://localhost:8000/agents/1/media/media/CLOSING/081_anonymous_soldier_no_insignia.jpg",
+    "mediaType": "photo",
+    "keywords": []
+  },
+  {
+    "from": 24048,
+    "duration": 300,
+    "section": "CLOSING",
+    "text": "tonight in an office building with no sign on the door, a man you will never meet is reading a name you will never hear on a list that does not exist, the file closes for now.",
+    "displayText": "The File Closes. For Now.",
+    "style": "outro",
+    "number": null,
+    "icon": "database",
+    "color": "#64748b",
+    "lowerThird": "PHANTOM DIRECTIVE",
+    "decisionNum": null,
+    "mediaUrl": null,
+    "mediaType": null,
+    "keywords": []
+  },
+  {
+    "from": 24348,
+    "duration": 300,
+    "section": "CLOSING",
+    "text": "...",
+    "displayText": "The File Closes. For Now.",
+    "style": "outro",
+    "number": null,
+    "icon": "database",
+    "color": "#64748b",
+    "lowerThird": "PHANTOM DIRECTIVE",
+    "decisionNum": null,
+    "mediaUrl": null,
+    "mediaType": null,
+    "keywords": []
+  }
+]

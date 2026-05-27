@@ -25,11 +25,14 @@
 **/projects/*/video.mp4
 **/projects/*/whisper_output.json
 
-# ── Phantom Directive (en desarrollo, no commitear aún) ───
-phantom-directive/
+# ── Phantom Directive — archivos generados/pesados ────────
+phantom-directive/projects/
+phantom-directive/remotion/public/audio.mp3
+phantom-directive/remotion/public/video.mp4
 
 # ── OS / temporales ───────────────────────────────────────
 .DS_Store
 Thumbs.db
 frame_*.png
 videoreferecncia.mp4
+phantom-directive/videoreferencianichonuevo.mp4

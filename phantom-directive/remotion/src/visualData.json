@@ -1,0 +1,59 @@
+{
+  "channel_header": "THE ACTIVITY · America's Third Special Mission Unit",
+  "date_range": "1980 – Present",
+  "gancho_lines": [
+    {
+      "text": "Eight Americans dead in the Iranian desert.",
+      "from": 10,
+      "size": 52,
+      "color": "text",
+      "weight": 300
+    },
+    {
+      "text": "The unit was never supposed to be named.",
+      "from": 50,
+      "size": 68,
+      "color": "accent",
+      "weight": 700
+    },
+    {
+      "text": "Gray Fox. Centra Spike. Torn Victor. Cemetery Wind.",
+      "from": 90,
+      "size": 48,
+      "color": "muted",
+      "weight": 300
+    },
+    {
+      "text": "The Pentagon refused to confirm it existed.",
+      "from": 130,
+      "size": 44,
+      "color": "text",
+      "weight": 400
+    }
+  ],
+  "legado_items": [
+    {
+      "label": "Special Access Program Cover",
+      "desc": "Budget hidden inside unrelated line items, shielding the unit from Congressional oversight for decades."
+    },
+    {
+      "label": "Rotating Cryptonyms",
+      "desc": "Names changed every few years — Orange, Gray Fox, Centra Spike — to defeat journalists and foreign intelligence tracking."
+    },
+    {
+      "label": "Military HUMINT Doctrine",
+      "desc": "Permanently ended the Pentagon's reliance on CIA networks, reshaping every special operation since Eagle Claw."
+    }
+  ],
+  "criterio_lines": [
+    {
+      "text": "What does a democracy owe the men it officially does not employ?"
+    },
+    {
+      "text": "The Activity was built to ensure no rescue mission would ever fail blind again — and to ensure no one would ever know it was there."
+    },
+    {
+      "text": "Accountability  ·  vs  ·  Deniability"
+    }
+  ]
+}
