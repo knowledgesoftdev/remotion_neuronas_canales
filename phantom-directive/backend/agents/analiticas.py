@@ -43,18 +43,22 @@ def suggest_video_titles(session: Session) -> dict:
     msg = CLIENT.messages.create(
         model="claude-opus-4-7",
         max_tokens=2048,
-        messages=[{"role": "user", "content": f"""You are a YouTube content strategist specialized in technology and history.
+        messages=[{"role": "user", "content": f"""You are a YouTube content strategist for Phantom Directive — a classified military history channel.
+Tagline: "Classified History. Declassified."
+Audience: people fascinated by military intelligence, covert operations, black programs, and government secrecy.
+Tone: dark, urgent, serious — every title must feel like a classified file being opened.
 
 Channel data:
 {context}{avoid_block}
 
-Based on the channel's historical performance, suggest 5 NEW video ideas that have not been covered before.
+Based on the channel's performance, suggest 5 NEW video ideas not yet covered.
 For each idea include:
-- Title (maximum 60 characters, format: company/technology + decision + dramatic twist)
-- Core topic (1 line)
-- Why it would work based on the channel's data
+- Title (max 60 chars — use proven formulas like "The [Unit] More Classified Than [X]",
+  "When [Agency] [Dramatic Action]", "The [Program] The Pentagon Never Admitted")
+- Core topic (1 sentence: specific operation, unit, program, or event)
+- Why it would work for this audience based on the channel's data
 
-Return ONLY a JSON with this format:
+Return ONLY a JSON array:
 [
   {{"title": "...", "topic": "...", "reason": "..."}},
   ...

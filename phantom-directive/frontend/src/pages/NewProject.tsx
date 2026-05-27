@@ -124,7 +124,7 @@ export default function NewProject() {
             <input
               className={styles.input}
               type="text"
-              placeholder="E.g.: The Code That Destroyed MySpace"
+              placeholder="E.g.: The Unit More Classified Than SEAL Team Six"
               value={title}
               onChange={e => { setTitle(e.target.value); setSelectedId(null) }}
               maxLength={80}
@@ -140,7 +140,7 @@ export default function NewProject() {
             <label className={styles.label}>Topic / video angle</label>
             <textarea
               className={styles.textarea}
-              placeholder="Describe the core topic: what story you want to tell, what technical decisions or events to cover, the narrative angle..."
+              placeholder="Describe the classified topic: which unit, operation, or program — what they did, why it was buried, and the narrative angle..."
               value={topic}
               onChange={e => { setTopic(e.target.value); setSelectedId(null) }}
               rows={4}

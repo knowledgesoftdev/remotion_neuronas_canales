@@ -87,14 +87,25 @@ def get_summary(session: Session = Depends(get_session)):
     from models import Project
     projects = session.exec(select(Project)).all()
     done = [p for p in projects if p.status == "done"]
+
     stats = session.exec(
         select(ChannelStats).order_by(ChannelStats.fetched_at.desc())
     ).first()
+
+    # avg_ctr and avg_retention come from VideoMetrics (includes manually set CTR)
+    # ChannelStats.avg_ctr is just likes/views ratio — not the real YouTube CTR
+    videos = session.exec(select(VideoMetrics)).all()
+    ctr_values       = [v.ctr for v in videos if v.ctr > 0]
+    retention_values = [v.avg_view_percentage for v in videos if v.avg_view_percentage > 0]
+
+    avg_ctr       = round(sum(ctr_values) / len(ctr_values), 2) if ctr_values else 0.0
+    avg_retention = round(sum(retention_values) / len(retention_values), 1) if retention_values else 0.0
+
     return {
-        "total_projects": len(projects),
-        "completed_videos": len(done),
-        "subscribers": stats.subscribers if stats else 0,
-        "total_views": stats.total_views if stats else 0,
-        "avg_ctr": stats.avg_ctr if stats else 0.0,
-        "avg_retention": stats.avg_retention if stats else 0.0,
+        "total_projects":    len(projects),
+        "completed_videos":  len(done),
+        "subscribers":       stats.subscribers if stats else 0,
+        "total_views":       stats.total_views if stats else 0,
+        "avg_ctr":           avg_ctr,
+        "avg_retention":     avg_retention,
     }
