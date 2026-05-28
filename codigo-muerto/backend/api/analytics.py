@@ -18,7 +18,7 @@ def get_channel_stats(session: Session = Depends(get_session)):
 @router.get("/videos")
 def get_video_metrics(session: Session = Depends(get_session)):
     return session.exec(
-        select(VideoMetrics).order_by(VideoMetrics.views.desc())
+        select(VideoMetrics).order_by(VideoMetrics.published_at.desc())
     ).all()
 
 
@@ -38,6 +38,31 @@ def update_video_ctr(
     session.add(video)
     session.commit()
     return {"ok": True, "youtube_video_id": youtube_video_id, "ctr": video.ctr}
+
+
+@router.patch("/videos/{youtube_video_id}/retention")
+def update_video_retention(
+    youtube_video_id: str,
+    body: dict,
+    session: Session = Depends(get_session),
+):
+    video = session.exec(
+        select(VideoMetrics).where(VideoMetrics.youtube_video_id == youtube_video_id)
+    ).first()
+    if not video:
+        raise HTTPException(status_code=404, detail="Video no encontrado")
+    if "avg_view_duration" in body:
+        video.avg_view_duration = float(body["avg_view_duration"])
+    if "avg_view_percentage" in body:
+        video.avg_view_percentage = round(float(body["avg_view_percentage"]), 2)
+    session.add(video)
+    session.commit()
+    return {
+        "ok": True,
+        "youtube_video_id": youtube_video_id,
+        "avg_view_duration": video.avg_view_duration,
+        "avg_view_percentage": video.avg_view_percentage,
+    }
 
 
 @router.post("/sync")

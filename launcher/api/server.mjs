@@ -38,7 +38,7 @@ function freePort(port) {
     for (const line of result.split('\n')) {
       const m = line.trim().match(/LISTENING\s+(\d+)$/)
       if (m) {
-        try { execSync(`taskkill /F /PID ${m[1]}`, { stdio: 'ignore' }) } catch {}
+        try { execSync(`taskkill /F /T /PID ${m[1]}`, { stdio: 'ignore' }) } catch {}
         console.log(`[startup] freed port ${port} (PID ${m[1]})`)
       }
     }

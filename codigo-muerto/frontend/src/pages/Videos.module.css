@@ -88,7 +88,8 @@
 .thThumb { width: 72px; }
 .thTitle { min-width: 200px; }
 .thNum { width: 90px; text-align: right !important; }
-.thCtr { width: 160px; }
+.thRet { width: 180px; }
+.thCtr { width: 130px; }
 
 .table td {
   padding: 10px 14px;
@@ -137,14 +138,45 @@
   color: var(--muted);
 }
 
-.retPct {
-  display: block;
-  font-size: 11px;
-  color: var(--accent);
-  opacity: 0.8;
+.tdRet { }
+.tdCtr { }
+
+.retCell {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
-.tdCtr { }
+.retInput {
+  width: 52px;
+  padding: 5px 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 13px;
+  font-family: var(--font-mono);
+  outline: none;
+  transition: border-color 0.15s;
+  text-align: center;
+}
+.retInput:focus { border-color: var(--purple); }
+
+.retInputPct {
+  width: 52px;
+  padding: 5px 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 13px;
+  font-family: var(--font-mono);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.retInputPct:focus { border-color: var(--purple); }
+.retInputPct::-webkit-outer-spin-button,
+.retInputPct::-webkit-inner-spin-button { -webkit-appearance: none; }
 
 .ctrCell {
   display: flex;

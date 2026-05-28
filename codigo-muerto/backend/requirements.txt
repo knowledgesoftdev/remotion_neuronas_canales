@@ -7,3 +7,5 @@ python-multipart==0.0.29
 httpx==0.28.1
 anthropic==0.104.1
 openai-whisper
+tzdata>=2024.1
+google-api-python-client>=2.0.0

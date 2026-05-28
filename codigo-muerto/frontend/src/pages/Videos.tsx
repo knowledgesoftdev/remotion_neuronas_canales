@@ -18,9 +18,29 @@ interface Video {
   ctr: number
   avg_view_duration: number
   avg_view_percentage: number
+  published_at: string | null
+}
+
+function fmtDate(iso: string | null): string {
+  if (!iso) return '—'
+  const d = new Date(iso)
+  return d.toLocaleDateString('es-PE', { day: '2-digit', month: 'short', year: 'numeric' })
+}
+
+// Converts mm:ss string to total seconds
+function parseDuration(val: string): number {
+  const parts = val.trim().split(':')
+  if (parts.length === 2) {
+    const m = parseInt(parts[0], 10)
+    const s = parseInt(parts[1], 10)
+    if (!isNaN(m) && !isNaN(s)) return m * 60 + s
+  }
+  const n = parseFloat(val)
+  return isNaN(n) ? 0 : n
 }
 
 function fmtDuration(s: number): string {
+  if (s <= 0) return ''
   const m = Math.floor(s / 60)
   const sec = Math.round(s % 60)
   return `${m}:${sec.toString().padStart(2, '0')}`
@@ -50,15 +70,67 @@ function CTRCell({ video }: { video: Video }) {
     <div className={styles.ctrCell}>
       <input
         className={`${styles.ctrInput} ${saved ? styles.ctrSaved : ''}`}
-        type="number"
-        step="0.1"
-        min="0"
-        max="100"
+        type="number" step="0.1" min="0" max="100"
         placeholder="—"
         value={val}
         onChange={e => { setVal(e.target.value); setSaved(false) }}
         onBlur={commit}
         onKeyDown={e => e.key === 'Enter' && commit()}
+      />
+      <span className={styles.ctrPct}>%</span>
+      {save.isPending && <Loader size={11} className={styles.spin} />}
+      {saved && <span className={styles.savedDot} title="Guardado" />}
+    </div>
+  )
+}
+
+function RetentionCell({ video }: { video: Video }) {
+  const qc = useQueryClient()
+  const [dur, setDur] = useState(video.avg_view_duration > 0 ? fmtDuration(video.avg_view_duration) : '')
+  const [pct, setPct] = useState(video.avg_view_percentage > 0 ? String(video.avg_view_percentage) : '')
+  const [saved, setSaved] = useState(false)
+
+  const save = useMutation({
+    mutationFn: (body: { avg_view_duration?: number; avg_view_percentage?: number }) =>
+      axios.patch(`${API}/analytics/videos/${video.youtube_video_id}/retention`, body),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['videos'] })
+      setSaved(true)
+      setTimeout(() => setSaved(false), 2000)
+    },
+  })
+
+  const commitDur = () => {
+    const secs = parseDuration(dur)
+    if (secs >= 0 && secs !== video.avg_view_duration) save.mutate({ avg_view_duration: secs })
+  }
+
+  const commitPct = () => {
+    const n = parseFloat(pct)
+    if (!isNaN(n) && n >= 0 && n !== video.avg_view_percentage) save.mutate({ avg_view_percentage: n })
+  }
+
+  return (
+    <div className={styles.retCell}>
+      <input
+        className={`${styles.retInput} ${saved ? styles.ctrSaved : ''}`}
+        type="text"
+        placeholder="0:00"
+        value={dur}
+        onChange={e => { setDur(e.target.value); setSaved(false) }}
+        onBlur={commitDur}
+        onKeyDown={e => e.key === 'Enter' && commitDur()}
+        title="Duración promedio (mm:ss)"
+      />
+      <input
+        className={`${styles.retInputPct} ${saved ? styles.ctrSaved : ''}`}
+        type="number" step="0.1" min="0" max="100"
+        placeholder="0"
+        value={pct}
+        onChange={e => { setPct(e.target.value); setSaved(false) }}
+        onBlur={commitPct}
+        onKeyDown={e => e.key === 'Enter' && commitPct()}
+        title="Retención %"
       />
       <span className={styles.ctrPct}>%</span>
       {save.isPending && <Loader size={11} className={styles.spin} />}
@@ -73,12 +145,13 @@ export default function Videos() {
     queryFn: () => axios.get(`${API}/analytics/videos`).then(r => r.data),
   })
 
-  const withCtr    = videos.filter(v => v.ctr > 0)
-  const avgCtr     = withCtr.length
+  const withCtr = videos.filter(v => v.ctr > 0)
+  const avgCtr  = withCtr.length
     ? (withCtr.reduce((a, v) => a + v.ctr, 0) / withCtr.length).toFixed(2)
     : '—'
-  const avgRet     = videos.length
-    ? fmtDuration(videos.reduce((a, v) => a + v.avg_view_duration, 0) / videos.length)
+  const withRet = videos.filter(v => v.avg_view_percentage > 0)
+  const avgRet  = withRet.length
+    ? (withRet.reduce((a, v) => a + v.avg_view_percentage, 0) / withRet.length).toFixed(1)
     : '—'
 
   return (
@@ -87,7 +160,7 @@ export default function Videos() {
         <div>
           <h1 className={styles.title}>Videos del canal</h1>
           <p className={styles.subtitle}>
-            Ingresa el CTR de cada video desde YouTube Studio — el sistema aprende de estos datos
+            Ingresa CTR y retención desde YouTube Studio — el sistema aprende de estos datos
           </p>
         </div>
         <div className={styles.summary}>
@@ -102,7 +175,9 @@ export default function Videos() {
             <span className={styles.summaryLabel}>CTR promedio</span>
           </div>
           <div className={styles.summaryCard}>
-            <span className={styles.summaryVal} style={{ color: 'var(--purple)' }}>{avgRet}</span>
+            <span className={styles.summaryVal} style={{ color: 'var(--purple)' }}>
+              {avgRet}{avgRet !== '—' ? '%' : ''}
+            </span>
             <span className={styles.summaryLabel}>Retención prom.</span>
           </div>
         </div>
@@ -110,7 +185,7 @@ export default function Videos() {
 
       <div className={styles.hint}>
         <Save size={13} />
-        Escribe el CTR y presiona <kbd>Enter</kbd> o haz clic fuera del campo para guardar. Lo encuentras en YouTube Studio → Contenido → columna CTR.
+        Escribe CTR y retención desde YouTube Studio → Contenido. Retención: ingresa <kbd>mm:ss</kbd> y el porcentaje por separado. Presiona <kbd>Enter</kbd> o clic fuera para guardar.
       </div>
 
       {isLoading ? (
@@ -124,21 +199,18 @@ export default function Videos() {
               <tr>
                 <th className={styles.thThumb} />
                 <th className={styles.thTitle}>Video</th>
+                <th className={styles.thNum}>Publicado</th>
                 <th className={styles.thNum}>Vistas</th>
                 <th className={styles.thNum}>Likes</th>
-                <th className={styles.thNum}>Retención</th>
-                <th className={styles.thCtr}>CTR (YouTube Studio)</th>
+                <th className={styles.thRet}>Retención (mm:ss / %)</th>
+                <th className={styles.thCtr}>CTR</th>
               </tr>
             </thead>
             <tbody>
               {videos.map(v => (
                 <tr key={v.id} className={styles.row}>
                   <td className={styles.tdThumb}>
-                    <img
-                      src={YT_THUMB(v.youtube_video_id)}
-                      alt=""
-                      className={styles.thumb}
-                    />
+                    <img src={YT_THUMB(v.youtube_video_id)} alt="" className={styles.thumb} />
                   </td>
                   <td className={styles.tdTitle}>
                     <a
@@ -150,16 +222,13 @@ export default function Videos() {
                       {v.title || v.youtube_video_id}
                       <ExternalLink size={11} />
                     </a>
-                    <span className={styles.videoCounts}>
-                      {v.comments} comentarios
-                    </span>
+                    <span className={styles.videoCounts}>{v.comments} comentarios</span>
                   </td>
+                  <td className={styles.tdNum}>{fmtDate(v.published_at)}</td>
                   <td className={styles.tdNum}>{v.views.toLocaleString()}</td>
                   <td className={styles.tdNum}>{v.likes.toLocaleString()}</td>
-                  <td className={styles.tdNum}>
-                    {v.avg_view_duration > 0
-                      ? <><span>{fmtDuration(v.avg_view_duration)}</span><span className={styles.retPct}>{v.avg_view_percentage.toFixed(1)}%</span></>
-                      : '—'}
+                  <td className={styles.tdRet}>
+                    <RetentionCell video={v} />
                   </td>
                   <td className={styles.tdCtr}>
                     <CTRCell video={v} />

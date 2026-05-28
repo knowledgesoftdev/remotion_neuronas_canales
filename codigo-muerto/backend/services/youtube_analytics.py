@@ -1,10 +1,15 @@
 import os
 import traceback
 from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 from googleapiclient.discovery import build
 from services.oauth import load_credentials
 
 CHANNEL_ID = os.environ.get("YOUTUBE_CHANNEL_ID", "")
+
+
+def _now_lima() -> datetime:
+    return datetime.now(ZoneInfo("America/Lima"))
 
 
 def fetch_retention_per_video(video_ids: list[str]) -> dict[str, dict]:
@@ -14,8 +19,8 @@ def fetch_retention_per_video(video_ids: list[str]) -> dict[str, dict]:
         return {}
 
     yt = build("youtubeAnalytics", "v2", credentials=creds)
-    end = datetime.utcnow().date().isoformat()
-    start = (datetime.utcnow() - timedelta(days=365)).date().isoformat()
+    end = _now_lima().date().isoformat()
+    start = (_now_lima() - timedelta(days=365)).date().isoformat()
 
     results = {}
     for i in range(0, len(video_ids), 50):
@@ -51,8 +56,8 @@ def fetch_channel_retention() -> dict:
         return {"avg_retention_pct": 0.0, "avg_view_duration": 0.0}
 
     yt = build("youtubeAnalytics", "v2", credentials=creds)
-    end = datetime.utcnow().date().isoformat()
-    start = (datetime.utcnow() - timedelta(days=90)).date().isoformat()
+    end = _now_lima().date().isoformat()
+    start = (_now_lima() - timedelta(days=90)).date().isoformat()
 
     try:
         print(f"[Analytics] Consultando retención del canal — {start} al {end}")

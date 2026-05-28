@@ -3,7 +3,7 @@ load_dotenv()
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from database import create_db
+from database import create_db, migrate_db
 from api.projects import router as projects_router
 from api.analytics import router as analytics_router
 from api.agents import router as agents_router
@@ -26,6 +26,7 @@ app.include_router(agents_router, prefix="/agents", tags=["agents"])
 @app.on_event("startup")
 def on_startup():
     create_db()
+    migrate_db()
 
 
 @app.get("/")

@@ -1,7 +1,12 @@
+from datetime import datetime
+from zoneinfo import ZoneInfo
 from sqlmodel import Session
 from database import engine
 from models import Project
-from datetime import datetime
+
+
+def _now_lima() -> datetime:
+    return datetime.now(ZoneInfo("America/Lima"))
 
 
 def _set_status(project_id: int, status: str):
@@ -9,7 +14,7 @@ def _set_status(project_id: int, status: str):
         project = session.get(Project, project_id)
         if project:
             project.status = status
-            project.updated_at = datetime.utcnow()
+            project.updated_at = _now_lima()
             session.add(project)
             session.commit()
 
