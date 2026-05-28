@@ -88,6 +88,8 @@
 .thThumb { width: 72px; }
 .thTitle { min-width: 200px; }
 .thNum { width: 90px; text-align: right !important; }
+.thDate { width: 110px; }
+.thRet { width: 160px; }
 .thCtr { width: 160px; }
 
 .table td {
@@ -137,14 +139,59 @@
   color: var(--muted);
 }
 
+.tdDate {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.tdRet { }
+.tdCtr { }
+
+.retCell {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.retInput {
+  width: 52px;
+  padding: 5px 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 13px;
+  font-family: var(--font-mono);
+  outline: none;
+  transition: border-color 0.15s;
+  text-align: center;
+}
+.retInput:focus { border-color: var(--purple); }
+
+.retInputPct {
+  width: 52px;
+  padding: 5px 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 13px;
+  font-family: var(--font-mono);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.retInputPct:focus { border-color: var(--purple); }
+.retInputPct::-webkit-outer-spin-button,
+.retInputPct::-webkit-inner-spin-button { -webkit-appearance: none; }
+
 .retPct {
   display: block;
   font-size: 11px;
   color: var(--accent);
   opacity: 0.8;
 }
-
-.tdCtr { }
 
 .ctrCell {
   display: flex;

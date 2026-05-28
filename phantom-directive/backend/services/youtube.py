@@ -2,9 +2,14 @@ import os
 import json
 import httpx
 from datetime import datetime
+from zoneinfo import ZoneInfo
 from sqlmodel import Session, select
 from database import engine
 from models import ChannelStats, VideoMetrics
+
+
+def _now_lima() -> datetime:
+    return datetime.now(ZoneInfo("America/Lima"))
 
 API_KEY = os.environ.get("YOUTUBE_API_KEY", "")
 CHANNEL_ID = os.environ.get("YOUTUBE_CHANNEL_ID", "")
@@ -35,7 +40,7 @@ def sync_channel() -> dict:
         "channel": channel,
         "videos_synced": len(videos),
         "ctr_available": is_connected(),
-        "synced_at": datetime.utcnow().isoformat(),
+        "synced_at": _now_lima().isoformat(),
     }
 
 
@@ -105,6 +110,11 @@ def _fetch_video_stats(video_ids: list[str]) -> list[dict]:
     for item in resp.json().get("items", []):
         stats = item.get("statistics", {})
         duration_iso = item.get("contentDetails", {}).get("duration", "PT0S")
+        published_raw = item.get("snippet", {}).get("publishedAt")
+        published_at = None
+        if published_raw:
+            utc_dt = datetime.fromisoformat(published_raw.replace("Z", "+00:00"))
+            published_at = utc_dt.astimezone(ZoneInfo("America/Lima"))
         results.append({
             "video_id": item["id"],
             "title": item["snippet"]["title"],
@@ -112,6 +122,7 @@ def _fetch_video_stats(video_ids: list[str]) -> list[dict]:
             "likes": int(stats.get("likeCount", 0)),
             "comments": int(stats.get("commentCount", 0)),
             "duration_seconds": _parse_duration(duration_iso),
+            "published_at": published_at,
         })
     return results
 
@@ -126,6 +137,7 @@ def _parse_duration(iso: str) -> float:
 
 
 def _save_stats(channel: dict, videos: list[dict], analytics: dict, channel_analytics: dict, engagement_rate: float):
+    from models import Project
     top_topics = [v["title"] for v in sorted(videos, key=lambda x: x["views"], reverse=True)[:5]]
 
     with Session(engine) as session:
@@ -140,11 +152,16 @@ def _save_stats(channel: dict, videos: list[dict], analytics: dict, channel_anal
         )
         session.add(stats)
 
+        projects = session.exec(select(Project)).all()
+        project_map = {p.youtube_video_id: p.id for p in projects if p.youtube_video_id}
+
         for v in videos:
             a = analytics.get(v["video_id"], {})
             existing = session.exec(
                 select(VideoMetrics).where(VideoMetrics.youtube_video_id == v["video_id"])
             ).first()
+
+            project_id = project_map.get(v["video_id"])
 
             if existing:
                 existing.title = v["title"]
@@ -153,7 +170,11 @@ def _save_stats(channel: dict, videos: list[dict], analytics: dict, channel_anal
                 existing.comments = v["comments"]
                 existing.avg_view_duration = a.get("avg_view_duration", 0.0)
                 existing.avg_view_percentage = a.get("avg_view_percentage", 0.0)
-                existing.fetched_at = datetime.utcnow()
+                existing.fetched_at = _now_lima()
+                if v.get("published_at") and not existing.published_at:
+                    existing.published_at = v["published_at"]
+                if project_id and not existing.project_id:
+                    existing.project_id = project_id
                 session.add(existing)
             else:
                 session.add(VideoMetrics(
@@ -165,6 +186,8 @@ def _save_stats(channel: dict, videos: list[dict], analytics: dict, channel_anal
                     avg_view_duration=a.get("avg_view_duration", 0.0),
                     avg_view_percentage=a.get("avg_view_percentage", 0.0),
                     ctr=0.0,
+                    published_at=v.get("published_at"),
+                    project_id=project_id,
                 ))
 
         session.commit()

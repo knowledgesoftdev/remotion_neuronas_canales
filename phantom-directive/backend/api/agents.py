@@ -337,6 +337,19 @@ def get_metadatos(project_id: int, session: Session = Depends(get_session)):
     }
 
 
+@router.get("/{project_id}/miniatura")
+def get_miniatura(project_id: int, session: Session = Depends(get_session)):
+    project = _get_project_or_404(project_id, session)
+    mini_dir = os.path.join(project.folder, "miniatura")
+    if not os.path.isdir(mini_dir):
+        return {"url": None}
+    images = [f for f in os.listdir(mini_dir) if f.lower().endswith((".jpg", ".jpeg", ".png", ".webp"))]
+    if not images:
+        return {"url": None}
+    folder_name = os.path.basename(project.folder)
+    return {"url": f"/files/projects/{folder_name}/miniatura/{images[0]}"}
+
+
 # ── Remotion: export + render ────────────────────────────────────────────────
 
 @router.post("/{project_id}/export-remotion")

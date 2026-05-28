@@ -1,6 +1,11 @@
 from typing import Optional
 from datetime import datetime
+from zoneinfo import ZoneInfo
 from sqlmodel import SQLModel, Field
+
+
+def _now_lima() -> datetime:
+    return datetime.now(ZoneInfo("America/Lima"))
 
 
 class Project(SQLModel, table=True):
@@ -11,13 +16,13 @@ class Project(SQLModel, table=True):
     mood: Optional[str] = None
     folder: Optional[str] = None
     youtube_video_id: Optional[str] = None
-    created_at: datetime = Field(default_factory=datetime.utcnow)
-    updated_at: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = Field(default_factory=_now_lima)
+    updated_at: datetime = Field(default_factory=_now_lima)
 
 
 class ChannelStats(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
-    fetched_at: datetime = Field(default_factory=datetime.utcnow)
+    fetched_at: datetime = Field(default_factory=_now_lima)
     total_views: int = 0
     total_videos: int = 0
     subscribers: int = 0
@@ -38,7 +43,8 @@ class VideoMetrics(SQLModel, table=True):
     ctr: float = 0.0
     avg_view_duration: float = 0.0
     avg_view_percentage: float = 0.0
-    fetched_at: datetime = Field(default_factory=datetime.utcnow)
+    published_at: Optional[datetime] = Field(default=None)
+    fetched_at: datetime = Field(default_factory=_now_lima)
 
 
 class SuggestedTitle(SQLModel, table=True):
@@ -47,4 +53,4 @@ class SuggestedTitle(SQLModel, table=True):
     topic: str
     reason: str = ""
     used: bool = False
-    created_at: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = Field(default_factory=_now_lima)

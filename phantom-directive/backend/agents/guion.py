@@ -248,6 +248,60 @@ trying to tell these stories.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"""
 
 
+def _get_channel_context() -> str:
+    try:
+        from sqlmodel import Session, select
+        from database import engine
+        from models import VideoMetrics
+
+        with Session(engine) as session:
+            videos = session.exec(select(VideoMetrics)).all()
+
+        if not videos:
+            return ""
+
+        scored = []
+        for v in videos:
+            if v.title and v.views > 0:
+                score = v.ctr * v.avg_view_percentage
+                scored.append({
+                    "title": v.title,
+                    "ctr": v.ctr,
+                    "retention_pct": v.avg_view_percentage,
+                    "views": v.views,
+                    "score": round(score, 2),
+                })
+
+        if not scored:
+            return ""
+
+        scored.sort(key=lambda x: x["score"], reverse=True)
+        top3 = scored[:3]
+        bottom3 = scored[-3:]
+
+        avg_ctr = sum(v["ctr"] for v in scored) / len(scored)
+        avg_ret = sum(v["retention_pct"] for v in scored) / len(scored)
+
+        lines = [
+            f"Channel averages → CTR: {avg_ctr:.1f}% | Retention: {avg_ret:.1f}%",
+            f"TARGET: achieve retention > {avg_ret + 5:.1f}% and CTR > {avg_ctr + 0.2:.1f}%",
+            "",
+            "Top 3 videos (highest CTR × retention — replicate their structure):",
+        ]
+        for v in top3:
+            lines.append(f'  • "{v["title"]}" — CTR: {v["ctr"]}% | Retention: {v["retention_pct"]}%')
+
+        lines += ["", "Bottom 3 videos (lowest retention — avoid their patterns):"]
+        for v in bottom3:
+            lines.append(f'  • "{v["title"]}" — CTR: {v["ctr"]}% | Retention: {v["retention_pct"]}%')
+
+        return "\n".join(lines)
+
+    except Exception as e:
+        print(f"[GuionAgent] Channel context unavailable: {e}")
+        return ""
+
+
 def run(project_id: int, title: str, topic: str, folder: str, force: bool = False):
     full_path = os.path.join(folder, "full_script.txt")
     narration_path = os.path.join(folder, "narration.txt")
@@ -257,7 +311,12 @@ def run(project_id: int, title: str, topic: str, folder: str, force: bool = Fals
         _save_mood(project_id, open(full_path, encoding="utf-8").read())
         return
 
-    messages = [{"role": "user", "content": _build_prompt(title, topic)}]
+    channel_context = _get_channel_context()
+    prompt = _build_prompt(title, topic)
+    if channel_context:
+        prompt = prompt + f"\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nCHANNEL ANALYTICS (use to guide narrative structure)\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n{channel_context}"
+
+    messages = [{"role": "user", "content": prompt}]
 
     while True:
         response = CLIENT.messages.create(

@@ -36,8 +36,11 @@ def run(project_id: int, folder: str):
     timestamps      = _parse_timestamps(sequences_path)
     channel_context = _get_channel_context()
 
+    from services.thumbnail_vision import get_thumbnail_patterns
+    thumbnail_patterns = get_thumbnail_patterns()
+
     print("[MetadatosAgent] Generating metadata with Claude...")
-    raw = _claude_with_retry(_build_prompt(script, timestamps, channel_context))
+    raw = _claude_with_retry(_build_prompt(script, timestamps, channel_context, thumbnail_patterns))
 
     # Parse structured JSON block
     data = _parse_output(raw, timestamps)
@@ -84,13 +87,20 @@ def _claude_with_retry(prompt: str, retries: int = 5) -> str:
 
 # ─── Prompt builder ───────────────────────────────────────────────────────────
 
-def _build_prompt(script: str, timestamps: dict, channel_context: str) -> str:
+def _build_prompt(script: str, timestamps: dict, channel_context: str, thumbnail_patterns: str = "") -> str:
 
     channel_block = ""
     if channel_context:
         channel_block = f"""
 CHANNEL PERFORMANCE DATA (use to replicate what works best):
 {channel_context}
+"""
+
+    thumbnail_block = ""
+    if thumbnail_patterns:
+        thumbnail_block = f"""
+THUMBNAIL VISUAL PATTERNS FROM TOP PERFORMING VIDEOS (replicate these exactly):
+{thumbnail_patterns}
 """
 
     # Build chapter context: timestamp + section name
@@ -102,7 +112,7 @@ CHANNEL PERFORMANCE DATA (use to replicate what works best):
 Channel: Phantom Directive — "Classified History. Declassified."
 Audience: People fascinated by military intelligence, covert operations, and government secrecy.
 Tone: Dark, mysterious, serious. Every line must feel classified and urgent.
-{channel_block}
+{channel_block}{thumbnail_block}
 VIDEO SCRIPT (first 5000 chars):
 {script[:5000]}
 
