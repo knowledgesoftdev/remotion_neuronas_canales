@@ -5,7 +5,7 @@ import axios from 'axios'
 import { Sparkles, Loader, ChevronRight } from 'lucide-react'
 import styles from './NewProject.module.css'
 
-const API = 'http://localhost:8000'
+const API = 'http://localhost:8001'
 
 interface Suggestion {
   id: number

@@ -4,7 +4,7 @@ import axios from 'axios'
 import { Save, ExternalLink, Loader } from 'lucide-react'
 import styles from './Videos.module.css'
 
-const API = 'http://localhost:8000'
+const API = 'http://localhost:8001'
 const YT_THUMB = (id: string) => `https://i.ytimg.com/vi/${id}/mqdefault.jpg`
 const YT_URL   = (id: string) => `https://youtube.com/watch?v=${id}`
 

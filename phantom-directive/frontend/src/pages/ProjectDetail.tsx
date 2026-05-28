@@ -5,7 +5,7 @@ import axios from 'axios'
 import { Play, Loader, FileText, ChevronDown, ChevronUp, Save, Copy, Check, MonitorPlay, Film, Images } from 'lucide-react'
 import styles from './ProjectDetail.module.css'
 
-const API = 'http://localhost:8000'
+const API = 'http://localhost:8001'
 
 const STEPS = ['pending','guion','guion_done','audio','audio_done','sync','sync_done','pexels','pexels_done','metadata','done']
 const STEP_LABELS = ['Start','Script','Script ✓','Audio','Audio ✓','Sync','Sync ✓','Footage','Footage ✓','Metadata','Completed']

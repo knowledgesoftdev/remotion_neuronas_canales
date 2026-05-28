@@ -1,0 +1,253 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0a0a0f;
+  --surface: #111118;
+  --border: #1c1c2a;
+  --text: #e2e2f0;
+  --muted: #5a5a78;
+  --cm-accent: #7c3aed;
+  --cm-glow: rgba(124, 58, 237, 0.15);
+  --pd-accent: #0ea5e9;
+  --pd-glow: rgba(14, 165, 233, 0.15);
+  --online: #22c55e;
+  --offline: #ef4444;
+  --checking: #f59e0b;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+}
+
+header h1 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+
+header p {
+  margin-top: 0.45rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.channels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 740px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 28px var(--glow);
+}
+
+.card.cm { --accent: var(--cm-accent); --glow: var(--cm-glow); }
+.card.pd { --accent: var(--pd-accent); --glow: var(--pd-glow); }
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  flex-shrink: 0;
+}
+
+.card.cm .card-icon { background: rgba(124, 58, 237, 0.14); }
+.card.pd .card-icon { background: rgba(14, 165, 233, 0.14); }
+
+.card-title h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.card-title .lang {
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-top: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+.status-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  color: var(--muted);
+  white-space: nowrap;
+  padding-top: 2px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--checking);
+  flex-shrink: 0;
+  transition: background 0.4s;
+}
+
+.status-dot.online  { background: var(--online); }
+.status-dot.offline { background: var(--offline); }
+.status-dot.checking {
+  background: var(--checking);
+  animation: blink 1.1s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.25; }
+}
+
+.card-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.ports {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.port-tag {
+  font-size: 0.7rem;
+  font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+  padding: 2px 8px;
+  border-radius: 5px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.card-actions {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: auto;
+}
+
+.btn {
+  flex: 1;
+  padding: 0.6rem 0.9rem;
+  border-radius: 9px;
+  border: none;
+  font-size: 0.84rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: opacity 0.15s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.btn:hover  { opacity: 0.82; }
+.btn:active { transform: scale(0.97); }
+
+.btn-primary { color: #fff; }
+
+.card.cm .btn-primary { background: var(--cm-accent); }
+.card.pd .btn-primary { background: var(--pd-accent); }
+
+.btn-ghost {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--text);
+}
+
+/* ── Card states ─────────────────────────────── */
+
+.card-active {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 28px var(--glow);
+}
+
+.card-locked {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.active-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--online);
+  vertical-align: middle;
+  letter-spacing: 0.04em;
+}
+
+.btn-disabled {
+  opacity: 0.3 !important;
+  cursor: not-allowed !important;
+}
+
+.btn-stop {
+  flex: 0 0 auto;
+  padding: 0.6rem 0.9rem;
+  border-radius: 9px;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  background: rgba(239, 68, 68, 0.08);
+  color: #f87171;
+  font-size: 0.84rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+.btn-stop:hover  { background: rgba(239, 68, 68, 0.18); }
+.btn-stop:active { transform: scale(0.97); }
+
+footer {
+  color: var(--muted);
+  font-size: 0.75rem;
+}

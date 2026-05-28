@@ -8,6 +8,10 @@ Sistema de producción automatizada de videos para YouTube usando IA. Cada canal
 
 ```
 neural-studio/
+├── launcher/             # Selector de canal — puerto 5172
+│   ├── api/server.mjs    # Servidor Node que gestiona procesos (puerto 5171)
+│   └── src/              # UI React (Vite)
+│
 ├── codigo-muerto/        # Canal: Código Muerto (español)
 │   ├── backend/          # FastAPI — puerto 8000
 │   ├── frontend/         # React + Vite — puerto 5173
@@ -15,10 +19,10 @@ neural-studio/
 │   ├── projects/         # Proyectos generados (guiones, audio, etc.)
 │   └── AGENT_REMOTION.md # Prompt del agente Remotion para este canal
 │
-└── phantom-directive/    # Canal: Phantom Directive (inglés) — en desarrollo
+└── phantom-directive/    # Canal: Phantom Directive (inglés)
     ├── backend/          # FastAPI — puerto 8001
     ├── frontend/         # React + Vite — puerto 5175
-    ├── remotion/         # Motor de video Remotion
+    ├── remotion/         # Motor de video Remotion — puerto 3000
     └── projects/
 ```
 
@@ -26,28 +30,41 @@ Cada canal tiene su propia base de datos SQLite, carpeta de proyectos, venv de P
 
 ---
 
-## Levantar Código Muerto
+## Launcher — punto de entrada unificado
 
-**Terminal 1 — Backend:**
+El launcher permite seleccionar con qué canal trabajar. Al hacer clic en **▶ Iniciar** arranca automáticamente el backend, el frontend y Remotion del canal elegido. Solo un canal puede estar activo a la vez.
+
+```bash
+cd launcher
+npm install       # solo la primera vez
+npm run dev
+# http://localhost:5172
+```
+
+El launcher corre dos procesos en paralelo:
+- `[API]` — servidor Node en `localhost:5171` que gestiona y monitorea los procesos hijo
+- `[VITE]` — UI del selector en `localhost:5172`
+
+Al reiniciar el launcher limpia automáticamente cualquier proceso huérfano de sesiones anteriores (puertos 8000, 8001, 5173, 5175, 3000).
+
+### Primera vez — instalar dependencias de cada canal
+
+**Código Muerto:**
 ```bash
 cd codigo-muerto/backend
-venv\Scripts\activate        # Windows
-uvicorn main:app --reload --port 8000
-# http://localhost:8000
+python -m venv venv
+venv\Scripts\pip install -r requirements.txt
+cd ../frontend && npm install
+cd ../remotion && npm install
 ```
 
-**Terminal 2 — Frontend:**
+**Phantom Directive:**
 ```bash
-cd codigo-muerto/frontend
-npm run dev
-# http://localhost:5173
-```
-
-**Terminal 3 — Remotion Studio** (previsualizar y renderizar videos):
-```bash
-cd codigo-muerto/remotion
-npm start
-# http://localhost:3000
+cd phantom-directive/backend
+python -m venv venv
+venv\Scripts\pip install -r requirements.txt
+cd ../frontend && npm install
+cd ../remotion && npm install
 ```
 
 ---
@@ -107,6 +124,7 @@ npm start
 | `YOUTUBE_CHANNEL_ID` | ID del canal de YouTube |
 | `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` | OAuth para YouTube Analytics |
 | `REMOTION_DIR` | Ruta absoluta a la carpeta remotion/ del canal |
+| `PEXELS_API_KEY` | Imágenes Pexels (Phantom Directive) |
 
 ---
 
@@ -114,11 +132,12 @@ npm start
 
 | Capa | Tecnología |
 |---|---|
+| Launcher | Node.js HTTP + Vite + TypeScript |
 | Backend API | FastAPI + SQLModel + SQLite |
 | IA | Claude Opus 4 (Anthropic) |
 | Transcripción | Whisper medium (OpenAI) — GPU CUDA |
 | TTS | Fish Audio S2-Pro |
 | Video | Remotion (React → MP4) |
-| Iconos | Iconify + flat-color-icons (26 iconos) / Lucide React |
+| Iconos | Iconify + flat-color-icons / Lucide React |
 | Frontend | React + Vite + TypeScript |
 | Búsqueda web | SerpAPI |

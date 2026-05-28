@@ -4,7 +4,7 @@ import axios from 'axios'
 import { Plus, Clock, CheckCircle, Loader } from 'lucide-react'
 import styles from './Projects.module.css'
 
-const API = 'http://localhost:8000'
+const API = 'http://localhost:8001'
 
 const STATUS_LABEL: Record<string, string> = {
   pending: 'Pending',

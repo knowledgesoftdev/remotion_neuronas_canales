@@ -5,7 +5,7 @@ import { useState } from 'react'
 import NeuralNetwork from '../components/NeuralNetwork'
 import styles from './Index.module.css'
 
-const API = 'http://localhost:8000'
+const API = 'http://localhost:8001'
 
 const DEFAULT_STATS = {
   total_projects: 0, completed_videos: 0,
