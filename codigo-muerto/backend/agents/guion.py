@@ -51,7 +51,59 @@ def _search(query: str) -> str:
         return f"Error en búsqueda: {e}"
 
 
+def _get_canal_context() -> str:
+    try:
+        from sqlmodel import Session, select
+        from database import engine
+        from models import VideoMetrics
+
+        with Session(engine) as session:
+            videos = session.exec(select(VideoMetrics)).all()
+
+        videos = [v for v in videos if v.title and v.views > 0]
+        if not videos:
+            return ""
+
+        scored = sorted(
+            [{"title": v.title, "ctr": v.ctr, "ret": v.avg_view_percentage,
+              "views": v.views, "score": v.ctr * v.avg_view_percentage} for v in videos],
+            key=lambda x: x["score"], reverse=True
+        )
+
+        top3 = scored[:3]
+        bot3 = [v for v in scored if v["ret"] > 0][-3:][::-1]  # peores con datos reales
+
+        avg_ctr = sum(v["ctr"] for v in scored if v["ctr"] > 0) / max(1, sum(1 for v in scored if v["ctr"] > 0))
+        avg_ret = sum(v["ret"] for v in scored if v["ret"] > 0) / max(1, sum(1 for v in scored if v["ret"] > 0))
+
+        lines = [
+            "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+            "DATOS REALES DEL CANAL — úsalos para superar los benchmarks",
+            "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+            f"Promedio actual → CTR: {avg_ctr:.1f}% | Retención: {avg_ret:.1f}%",
+            f"OBJETIVO: el nuevo guion debe lograr retención > {avg_ret + 5:.0f}% y CTR > {avg_ctr + 0.2:.1f}%",
+            "",
+            "VIDEOS CON MEJOR RENDIMIENTO (CTR × retención):",
+        ]
+        for i, v in enumerate(top3, 1):
+            lines.append(f'  {i}. "{v["title"]}" — CTR {v["ctr"]}% | Retención {v["ret"]}% | {v["views"]} vistas')
+        lines.append("→ Estudia qué tienen en común: hook inicial, ritmo de revelaciones, longitud de secciones.")
+        lines.append("")
+        lines.append("VIDEOS CON MENOR RETENCIÓN (evitar sus patrones):")
+        for i, v in enumerate(bot3, 1):
+            lines.append(f'  {i}. "{v["title"]}" — CTR {v["ctr"]}% | Retención {v["ret"]}%')
+        lines.append("→ Identifica qué no funcionó: intro muy lenta, tema poco familiar, falta de giro dramático.")
+        lines.append("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+
+        return "\n".join(lines)
+    except Exception as e:
+        print(f"[GuionAgent] No se pudo cargar contexto del canal: {e}")
+        return ""
+
+
 def _build_prompt(title: str, topic: str) -> str:
+    canal_ctx = _get_canal_context()
+    canal_block = f"\n{canal_ctx}\n" if canal_ctx else ""
     return f"""Eres uno de los mejores guionistas de YouTube del mundo hispanohablante.
 Has trabajado en canales que desde su primer video superaron el millón de vistas.
 Tu especialidad son los documentales histórico-tecnológicos: sabes convertir una
@@ -92,6 +144,7 @@ ENCARGO
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Tema: {topic}
 Título: {title}
+{canal_block}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 LONGITUD OBLIGATORIA
