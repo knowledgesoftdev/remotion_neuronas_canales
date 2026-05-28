@@ -15,12 +15,15 @@ def run(project_id: int, folder: str):
     timestamps = _parse_timestamps(sequences_path)
     canal_context = _get_canal_context()
 
+    from services.thumbnail_vision import get_thumbnail_patterns
+    thumbnail_patterns = get_thumbnail_patterns()
+
     msg = CLIENT.messages.create(
         model="claude-opus-4-7",
         max_tokens=4096,
         messages=[{
             "role": "user",
-            "content": _build_prompt(script, timestamps, canal_context),
+            "content": _build_prompt(script, timestamps, canal_context, thumbnail_patterns),
         }]
     )
 
@@ -87,7 +90,7 @@ def _get_canal_context() -> str:
         return ""
 
 
-def _build_prompt(script: str, timestamps: dict, canal_context: str) -> str:
+def _build_prompt(script: str, timestamps: dict, canal_context: str, thumbnail_patterns: str = "") -> str:
     context_block = f"""
 {canal_context}
 
@@ -97,9 +100,15 @@ Con base en este análisis, aplica los patrones que mejor funcionan en este cana
 - El prompt de miniatura debe replicar el estilo visual que genera más clics
 """ if canal_context else ""
 
+    thumbnail_block = f"""
+{thumbnail_patterns}
+
+Al generar el PROMPT DE MINIATURA, replica estos patrones visuales exactamente.
+""" if thumbnail_patterns else ""
+
     return f"""Eres un estratega de contenido YouTube especializado en canales de documentales tecnológicos hispanohablantes.
 Tu misión es generar metadata que maximice CTR y retención basándose en el historial real del canal.
-{context_block}
+{context_block}{thumbnail_block}
 GUION DEL VIDEO:
 {script[:6000]}
 

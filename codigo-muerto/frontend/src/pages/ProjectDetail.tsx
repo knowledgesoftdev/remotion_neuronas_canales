@@ -79,6 +79,13 @@ export default function ProjectDetail() {
     enabled: metaOpen,
   })
 
+  const { data: miniatura } = useQuery({
+    queryKey: ['miniatura', id],
+    queryFn: () => axios.get(`${API}/agents/${id}/miniatura`).then(r => r.data),
+    enabled: !!id,
+    refetchInterval: 10000,
+  })
+
   // SSE: progreso en vivo
   useEffect(() => {
     if (!id) return
@@ -381,6 +388,15 @@ export default function ProjectDetail() {
             {!metaUnlocked && <span className={styles.lockedLabel}>Disponible tras sincronizar</span>}
           </div>
         </div>
+        {miniatura?.url && (
+          <div className={styles.miniaturaPreview}>
+            <img
+              src={`${API}${miniatura.url}`}
+              alt="Miniatura"
+              className={styles.miniaturaImg}
+            />
+          </div>
+        )}
         {metaOpen && metaData?.metadatos && (
           <div className={styles.scriptPanel}>
             <div className={styles.scriptSection}>

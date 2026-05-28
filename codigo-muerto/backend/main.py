@@ -1,8 +1,11 @@
 from dotenv import load_dotenv
 load_dotenv()
 
+import os
+import pathlib
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from database import create_db, migrate_db
 from api.projects import router as projects_router
 from api.analytics import router as analytics_router
@@ -21,6 +24,10 @@ app.add_middleware(
 app.include_router(projects_router, prefix="/projects", tags=["projects"])
 app.include_router(analytics_router, prefix="/analytics", tags=["analytics"])
 app.include_router(agents_router, prefix="/agents", tags=["agents"])
+
+_PROJECTS_DIR = pathlib.Path(__file__).parent.parent / "projects"
+if _PROJECTS_DIR.exists():
+    app.mount("/files/projects", StaticFiles(directory=str(_PROJECTS_DIR)), name="projects_files")
 
 
 @app.on_event("startup")

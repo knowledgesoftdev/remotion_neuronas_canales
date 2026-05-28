@@ -392,5 +392,20 @@
 .resetBtn:hover { background: rgba(239,68,68,0.22); }
 .resetBtn:disabled { opacity: 0.5; cursor: not-allowed; }
 
+.miniaturaPreview {
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+}
+
+.miniaturaImg {
+  display: block;
+  max-width: 320px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  object-fit: cover;
+  aspect-ratio: 16/9;
+}
+
 @keyframes spin { to { transform: rotate(360deg); } }
 .spin { animation: spin 1.2s linear infinite; }
