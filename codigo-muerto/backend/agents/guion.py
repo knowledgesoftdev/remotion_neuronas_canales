@@ -66,15 +66,19 @@ def _get_canal_context() -> str:
 
         scored = sorted(
             [{"title": v.title, "ctr": v.ctr, "ret": v.avg_view_percentage,
-              "views": v.views, "score": v.ctr * v.avg_view_percentage} for v in videos],
+              "views": v.views, "imp": v.impressions,
+              "score": v.ctr * v.avg_view_percentage} for v in videos],
             key=lambda x: x["score"], reverse=True
         )
 
         top3 = scored[:3]
-        bot3 = [v for v in scored if v["ret"] > 0][-3:][::-1]  # peores con datos reales
+        bot3 = [v for v in scored if v["ret"] > 0][-3:][::-1]
 
         avg_ctr = sum(v["ctr"] for v in scored if v["ctr"] > 0) / max(1, sum(1 for v in scored if v["ctr"] > 0))
         avg_ret = sum(v["ret"] for v in scored if v["ret"] > 0) / max(1, sum(1 for v in scored if v["ret"] > 0))
+
+        # Temas con más impresiones = YouTube ya los favorece para este canal
+        by_imp = sorted([v for v in scored if v["imp"] > 0], key=lambda x: x["imp"], reverse=True)
 
         lines = [
             "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
@@ -88,6 +92,14 @@ def _get_canal_context() -> str:
         for i, v in enumerate(top3, 1):
             lines.append(f'  {i}. "{v["title"]}" — CTR {v["ctr"]}% | Retención {v["ret"]}% | {v["views"]} vistas')
         lines.append("→ Estudia qué tienen en común: hook inicial, ritmo de revelaciones, longitud de secciones.")
+
+        if by_imp:
+            lines.append("")
+            lines.append("TEMAS QUE YOUTUBE MÁS DISTRIBUYE EN ESTE CANAL (por impresiones):")
+            for v in by_imp[:3]:
+                lines.append(f'  · "{v["title"]}" — {v["imp"]:,} impresiones | CTR {v["ctr"]}%')
+            lines.append("→ El próximo video debe seguir el patrón temático de estos: son los que el algoritmo ya favorece.")
+
         lines.append("")
         lines.append("VIDEOS CON MENOR RETENCIÓN (evitar sus patrones):")
         for i, v in enumerate(bot3, 1):

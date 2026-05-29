@@ -9,7 +9,13 @@ const API = 'http://localhost:8001'
 
 const DEFAULT_STATS = {
   total_projects: 0, completed_videos: 0,
-  subscribers: 0, total_views: 0, avg_ctr: 0, avg_retention: 0,
+  subscribers: 0, total_views: 0, avg_ctr: 0, avg_retention: 0, total_impressions: 0,
+}
+
+function fmtNum(n: number): string {
+  if (n >= 1_000_000) return (n / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'M'
+  if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/, '') + 'K'
+  return String(n)
 }
 
 export default function Index() {
@@ -79,7 +85,8 @@ export default function Index() {
     { label: 'Subscribers', value: stats.subscribers.toLocaleString(), color: 'var(--purple)' },
     { label: 'Total views', value: stats.total_views.toLocaleString(), color: 'var(--accent)' },
     { label: 'Avg CTR', value: `${stats.avg_ctr.toFixed(2)}%`, color: 'var(--purple)' },
-    { label: 'Avg retention', value: `${Math.round(stats.avg_retention)}s`, color: 'var(--accent)' },
+    { label: 'Avg retention', value: stats.avg_retention > 0 ? `${Math.round(stats.avg_retention)}s` : '—', color: 'var(--accent)' },
+    { label: 'Total impressions', value: stats.total_impressions > 0 ? fmtNum(stats.total_impressions) : '—', color: 'var(--purple)' },
   ]
 
   return (

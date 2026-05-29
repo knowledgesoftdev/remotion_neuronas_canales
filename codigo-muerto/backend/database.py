@@ -23,6 +23,10 @@ def migrate_db():
             conn.execute(text("ALTER TABLE videometrics ADD COLUMN published_at DATETIME"))
             conn.commit()
             print("[migrate] Columna published_at agregada a videometrics")
+        if "impressions" not in existing:
+            conn.execute(text("ALTER TABLE videometrics ADD COLUMN impressions INTEGER NOT NULL DEFAULT 0"))
+            conn.commit()
+            print("[migrate] Columna impressions agregada a videometrics")
 
 
 def get_session():

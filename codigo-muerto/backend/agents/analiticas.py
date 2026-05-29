@@ -113,19 +113,23 @@ def check_performance_alerts(session: Session) -> dict:
         video = next((v for v in videos if v.youtube_video_id == project.youtube_video_id), None)
         if not video:
             continue
-        # Solo analizar si fue publicado hace 2+ días (usamos updated_at como proxy)
-        if project.updated_at > cutoff:
+        # Solo analizar si fue publicado hace 2+ días (fecha real de publicación)
+        publish_date = video.published_at.replace(tzinfo=None) if video.published_at else None
+        if not publish_date or publish_date > cutoff:
+            continue
+        # Ignorar videos sin suficientes vistas para tener datos representativos
+        if video.views < 15:
             continue
 
         issues = []
         suggestions = []
 
-        if video.ctr < ref_ctr * 0.7:
+        if video.ctr > 0 and video.ctr < ref_ctr * 0.7:
             issues.append(f"CTR bajo ({video.ctr:.1f}% vs {ref_ctr:.1f}% de referencia)")
             suggestions.append("cambiar_titulo")
             suggestions.append("cambiar_miniatura")
 
-        if video.avg_view_percentage < ref_ret * 0.7:
+        if video.avg_view_percentage > 0 and video.avg_view_percentage < ref_ret * 0.7:
             issues.append(f"Retención baja ({video.avg_view_percentage:.1f}% vs {ref_ret:.1f}% de referencia)")
             suggestions.append("mejorar_gancho")
 

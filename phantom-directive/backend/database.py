@@ -25,6 +25,9 @@ def migrate_db():
         if "published_at" not in existing:
             conn.execute(text("ALTER TABLE videometrics ADD COLUMN published_at DATETIME"))
             conn.commit()
+        if "impressions" not in existing:
+            conn.execute(text("ALTER TABLE videometrics ADD COLUMN impressions INTEGER NOT NULL DEFAULT 0"))
+            conn.commit()
 
 def get_session():
     with Session(engine) as session:

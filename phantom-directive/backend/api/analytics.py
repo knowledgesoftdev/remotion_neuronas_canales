@@ -40,6 +40,23 @@ def update_video_ctr(
     return {"ok": True, "youtube_video_id": youtube_video_id, "ctr": video.ctr}
 
 
+@router.patch("/videos/{youtube_video_id}/impressions")
+def update_video_impressions(
+    youtube_video_id: str,
+    body: dict,
+    session: Session = Depends(get_session),
+):
+    video = session.exec(
+        select(VideoMetrics).where(VideoMetrics.youtube_video_id == youtube_video_id)
+    ).first()
+    if not video:
+        raise HTTPException(status_code=404, detail="Video not found")
+    video.impressions = int(body.get("impressions", 0))
+    session.add(video)
+    session.commit()
+    return {"ok": True, "youtube_video_id": youtube_video_id, "impressions": video.impressions}
+
+
 @router.patch("/videos/{youtube_video_id}/retention")
 def update_video_retention(
     youtube_video_id: str,
@@ -126,6 +143,7 @@ def get_summary(session: Session = Depends(get_session)):
     avg_ctr       = round(sum(ctr_values) / len(ctr_values), 2) if ctr_values else 0.0
     avg_retention = round(sum(retention_values) / len(retention_values), 1) if retention_values else 0.0
 
+    total_impressions = sum(v.impressions for v in videos if v.impressions > 0)
     return {
         "total_projects":    len(projects),
         "completed_videos":  len(done),
@@ -133,4 +151,5 @@ def get_summary(session: Session = Depends(get_session)):
         "total_views":       stats.total_views if stats else 0,
         "avg_ctr":           avg_ctr,
         "avg_retention":     avg_retention,
+        "total_impressions": total_impressions,
     }

@@ -74,6 +74,10 @@ cd ../remotion && npm install
 ```
 1. GuionAgent        → full_script.txt + narration.txt
                        Claude + SerpAPI investiga y escribe el guion
+                       Usa analíticas reales del canal como contexto:
+                         · Top 3 videos por CTR × retención
+                         · Top 3 temas con más impresiones (los que YouTube favorece)
+                         · Bottom 3 videos (patrones a evitar)
 
 2. AudioAgent        → audio.mp3 + whisper_output.json
                        Fish Audio genera la voz (FP16, GPU CUDA)
@@ -112,11 +116,42 @@ cd ../remotion && npm install
 
 ---
 
+## Analíticas e inteligencia del canal
+
+### Métricas por video
+
+La tabla de videos permite editar inline las métricas clave que no entrega la API automáticamente:
+
+| Métrica | Editable | Descripción |
+|---|---|---|
+| Vistas / Likes | No | Importadas de YouTube Data API |
+| Fecha de publicación | No | Importada de YouTube Data API |
+| **Impresiones** | Sí | Número de impresiones (acepta 1.2K, 3.4M) |
+| **Retención** | Sí | Tiempo promedio visto (mm:ss) y porcentaje |
+| **CTR** | Sí | Click-through rate de YouTube Studio |
+
+### Thumbnail Vision Loop
+
+El sistema analiza automáticamente las miniaturas de los videos con mayor CTR usando visión de Claude. Genera prompt guidance para que las próximas miniaturas sigan los patrones visuales que mejor funcionan en el canal.
+
+### Alertas de rendimiento
+
+El agente de analíticas detecta videos con bajo CTR o baja retención respecto a los promedios del canal y sugiere acciones concretas (`cambiar_titulo`, `cambiar_miniatura`, `mejorar_gancho`). Solo evalúa videos publicados hace 2+ días con más de 15 vistas para que los datos sean representativos.
+
+### Contexto algorítmico para el GuionAgent
+
+El GuionAgent carga antes de escribir:
+- **Top temas por impresiones** — los videos que YouTube más ha distribuido son los que el algoritmo ya favorece para este canal; el próximo video debe seguir ese patrón temático
+- **Top videos por CTR × retención** — referencia de qué engancha y retiene
+- **Bottom videos** — patrones a evitar
+
+---
+
 ## APIs requeridas
 
 | Variable | Descripción |
 |---|---|
-| `ANTHROPIC_API_KEY` | Claude Opus (guion, metadatos, visual) |
+| `ANTHROPIC_API_KEY` | Claude Opus (guion, metadatos, visual, thumbnail vision) |
 | `SERPAPI_KEY` | Búsqueda web en el agente de guion |
 | `FISH_AUDIO_API_KEY` | Síntesis de voz Fish Audio |
 | `FISH_VOICE_ID` | ID de la voz en Fish Audio |
@@ -141,3 +176,12 @@ cd ../remotion && npm install
 | Iconos | Iconify + flat-color-icons / Lucide React |
 | Frontend | React + Vite + TypeScript |
 | Búsqueda web | SerpAPI |
+
+---
+
+## Migraciones automáticas de base de datos
+
+El backend ejecuta migraciones `ALTER TABLE` al arrancar si detecta columnas faltantes. No requiere intervención manual al actualizar el código:
+
+- `published_at` — fecha de publicación real de YouTube
+- `impressions` — impresiones manuales por video

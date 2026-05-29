@@ -9,7 +9,13 @@ const API = 'http://localhost:8000'
 
 const DEFAULT_STATS = {
   total_projects: 0, completed_videos: 0,
-  subscribers: 0, total_views: 0, avg_ctr: 0, avg_retention: 0,
+  subscribers: 0, total_views: 0, avg_ctr: 0, avg_retention: 0, total_impressions: 0,
+}
+
+function fmtNum(n: number): string {
+  if (n >= 1_000_000) return (n / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'M'
+  if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/, '') + 'K'
+  return String(n)
 }
 
 export default function Index() {
@@ -78,8 +84,9 @@ export default function Index() {
     { label: 'Videos publicados', value: stats.completed_videos, color: 'var(--accent)' },
     { label: 'Suscriptores', value: stats.subscribers.toLocaleString(), color: 'var(--purple)' },
     { label: 'Vistas totales', value: stats.total_views.toLocaleString(), color: 'var(--accent)' },
-    { label: 'Engagement (likes/vistas)', value: `${stats.avg_ctr.toFixed(2)}%`, color: 'var(--purple)' },
-    { label: 'Retención prom.', value: `${Math.round(stats.avg_retention)}s`, color: 'var(--accent)' },
+    { label: 'CTR promedio', value: `${stats.avg_ctr.toFixed(2)}%`, color: 'var(--purple)' },
+    { label: 'Retención prom.', value: stats.avg_retention > 0 ? `${Math.round(stats.avg_retention)}s` : '—', color: 'var(--accent)' },
+    { label: 'Impresiones totales', value: stats.total_impressions > 0 ? fmtNum(stats.total_impressions) : '—', color: 'var(--purple)' },
   ]
 
   return (

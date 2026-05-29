@@ -41,6 +41,7 @@ class VideoMetrics(SQLModel, table=True):
     likes: int = 0
     comments: int = 0
     ctr: float = 0.0
+    impressions: int = 0
     avg_view_duration: float = 0.0
     avg_view_percentage: float = 0.0
     published_at: Optional[datetime] = Field(default=None)

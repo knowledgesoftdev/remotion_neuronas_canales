@@ -1,30 +1,30 @@
 {
-  "channel_header": "MoviePass: La Promesa Imposible",
-  "date_range": "2011 – 2019",
+  "channel_header": "AOL · La Fusión que Destruyó $99 Mil Millones",
+  "date_range": "1999 – 2002",
   "gancho_lines": [
     {
-      "text": "Menos de diez dólares al mes por ir al cine todos los días",
+      "text": "Diciembre de 1999. AOL vale más que Disney, Ford y McDonald's juntos.",
       "from": 10,
       "size": 52,
       "color": "text",
       "weight": 300
     },
     {
-      "text": "Una película distinta cada noche",
+      "text": "222 mil millones de dólares",
       "from": 50,
       "size": 68,
       "color": "accent",
       "weight": 700
     },
     {
-      "text": "Sin trampas. Sin letra pequeña.",
+      "text": "Tres meses después firma la fusión más grande de la historia.",
       "from": 90,
       "size": 48,
       "color": "muted",
       "weight": 300
     },
     {
-      "text": "Pero las cuentas eran imposibles desde el primer día",
+      "text": "Y en menos de dos años, lo destruye absolutamente todo.",
       "from": 130,
       "size": 44,
       "color": "text",
@@ -33,27 +33,27 @@
   ],
   "legado_items": [
     {
-      "label": "AMC A-List y Regal Unlimited",
-      "desc": "Las cadenas copiaron el modelo de suscripción que antes despreciaban"
+      "label": "El fin del internet dial-up",
+      "desc": "Marcó el cierre de una era y el ascenso definitivo de la banda ancha"
     },
     {
-      "label": "Caso de estudio en escuelas de negocios",
-      "desc": "Ejemplo clásico de crecimiento sin unit economics viables"
+      "label": "Caso de estudio en Harvard",
+      "desc": "La fusión AOL-Time Warner se enseña como el peor M&A de la historia"
     },
     {
-      "label": "Condena federal a sus ejecutivos",
-      "desc": "Fraude bursátil documentado: el hype no salva un modelo roto"
+      "label": "Lección sobre valoraciones infladas",
+      "desc": "Demostró que el papel bursátil sin fundamentos reales se evapora"
     }
   ],
   "criterio_lines": [
     {
-      "text": "¿Era una idea brillante mal ejecutada o un fraude disfrazado de innovación?"
+      "text": "¿Fue arrogancia, mala suerte o el destino inevitable de una burbuja?"
     },
     {
-      "text": "Ninguna cantidad de usuarios arregla un modelo que pierde dinero en cada transacción"
+      "text": "Cuando el ego firma el cheque, la realidad cobra los intereses."
     },
     {
-      "text": "Crecimiento  ·  vs  ·  Sostenibilidad"
+      "text": "Visión real  ·  vs  ·  Ilusión bursátil"
     }
   ]
 }

@@ -16,9 +16,25 @@ interface Video {
   likes: number
   comments: number
   ctr: number
+  impressions: number
   avg_view_duration: number
   avg_view_percentage: number
   published_at: string | null
+}
+
+function parseImpressions(val: string): number {
+  const s = val.trim().replace(/,/g, '.').toLowerCase()
+  if (s.endsWith('k')) return Math.round(parseFloat(s) * 1000)
+  if (s.endsWith('m')) return Math.round(parseFloat(s) * 1_000_000)
+  const n = parseInt(s.replace(/[^0-9]/g, ''), 10)
+  return isNaN(n) ? 0 : n
+}
+
+function fmtImpressions(n: number): string {
+  if (n <= 0) return ''
+  if (n >= 1_000_000) return (n / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'M'
+  if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/, '') + 'K'
+  return String(n)
 }
 
 function fmtDuration(s: number): string {
@@ -36,6 +52,45 @@ function parseDuration(str: string): number {
 function fmtDate(iso: string | null): string {
   if (!iso) return '—'
   return new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+}
+
+function ImpressionsCell({ video }: { video: Video }) {
+  const qc = useQueryClient()
+  const [val, setVal] = useState(video.impressions > 0 ? fmtImpressions(video.impressions) : '')
+  const [saved, setSaved] = useState(false)
+
+  const save = useMutation({
+    mutationFn: (impressions: number) =>
+      axios.patch(`${API}/analytics/videos/${video.youtube_video_id}/impressions`, { impressions }),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['videos'] })
+      setSaved(true)
+      setTimeout(() => setSaved(false), 2000)
+    },
+  })
+
+  const commit = () => {
+    const n = parseImpressions(val)
+    if (n >= 0 && n !== video.impressions) save.mutate(n)
+  }
+
+  return (
+    <div className={styles.ctrCell}>
+      <input
+        className={`${styles.ctrInput} ${saved ? styles.ctrSaved : ''}`}
+        type="text"
+        placeholder="—"
+        value={val}
+        onChange={e => { setVal(e.target.value); setSaved(false) }}
+        onBlur={commit}
+        onKeyDown={e => e.key === 'Enter' && commit()}
+        title="Impressions (e.g. 1.2K, 3.4K)"
+        style={{ width: 56 }}
+      />
+      {save.isPending && <Loader size={11} className={styles.spin} />}
+      {saved && <span className={styles.savedDot} title="Saved" />}
+    </div>
+  )
 }
 
 function CTRCell({ video }: { video: Video }) {
@@ -195,6 +250,7 @@ export default function Videos() {
                 <th className={styles.thTitle}>Video</th>
                 <th className={styles.thNum}>Views</th>
                 <th className={styles.thNum}>Likes</th>
+                <th className={styles.thCtr}>Impressions</th>
                 <th className={styles.thDate}>Published</th>
                 <th className={styles.thRet}>Retention</th>
                 <th className={styles.thCtr}>CTR (YouTube Studio)</th>
@@ -220,6 +276,7 @@ export default function Videos() {
                   </td>
                   <td className={styles.tdNum}>{v.views.toLocaleString()}</td>
                   <td className={styles.tdNum}>{v.likes.toLocaleString()}</td>
+                  <td className={styles.tdCtr}><ImpressionsCell video={v} /></td>
                   <td className={styles.tdDate}>{fmtDate(v.published_at)}</td>
                   <td className={styles.tdRet}>
                     <RetentionCell video={v} />

@@ -20,7 +20,7 @@ def run(project_id: int, folder: str, force: bool = False):
 
     if not force and audio_exists and not whisper_exists:
         print("[AudioAgent] Audio ya existe, saltando Fish Audio — solo Whisper.")
-        _transcribe(audio_path, folder)
+        _transcribe(audio_path, folder, project_id)
         return
 
     narration_path = os.path.join(folder, "narration.txt")
@@ -42,7 +42,7 @@ def run(project_id: int, folder: str, force: bool = False):
         f.write(full_audio)
 
     print(f"[AudioAgent] Audio guardado ({len(full_audio) / 1024:.0f} KB). Iniciando Whisper...")
-    _transcribe(audio_path, folder)
+    _transcribe(audio_path, folder, project_id)
 
 
 def _split_by_paragraphs(text: str, max_chars: int) -> list[str]:
@@ -90,28 +90,27 @@ def _tts(text: str) -> bytes:
     return resp.content
 
 
-def _transcribe(audio_path: str, folder: str):
-    import subprocess
-    import sys
+def _transcribe(audio_path: str, folder: str, project_id: int | None = None):
+    import json
+    import torch
+    import whisper
 
-    print("[AudioAgent] Whisper usando device: cuda")
-    result = subprocess.run(
-        [
-            sys.executable, "-m", "whisper", audio_path,
-            "--model", "medium",
-            "--language", "es",
-            "--output_format", "json",
-            "--output_dir", folder,
-            "--device", "cuda",
-            "--fp16", "False",
-        ],
-    )
-    if result.returncode != 0:
-        raise RuntimeError("Whisper terminó con error")
+    if project_id is not None:
+        try:
+            from progress import emit
+            emit(project_id, "whisper", "Transcribiendo audio con Whisper (puede tardar varios minutos)...")
+        except Exception:
+            pass
 
-    base = os.path.splitext(os.path.basename(audio_path))[0]
-    whisper_json = os.path.join(folder, f"{base}.json")
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    fp16 = device == "cuda"
+    print(f"[AudioAgent] Whisper usando device: {device}")
+
+    model = whisper.load_model("small", device=device)
+    result = model.transcribe(audio_path, language="es", fp16=fp16, verbose=False)
+
     dest = os.path.join(folder, "whisper_output.json")
-    if os.path.exists(whisper_json):
-        os.rename(whisper_json, dest)
+    with open(dest, "w", encoding="utf-8") as f:
+        json.dump(result, f, ensure_ascii=False, indent=2)
+
     print("[AudioAgent] Whisper completado.")

@@ -100,11 +100,16 @@ def run_audio(
     def _task():
         from agents.audio import run as run_audio_agent
         from agents.pipeline import _set_status
-        emit(project_id, "audio", "Fish Audio generando voz...")
-        _set_status(project_id, "audio")
-        run_audio_agent(project_id, project.folder, force=force)
-        _set_status(project_id, "audio_done")
-        emit(project_id, "audio_done", "Audio y Whisper completados.")
+        try:
+            emit(project_id, "audio", "Fish Audio generando voz...")
+            _set_status(project_id, "audio")
+            run_audio_agent(project_id, project.folder, force=force)
+            _set_status(project_id, "audio_done")
+            emit(project_id, "audio_done", "Audio y Whisper completados.", done=True)
+        except Exception as exc:
+            _set_status(project_id, "audio_error")
+            emit(project_id, "audio_error", f"Error en audio/Whisper: {exc}", done=True)
+            raise
 
     background_tasks.add_task(_task)
     return {"status": "audio_started"}

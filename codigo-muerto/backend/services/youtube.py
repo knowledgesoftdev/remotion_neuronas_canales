@@ -1,5 +1,6 @@
 import os
 import json
+import shutil
 import httpx
 from datetime import datetime
 from zoneinfo import ZoneInfo
@@ -11,15 +12,31 @@ API_KEY = os.environ.get("YOUTUBE_API_KEY", "")
 CHANNEL_ID = os.environ.get("YOUTUBE_CHANNEL_ID", "")
 BASE = "https://www.googleapis.com/youtube/v3"
 
+DB_PATH = os.path.join(os.path.dirname(__file__), "..", "neural_studio.db")
+BACKUP_DIR = os.path.join(os.path.dirname(__file__), "..", "backups")
+
 
 def _now_lima() -> datetime:
     return datetime.now(ZoneInfo("America/Lima"))
+
+
+def _backup_db():
+    os.makedirs(BACKUP_DIR, exist_ok=True)
+    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+    dest = os.path.join(BACKUP_DIR, f"neural_studio_{ts}.db")
+    shutil.copy2(os.path.abspath(DB_PATH), dest)
+    # Mantener solo los últimos 10 backups
+    backups = sorted(f for f in os.listdir(BACKUP_DIR) if f.endswith(".db"))
+    for old in backups[:-10]:
+        os.remove(os.path.join(BACKUP_DIR, old))
+    print(f"[Sync] Backup creado: {os.path.basename(dest)}")
 
 
 def sync_channel() -> dict:
     from services.oauth import is_connected
     from services.youtube_analytics import fetch_retention_per_video, fetch_channel_retention
 
+    _backup_db()
     channel = _fetch_channel()
     videos = _fetch_all_videos(channel["uploads_playlist"])
 
@@ -145,12 +162,19 @@ def _save_stats(channel: dict, videos: list[dict], analytics: dict, channel_anal
         projects = session.exec(select(Project)).all()
         project_map = {p.youtube_video_id: p.id for p in projects if p.youtube_video_id}
 
+        # CTR y retención reales: calculados desde datos ingresados manualmente
+        existing_videos = session.exec(select(VideoMetrics)).all()
+        ctrs = [v.ctr for v in existing_videos if v.ctr > 0]
+        rets = [v.avg_view_duration for v in existing_videos if v.avg_view_duration > 0]
+        real_avg_ctr = round(sum(ctrs) / len(ctrs), 2) if ctrs else 0.0
+        real_avg_ret = round(sum(rets) / len(rets), 1) if rets else channel_analytics.get("avg_view_duration", 0.0)
+
         stats = ChannelStats(
             subscribers=channel["subscribers"],
             total_views=channel["total_views"],
             total_videos=channel["total_videos"],
-            avg_ctr=engagement_rate,
-            avg_retention=channel_analytics.get("avg_view_duration", 0.0),
+            avg_ctr=real_avg_ctr,
+            avg_retention=real_avg_ret,
             top_topics=json.dumps(top_topics, ensure_ascii=False),
             top_styles="[]",
         )
@@ -164,18 +188,27 @@ def _save_stats(channel: dict, videos: list[dict], analytics: dict, channel_anal
             ).first()
 
             if existing:
-                existing.title = v["title"]
-                existing.views = v["views"]
-                existing.likes = v["likes"]
-                existing.comments = v["comments"]
-                existing.avg_view_duration = a.get("avg_view_duration", 0.0)
-                existing.avg_view_percentage = a.get("avg_view_percentage", 0.0)
-                existing.fetched_at = _now_lima()
+                from sqlalchemy import update as sa_update
+                values = {
+                    "title": v["title"],
+                    "views": v["views"],
+                    "likes": v["likes"],
+                    "comments": v["comments"],
+                    "fetched_at": _now_lima(),
+                }
                 if v["published_at"] is not None:
-                    existing.published_at = v["published_at"]
+                    values["published_at"] = v["published_at"]
                 if project_id and existing.project_id is None:
-                    existing.project_id = project_id
-                session.add(existing)
+                    values["project_id"] = project_id
+                if "avg_view_duration" in a:
+                    values["avg_view_duration"] = a["avg_view_duration"]
+                if "avg_view_percentage" in a:
+                    values["avg_view_percentage"] = a["avg_view_percentage"]
+                session.execute(
+                    sa_update(VideoMetrics)
+                    .where(VideoMetrics.youtube_video_id == v["video_id"])
+                    .values(**values)
+                )
             else:
                 session.add(VideoMetrics(
                     youtube_video_id=v["video_id"],

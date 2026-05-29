@@ -82,6 +82,17 @@ def create_project(project: Project, session: Session = Depends(get_session)):
     return project
 
 
+@router.patch("/{project_id}/youtube-id")
+def set_youtube_id(project_id: int, body: dict, session: Session = Depends(get_session)):
+    project = session.get(Project, project_id)
+    if not project:
+        raise HTTPException(status_code=404, detail="Project not found")
+    project.youtube_video_id = body.get("youtube_video_id", "").strip() or None
+    session.add(project)
+    session.commit()
+    return {"ok": True, "youtube_video_id": project.youtube_video_id}
+
+
 @router.delete("/{project_id}")
 def delete_project(project_id: int, session: Session = Depends(get_session)):
     project = session.get(Project, project_id)

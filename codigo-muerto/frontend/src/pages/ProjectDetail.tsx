@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
-import { Play, Loader, FileText, ChevronDown, ChevronUp, Save, Copy, Check, MonitorPlay, Film, RotateCcw } from 'lucide-react'
+import { Play, Loader, FileText, ChevronDown, ChevronUp, Save, Copy, Check, MonitorPlay, Film, RotateCcw, Link } from 'lucide-react'
 import styles from './ProjectDetail.module.css'
 
 const API = 'http://localhost:8000'
@@ -47,6 +47,8 @@ export default function ProjectDetail() {
   const qc = useQueryClient()
   const [scriptOpen, setScriptOpen] = useState(false)
   const [metaOpen, setMetaOpen] = useState(false)
+  const [ytId, setYtId] = useState<string>('')
+  const [ytIdSaved, setYtIdSaved] = useState(false)
   const [editingNarration, setEditingNarration] = useState<string | null>(null)
   const [savedNarration, setSavedNarration] = useState(false)
   const [progressLog, setProgressLog] = useState<ProgressEntry[]>([])
@@ -137,6 +139,16 @@ export default function ProjectDetail() {
     onSuccess: () => { setSavedNarration(true); setTimeout(() => setSavedNarration(false), 2000); refetchScript() },
   })
 
+  const saveYtId = useMutation({
+    mutationFn: (youtube_video_id: string) =>
+      axios.patch(`${API}/projects/${id}/youtube-id`, { youtube_video_id }),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['project', id] })
+      setYtIdSaved(true)
+      setTimeout(() => setYtIdSaved(false), 2000)
+    },
+  })
+
   const resetStatus = useMutation({
     mutationFn: () => axios.post(`${API}/projects/${id}/reset-status`),
     onSuccess: () => {
@@ -158,6 +170,10 @@ export default function ProjectDetail() {
       setProgressLog(prev => [...prev, { step: 'render', message: 'Render iniciado...', done: false }])
     },
   })
+
+  useEffect(() => {
+    if (project?.youtube_video_id) setYtId(project.youtube_video_id)
+  }, [project?.youtube_video_id])
 
   if (isLoading || !project) return (
     <div className={styles.loading}><Loader size={28} className={styles.spin} /></div>
@@ -427,6 +443,26 @@ export default function ProjectDetail() {
         <div className={styles.metaRow}>
           <span className={styles.metaKey}>Creado</span>
           <span className={styles.metaVal}>{new Date(project.created_at).toLocaleString('es-ES')}</span>
+        </div>
+        <div className={styles.metaRow}>
+          <span className={styles.metaKey}><Link size={12} style={{ marginRight: 4 }} />YouTube ID</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <input
+              style={{ fontFamily: 'var(--font-mono)', fontSize: 12, background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 4, padding: '2px 6px', color: 'var(--text)', width: 140 }}
+              placeholder="ej: dQw4w9WgXcQ"
+              value={ytId}
+              onChange={e => { setYtId(e.target.value); setYtIdSaved(false) }}
+              onBlur={() => { if (ytId !== (project.youtube_video_id ?? '')) saveYtId.mutate(ytId) }}
+              onKeyDown={e => { if (e.key === 'Enter') { (e.target as HTMLInputElement).blur() } }}
+            />
+            {saveYtId.isPending && <Loader size={11} className={styles.spin} />}
+            {ytIdSaved && <Check size={12} style={{ color: 'var(--accent)' }} />}
+            {project.youtube_video_id && (
+              <a href={`https://youtube.com/watch?v=${project.youtube_video_id}`} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent)', fontSize: 11 }}>
+                Ver video
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </div>
