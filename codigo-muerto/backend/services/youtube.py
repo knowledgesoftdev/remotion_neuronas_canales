@@ -6,7 +6,7 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 from sqlmodel import Session, select
 from database import engine
-from models import ChannelStats, VideoMetrics
+from models import ChannelStats, VideoMetrics, TitleChange
 
 API_KEY = os.environ.get("YOUTUBE_API_KEY", "")
 CHANNEL_ID = os.environ.get("YOUTUBE_CHANNEL_ID", "")
@@ -189,8 +189,20 @@ def _save_stats(channel: dict, videos: list[dict], analytics: dict, channel_anal
 
             if existing:
                 from sqlalchemy import update as sa_update
+
+                # Si el título cambió en YouTube Studio, registrarlo en TitleChange
+                # antes de sobreescribir — así el historial A/B siempre está completo.
+                yt_title = v["title"]
+                if existing.title and existing.title != yt_title:
+                    session.add(TitleChange(
+                        youtube_video_id=v["video_id"],
+                        old_title=existing.title,
+                        new_title=yt_title,
+                        ctr_before=existing.ctr,
+                    ))
+
                 values = {
-                    "title": v["title"],
+                    "title": yt_title,
                     "views": v["views"],
                     "likes": v["likes"],
                     "comments": v["comments"],

@@ -46,6 +46,16 @@ class VideoMetrics(SQLModel, table=True):
     avg_view_percentage: float = 0.0
     published_at: Optional[datetime] = Field(default=None)
     fetched_at: datetime = Field(default_factory=_now_lima)
+    is_canal_b: bool = Field(default=False)
+
+
+class TitleChange(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    youtube_video_id: str
+    old_title: str
+    new_title: str
+    ctr_before: float = 0.0
+    changed_at: datetime = Field(default_factory=_now_lima)
 
 
 class SuggestedTitle(SQLModel, table=True):

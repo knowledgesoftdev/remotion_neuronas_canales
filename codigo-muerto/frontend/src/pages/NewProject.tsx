@@ -1,9 +1,22 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
-import { Sparkles, Loader, ChevronRight } from 'lucide-react'
+import { Sparkles, Loader, ChevronRight, CheckCircle, XCircle, AlertCircle } from 'lucide-react'
 import styles from './NewProject.module.css'
+
+interface ValidationRule {
+  id: string
+  label: string
+  pass: boolean
+  hint: string | null
+}
+interface ValidationResult {
+  score: number
+  max_score: number
+  strong: boolean
+  rules: ValidationRule[]
+}
 
 const API = 'http://localhost:8000'
 
@@ -21,6 +34,22 @@ export default function NewProject() {
   const [title, setTitle] = useState('')
   const [topic, setTopic] = useState('')
   const [selectedId, setSelectedId] = useState<number | null>(null)
+  const [validation, setValidation] = useState<ValidationResult | null>(null)
+  const [validating, setValidating] = useState(false)
+
+  // Validate title whenever it changes (debounced 400ms)
+  useEffect(() => {
+    if (!title.trim()) { setValidation(null); return }
+    const t = setTimeout(async () => {
+      setValidating(true)
+      try {
+        const res = await axios.post(`${API}/analytics/validate-title`, { title, topic })
+        setValidation(res.data)
+      } catch { /* ignore */ }
+      finally { setValidating(false) }
+    }, 400)
+    return () => clearTimeout(t)
+  }, [title, topic])
 
   const { data: suggData, isLoading: loadingSugg } = useQuery({
     queryKey: ['suggestions'],
@@ -117,22 +146,42 @@ export default function NewProject() {
           <div className={styles.field}>
             <label className={styles.label}>
               Título del video
-              <span className={`${styles.charCount} ${title.length > 60 ? styles.over : ''}`}>
-                {title.length}/60
+              <span className={`${styles.charCount} ${title.length > 55 ? styles.over : ''}`}>
+                {title.length}/55
               </span>
             </label>
             <input
-              className={styles.input}
+              className={`${styles.input} ${validation && !validation.strong ? styles.inputWarn : validation?.strong ? styles.inputOk : ''}`}
               type="text"
-              placeholder="Ej: El Código que Destruyó MySpace"
+              placeholder='Ej: Nokia tenía el smartphone perfecto — y lo mató su propio código'
               value={title}
               onChange={e => { setTitle(e.target.value); setSelectedId(null) }}
               maxLength={80}
             />
-            {title.length > 60 && (
-              <span className={styles.warning}>
-                YouTube trunca títulos mayores a 60 caracteres en móvil
-              </span>
+
+            {/* Validation rules */}
+            {title.trim().length > 0 && (
+              <div className={styles.validationBox}>
+                {validating && <span className={styles.validating}><Loader size={11} className={styles.spin} /> Validando...</span>}
+                {validation && validation.rules.map(rule => (
+                  <div key={rule.id} className={`${styles.rule} ${rule.pass ? styles.rulePass : styles.ruleFail}`}>
+                    {rule.pass
+                      ? <CheckCircle size={11} color="#22c55e" />
+                      : rule.id === 'canal_b'
+                      ? <AlertCircle size={11} color="#f0a500" />
+                      : <XCircle size={11} color="#ef4444" />}
+                    <span className={styles.ruleLabel}>{rule.label}</span>
+                    {!rule.pass && rule.hint && (
+                      <span className={styles.ruleHint}>{rule.hint}</span>
+                    )}
+                  </div>
+                ))}
+                {validation?.strong && (
+                  <div className={styles.titleStrong}>
+                    <CheckCircle size={12} color="#22c55e" /> Título óptimo para CTR
+                  </div>
+                )}
+              </div>
             )}
           </div>
 

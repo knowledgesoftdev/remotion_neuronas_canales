@@ -74,13 +74,18 @@ def _get_canal_context() -> str:
                 f"CTR: {v['ctr']}% | Retención: {v['retention_pct']}% | Vistas: {v['views']:,}"
             )
 
-        # Promedio del canal
+        # Promedio del canal vs benchmark de industria
         avg_ctr = sum(v["ctr"] for v in scored) / len(scored)
         avg_ret = sum(v["retention_pct"] for v in scored) / len(scored)
-        lines.append(f"\nPromedio del canal → CTR: {avg_ctr:.1f}% | Retención: {avg_ret:.1f}%")
+        lines.append(f"\nPromedio actual del canal → CTR: {avg_ctr:.1f}% | Retención: {avg_ret:.1f}%")
+        lines.append(f"Benchmark del nicho (documental tech español) → CTR: 4.0% | Retención: 40%")
         lines.append(
-            "\nPatrón de títulos ganadores: empresa o tecnología conocida + "
-            "decisión técnica concreta + consecuencia inesperada o dramática."
+            f"BRECHA A CERRAR: el CTR debe multiplicarse x{4.0/max(avg_ctr,0.1):.0f} "
+            f"para alcanzar el benchmark. La miniatura es la palanca más crítica."
+        )
+        lines.append(
+            "\nPatrón de títulos ganadores: empresa o tecnología conocida globalmente + "
+            "cifra específica (%, $) + consecuencia inesperada o dramática en ≤55 caracteres."
         )
 
         return "\n".join(lines)
@@ -148,13 +153,42 @@ HASHTAGS
 ================================================================
 MINIATURA — PROMPT
 ================================================================
-[Prompt en inglés para generar la miniatura con IA. Debe incluir:
-- Estilo: cinematic, high contrast, dark background
-- Elemento visual central: logo de la empresa o imagen icónica del tema
-- Texto en la miniatura: máximo 4 palabras, grande y legible (38% ve en PC)
-- Expresión o elemento que genere shock o curiosidad
-- Colores: compatibles con el canal (fondo oscuro, texto blanco o amarillo)
-- Composición: regla de tercios, elemento izquierda + texto derecha]"""
+[Prompt en inglés para generar la miniatura con IA.
+
+REGLA CRÍTICA: el CTR actual del canal es 0.72% cuando el benchmark del nicho es 4%.
+La miniatura es la causa principal. Sigue esta receta exacta sin desvíos:
+
+COMPOSICIÓN (no negociable):
+- Fondo oscuro puro: negro profundo o gris muy oscuro (#0a0a0a o #111111)
+- UN solo elemento visual hero a la izquierda: el logo o producto icónico de la empresa,
+  visualmente dañado/destruido/fragmentado. No añadas humo Y chispas Y polvo simultáneamente —
+  elige UNO de esos efectos de destrucción.
+- Texto a la derecha: EXACTAMENTE 2-3 palabras en inglés o español SIN tildes NI caracteres
+  especiales. Ejemplo aceptable: "SE SUICIDO", "EL COLAPSO", "$99B PERDIDOS", "LA TRAICION"
+- Sin stock charts, sin emojis, sin flechas, sin elementos decorativos adicionales.
+
+TEXTO EN LA MINIATURA (crítico para CTR):
+- Fuente: bold sans-serif, blanco (#FFFFFF) con contorno negro de 3px O amarillo (#FFE000)
+- Tamaño: ocupa el 40-50% de la altura del área de texto
+- Legible en miniatura de 120×90px (vista mobile)
+
+PALETA:
+- Fondo: negro (#0a0a0a)
+- Texto principal: blanco (#FFFFFF) o amarillo (#FFE000) — elige uno, no ambos
+- Acento: rojo sangre (#CC0000) solo para el elemento visual (el logo dañado)
+- Sin gradientes complejos, sin colores adicionales
+
+ESTILO TÉCNICO:
+- Cinematic, photorealistic 4K, alta nitidez, film grain sutil
+- Iluminación dramática lateral en el elemento visual
+- Regla de tercios: elemento visual izquierdo, texto derecho
+- Formato final: YouTube thumbnail 1280×720
+
+PROHIBIDO en este prompt:
+- Más de 3 elementos simultáneos de destrucción (humo + chispas + polvo + embers = NO)
+- Texto con caracteres especiales en español (tildes, ñ, comillas tipográficas)
+- Más de 3 palabras en la miniatura
+- Fondos con gradientes de color o texturas complejas]"""
 
 
 def _parse_timestamps(sequences_path: str) -> dict:

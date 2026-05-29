@@ -154,3 +154,57 @@
 
 @keyframes spin { to { transform: rotate(360deg); } }
 .spin { animation: spin 1.2s linear infinite; }
+
+/* ── Title validator ── */
+.inputWarn { border-color: rgba(240,165,0,0.5) !important; }
+.inputOk   { border-color: rgba(34,197,94,0.5) !important; }
+
+.validationBox {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px 12px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-top: 4px;
+}
+
+.validating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.rule {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 11px;
+  line-height: 1.3;
+}
+.rulePass { color: var(--muted); }
+.ruleFail { color: var(--text); }
+
+.ruleLabel { flex-shrink: 0; }
+
+.ruleHint {
+  color: var(--muted);
+  font-size: 10px;
+  margin-left: 4px;
+  font-style: italic;
+}
+
+.titleStrong {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #22c55e;
+  padding-top: 4px;
+  border-top: 1px solid var(--border);
+  margin-top: 2px;
+}

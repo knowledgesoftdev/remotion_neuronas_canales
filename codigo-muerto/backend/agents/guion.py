@@ -85,7 +85,8 @@ def _get_canal_context() -> str:
             "DATOS REALES DEL CANAL — úsalos para superar los benchmarks",
             "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
             f"Promedio actual → CTR: {avg_ctr:.1f}% | Retención: {avg_ret:.1f}%",
-            f"OBJETIVO: el nuevo guion debe lograr retención > {avg_ret + 5:.0f}% y CTR > {avg_ctr + 0.2:.1f}%",
+            f"Benchmark del nicho → CTR: 4.0% | Retención: 40%",
+            f"OBJETIVO del guion: estructura que logre retención > 35% (equivalente a los mejores del canal)",
             "",
             "VIDEOS CON MEJOR RENDIMIENTO (CTR × retención):",
         ]

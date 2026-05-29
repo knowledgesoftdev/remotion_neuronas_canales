@@ -1,5 +1,5 @@
 import { Outlet, NavLink } from 'react-router-dom'
-import { LayoutDashboard, FolderOpen, Zap, PlusCircle, BarChart2 } from 'lucide-react'
+import { LayoutDashboard, FolderOpen, Zap, PlusCircle, BarChart2, CalendarDays } from 'lucide-react'
 import styles from './Layout.module.css'
 
 export default function Layout() {
@@ -14,6 +14,10 @@ export default function Layout() {
           <NavLink to="/" end className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link}>
             <LayoutDashboard size={16} />
             Dashboard
+          </NavLink>
+          <NavLink to="/calendario" className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link}>
+            <CalendarDays size={16} />
+            Calendario
           </NavLink>
           <NavLink to="/projects" end className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link}>
             <FolderOpen size={16} />

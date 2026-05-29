@@ -1,0 +1,139 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 10px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.monthLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.04em;
+}
+
+.arrow {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+}
+.arrow:hover { color: var(--accent); background: rgba(0,212,255,0.08); }
+
+.dayHeaders {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+}
+.dayHead {
+  font-size: 9px;
+  color: var(--muted);
+  text-align: center;
+  padding: 2px 0;
+  text-transform: uppercase;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.cell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  font-size: 10px;
+  color: var(--muted);
+  border-radius: 4px;
+  cursor: default;
+  transition: background 0.12s;
+}
+.cell:hover { background: rgba(255,255,255,0.05); color: var(--text); }
+
+.today {
+  color: var(--text);
+  font-weight: 700;
+  outline: 1px solid var(--accent);
+  outline-offset: -1px;
+}
+
+.published {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+  font-weight: 600;
+}
+
+.recommended {
+  background: rgba(0, 212, 255, 0.07);
+  color: var(--accent);
+}
+
+.dot {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 4px;
+  border-top: 1px solid var(--border);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 9px;
+  color: var(--muted);
+}
+
+.dotLegend {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  flex-shrink: 0;
+}
+
+.recLegend {
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  background: rgba(0, 212, 255, 0.4);
+  flex-shrink: 0;
+}
+
+.hourHint {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 9px;
+  color: var(--accent);
+  margin-left: auto;
+  opacity: 0.8;
+}

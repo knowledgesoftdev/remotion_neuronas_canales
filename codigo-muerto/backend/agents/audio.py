@@ -92,6 +92,8 @@ def _tts(text: str) -> bytes:
 
 def _transcribe(audio_path: str, folder: str, project_id: int | None = None):
     import json
+    import shutil
+    import tempfile
     import torch
     import whisper
 
@@ -106,8 +108,27 @@ def _transcribe(audio_path: str, folder: str, project_id: int | None = None):
     fp16 = device == "cuda"
     print(f"[AudioAgent] Whisper usando device: {device}")
 
-    model = whisper.load_model("small", device=device)
-    result = model.transcribe(audio_path, language="es", fp16=fp16, verbose=False)
+    # Windows: Whisper/ffmpeg falla con rutas que tienen caracteres no-ASCII
+    # (—, tildes, etc.). Copiamos a un directorio temporal con nombre limpio.
+    tmp_dir = None
+    transcribe_path = audio_path
+    if os.name == "nt":
+        try:
+            tmp_dir = tempfile.mkdtemp(prefix="whisper_")
+            clean_path = os.path.join(tmp_dir, "audio.mp3")
+            shutil.copy2(audio_path, clean_path)
+            transcribe_path = clean_path
+            print(f"[AudioAgent] Windows: transcribiendo desde ruta limpia {clean_path}")
+        except Exception as e:
+            print(f"[AudioAgent] No se pudo crear tmp, usando ruta original: {e}")
+            transcribe_path = audio_path
+
+    try:
+        model = whisper.load_model("small", device=device)
+        result = model.transcribe(transcribe_path, language="es", fp16=fp16, verbose=False)
+    finally:
+        if tmp_dir:
+            shutil.rmtree(tmp_dir, ignore_errors=True)
 
     dest = os.path.join(folder, "whisper_output.json")
     with open(dest, "w", encoding="utf-8") as f:

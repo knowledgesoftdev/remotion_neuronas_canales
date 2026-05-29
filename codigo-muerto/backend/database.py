@@ -27,6 +27,10 @@ def migrate_db():
             conn.execute(text("ALTER TABLE videometrics ADD COLUMN impressions INTEGER NOT NULL DEFAULT 0"))
             conn.commit()
             print("[migrate] Columna impressions agregada a videometrics")
+        if "is_canal_b" not in existing:
+            conn.execute(text("ALTER TABLE videometrics ADD COLUMN is_canal_b BOOLEAN NOT NULL DEFAULT 0"))
+            conn.commit()
+            print("[migrate] Columna is_canal_b agregada a videometrics")
 
 
 def get_session():

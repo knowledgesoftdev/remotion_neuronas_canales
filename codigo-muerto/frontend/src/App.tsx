@@ -6,6 +6,7 @@ import Projects from './pages/Projects'
 import ProjectDetail from './pages/ProjectDetail'
 import NewProject from './pages/NewProject'
 import Videos from './pages/Videos'
+import Calendario from './pages/Calendario'
 
 const queryClient = new QueryClient()
 
@@ -16,6 +17,7 @@ export default function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Index />} />
+            <Route path="/calendario" element={<Calendario />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/projects/new" element={<NewProject />} />
             <Route path="/projects/:id" element={<ProjectDetail />} />

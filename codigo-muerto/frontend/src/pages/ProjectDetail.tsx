@@ -413,6 +413,21 @@ export default function ProjectDetail() {
             />
           </div>
         )}
+
+        {/* Prompt de miniatura — siempre visible cuando existe */}
+        {metaData?.prompt_miniatura && (
+          <div className={styles.promptMiniCard}>
+            <div className={styles.promptMiniHeader}>
+              <span className={styles.promptMiniTitle}>Prompt para miniatura (IA)</span>
+              <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                <span className={styles.promptMiniHint}>Copia y pega en Midjourney / DALL·E / Ideogram</span>
+                <CopyButton text={metaData.prompt_miniatura} />
+              </div>
+            </div>
+            <pre className={styles.promptMiniText}>{metaData.prompt_miniatura}</pre>
+          </div>
+        )}
+
         {metaOpen && metaData?.metadatos && (
           <div className={styles.scriptPanel}>
             <div className={styles.scriptSection}>
@@ -422,15 +437,6 @@ export default function ProjectDetail() {
               </div>
               <pre className={styles.scriptText}>{metaData.metadatos}</pre>
             </div>
-            {metaData?.prompt_miniatura && (
-              <div className={styles.scriptSection}>
-                <div className={styles.scriptSectionHeader}>
-                  <span>Prompt miniatura</span>
-                  <CopyButton text={metaData.prompt_miniatura} />
-                </div>
-                <pre className={styles.scriptText}>{metaData.prompt_miniatura}</pre>
-              </div>
-            )}
           </div>
         )}
       </div>

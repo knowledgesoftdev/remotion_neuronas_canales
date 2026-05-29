@@ -127,6 +127,13 @@
   letter-spacing: 0.08em;
 }
 
+.cardBenchmark {
+  font-size: 10px;
+  color: var(--muted);
+  opacity: 0.55;
+  font-family: var(--font-mono);
+}
+
 /* Alertas de rendimiento */
 .alertsSection {
   display: flex;

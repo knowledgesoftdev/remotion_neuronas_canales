@@ -1,0 +1,182 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 10px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ── Metric bars ── */
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.metricRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.metricLabel {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.metricVal {
+  font-size: 11px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.metricTarget {
+  font-size: 9px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.barTrack {
+  height: 5px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.6s ease;
+  min-width: 2px;
+}
+
+.pctLabel {
+  font-size: 9px;
+  color: var(--muted);
+  text-align: right;
+}
+
+/* ── Milestones ── */
+.milestones {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 4px;
+  border-top: 1px solid var(--border);
+}
+
+.milestone {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.milestoneReached {
+  opacity: 0.5;
+}
+
+.checkDone {
+  font-size: 9px;
+  color: #22c55e;
+  width: 10px;
+  flex-shrink: 0;
+}
+
+.checkPending {
+  font-size: 9px;
+  color: var(--muted);
+  width: 10px;
+  flex-shrink: 0;
+}
+
+.mLabel {
+  font-size: 10px;
+  color: var(--text);
+  flex: 1;
+}
+
+.mDate {
+  font-size: 9px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+/* ── YPP date ── */
+.yppTarget {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 8px;
+  background: rgba(0, 212, 255, 0.07);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 6px;
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.yppTarget strong {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.yppReached {
+  text-align: center;
+  font-size: 11px;
+  color: #22c55e;
+  font-weight: 600;
+  padding: 6px;
+  background: rgba(34, 197, 94, 0.1);
+  border-radius: 6px;
+}
+
+.hint {
+  font-size: 9px;
+  color: var(--muted);
+  text-align: center;
+  opacity: 0.7;
+}
+
+.viralHint {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 5px 7px;
+  background: rgba(240, 165, 0, 0.08);
+  border: 1px solid rgba(240, 165, 0, 0.2);
+  border-radius: 5px;
+  font-size: 9px;
+  color: #f0a500;
+  line-height: 1.3;
+}
+
+.viralBolt {
+  flex-shrink: 0;
+  font-size: 10px;
+}
+
+.scenario {
+  font-size: 9px;
+  color: var(--muted);
+  text-align: center;
+  opacity: 0.5;
+  font-style: italic;
+  padding-top: 2px;
+  border-top: 1px solid var(--border);
+}

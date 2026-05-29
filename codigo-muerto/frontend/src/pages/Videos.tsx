@@ -1,12 +1,19 @@
 import { useState } from 'react'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import axios from 'axios'
-import { Save, ExternalLink, Loader } from 'lucide-react'
+import { Save, ExternalLink, Loader, Edit2, Check, X, History } from 'lucide-react'
 import styles from './Videos.module.css'
 
 const API = 'http://localhost:8000'
 const YT_THUMB = (id: string) => `https://i.ytimg.com/vi/${id}/mqdefault.jpg`
 const YT_URL   = (id: string) => `https://youtube.com/watch?v=${id}`
+
+interface TitleHistoryEntry {
+  old_title: string
+  new_title: string
+  ctr_before: number
+  changed_at: string
+}
 
 interface Video {
   id: number
@@ -20,6 +27,7 @@ interface Video {
   avg_view_duration: number
   avg_view_percentage: number
   published_at: string | null
+  is_canal_b: boolean
 }
 
 function parseImpressions(val: string): number {
@@ -60,6 +68,112 @@ function fmtDuration(s: number): string {
   const m = Math.floor(s / 60)
   const sec = Math.round(s % 60)
   return `${m}:${sec.toString().padStart(2, '0')}`
+}
+
+/* ── Gap 5: edición de título + historial A/B ── */
+function TitleCell({ video }: { video: Video }) {
+  const qc = useQueryClient()
+  const [editing, setEditing] = useState(false)
+  const [val, setVal] = useState(video.title)
+  const [showHistory, setShowHistory] = useState(false)
+
+  const { data: history } = useQuery<{ history: TitleHistoryEntry[]; current_ctr: number }>({
+    queryKey: ['title-history', video.youtube_video_id],
+    queryFn: () => axios.get(`${API}/analytics/videos/${video.youtube_video_id}/title-history`).then(r => r.data),
+    enabled: showHistory,
+  })
+
+  const save = useMutation({
+    mutationFn: (title: string) =>
+      axios.patch(`${API}/analytics/videos/${video.youtube_video_id}/title`, { title }),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['videos'] })
+      qc.invalidateQueries({ queryKey: ['title-history', video.youtube_video_id] })
+      setEditing(false)
+    },
+  })
+
+  const cancel = () => { setVal(video.title); setEditing(false) }
+
+  return (
+    <div className={styles.titleCellWrap}>
+      {editing ? (
+        <div className={styles.titleEdit}>
+          <input
+            className={styles.titleInput}
+            value={val}
+            onChange={e => setVal(e.target.value)}
+            autoFocus
+            onKeyDown={e => { if (e.key === 'Enter') save.mutate(val); if (e.key === 'Escape') cancel() }}
+          />
+          <span className={`${styles.titleCharCount} ${val.length > 55 ? styles.over : ''}`}>{val.length}/55</span>
+          <button className={styles.titleSaveBtn} onClick={() => save.mutate(val)} disabled={save.isPending || !val.trim()}>
+            {save.isPending ? <Loader size={11} className={styles.spin} /> : <Check size={11} />}
+          </button>
+          <button className={styles.titleCancelBtn} onClick={cancel}><X size={11} /></button>
+        </div>
+      ) : (
+        <div className={styles.titleRow}>
+          <a href={YT_URL(video.youtube_video_id)} target="_blank" rel="noopener noreferrer" className={styles.videoLink}>
+            {video.title || video.youtube_video_id}
+            <ExternalLink size={11} />
+          </a>
+          <button className={styles.titleEditBtn} onClick={() => setEditing(true)} title="Cambiar título (A/B test)">
+            <Edit2 size={10} />
+          </button>
+          {history && history.history.length > 0 && (
+            <button
+              className={styles.titleHistoryBtn}
+              onClick={() => setShowHistory(v => !v)}
+              title="Historial de cambios"
+            >
+              <History size={10} />
+            </button>
+          )}
+        </div>
+      )}
+
+      {showHistory && history && history.history.length > 0 && (
+        <div className={styles.historyPanel}>
+          {history.history.map((h, i) => {
+            const delta = history.current_ctr - h.ctr_before
+            return (
+              <div key={i} className={styles.historyEntry}>
+                <span className={styles.histOld}>{h.old_title}</span>
+                <span className={styles.histArrow}>→</span>
+                <span className={styles.histNew}>{h.new_title}</span>
+                <span className={`${styles.histDelta} ${delta > 0 ? styles.deltaPos : delta < 0 ? styles.deltaNeg : ''}`}>
+                  {delta > 0 ? '+' : ''}{delta.toFixed(1)}% CTR
+                </span>
+                <span className={styles.histDate}>{new Date(h.changed_at).toLocaleDateString('es-PE')}</span>
+              </div>
+            )
+          })}
+        </div>
+      )}
+      <span className={styles.videoCounts}>{video.comments} comentarios</span>
+    </div>
+  )
+}
+
+/* ── Gap 3: toggle Canal B ── */
+function CanalBToggle({ video }: { video: Video }) {
+  const qc = useQueryClient()
+  const toggle = useMutation({
+    mutationFn: (val: boolean) =>
+      axios.patch(`${API}/analytics/videos/${video.youtube_video_id}/canal-b`, { is_canal_b: val }),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ['videos'] }),
+  })
+  return (
+    <button
+      className={`${styles.canalBBtn} ${video.is_canal_b ? styles.canalBActive : ''}`}
+      onClick={() => toggle.mutate(!video.is_canal_b)}
+      title={video.is_canal_b ? 'Canal B — clic para desmarcar' : 'Marcar como Canal B (baja resonancia LatAm)'}
+      disabled={toggle.isPending}
+    >
+      {toggle.isPending ? <Loader size={10} className={styles.spin} /> : video.is_canal_b ? 'B' : '·'}
+    </button>
+  )
 }
 
 function ImpressionsCell({ video }: { video: Video }) {
@@ -201,13 +315,34 @@ export default function Videos() {
   })
 
   const withCtr = videos.filter(v => v.ctr > 0)
-  const avgCtr  = withCtr.length
-    ? (withCtr.reduce((a, v) => a + v.ctr, 0) / withCtr.length).toFixed(2)
-    : '—'
+  const avgCtrNum = withCtr.length
+    ? withCtr.reduce((a, v) => a + v.ctr, 0) / withCtr.length
+    : null
+  const avgCtr = avgCtrNum !== null ? avgCtrNum.toFixed(2) : '—'
+
   const withRet = videos.filter(v => v.avg_view_percentage > 0)
-  const avgRet  = withRet.length
-    ? (withRet.reduce((a, v) => a + v.avg_view_percentage, 0) / withRet.length).toFixed(1)
-    : '—'
+  const avgRetNum = withRet.length
+    ? withRet.reduce((a, v) => a + v.avg_view_percentage, 0) / withRet.length
+    : null
+  const avgRet = avgRetNum !== null ? avgRetNum.toFixed(1) : '—'
+
+  const CTR_RED = 1.5
+  const CTR_YELLOW = 3.0
+  const RET_RED = 20
+  const RET_YELLOW = 35
+
+  const ctrColor = (ctr: number) => {
+    if (ctr <= 0) return undefined
+    if (ctr < CTR_RED) return 'var(--danger)'
+    if (ctr < CTR_YELLOW) return '#f0a500'
+    return '#22c55e'
+  }
+  const retColor = (ret: number) => {
+    if (ret <= 0) return undefined
+    if (ret < RET_RED) return 'var(--danger)'
+    if (ret < RET_YELLOW) return '#f0a500'
+    return '#22c55e'
+  }
 
   return (
     <div className={styles.page}>
@@ -224,16 +359,18 @@ export default function Videos() {
             <span className={styles.summaryLabel}>Videos</span>
           </div>
           <div className={styles.summaryCard}>
-            <span className={styles.summaryVal} style={{ color: 'var(--accent)' }}>
+            <span className={styles.summaryVal} style={{ color: avgCtrNum !== null ? ctrColor(avgCtrNum) : 'var(--accent)' }}>
               {avgCtr}{avgCtr !== '—' ? '%' : ''}
             </span>
             <span className={styles.summaryLabel}>CTR promedio</span>
+            <span className={styles.summaryBenchmark}>benchmark: 4%</span>
           </div>
           <div className={styles.summaryCard}>
-            <span className={styles.summaryVal} style={{ color: 'var(--purple)' }}>
+            <span className={styles.summaryVal} style={{ color: avgRetNum !== null ? retColor(avgRetNum) : 'var(--purple)' }}>
               {avgRet}{avgRet !== '—' ? '%' : ''}
             </span>
             <span className={styles.summaryLabel}>Retención prom.</span>
+            <span className={styles.summaryBenchmark}>benchmark: 40%</span>
           </div>
         </div>
       </header>
@@ -260,6 +397,7 @@ export default function Videos() {
                 <th className={styles.thCtr}>Impresiones</th>
                 <th className={styles.thRet}>Retención (mm:ss / %)</th>
                 <th className={styles.thCtr}>CTR</th>
+                <th className={styles.thCtr} title="Canal B = baja resonancia en LatAm">B</th>
               </tr>
             </thead>
             <tbody>
@@ -269,16 +407,10 @@ export default function Videos() {
                     <img src={YT_THUMB(v.youtube_video_id)} alt="" className={styles.thumb} />
                   </td>
                   <td className={styles.tdTitle}>
-                    <a
-                      href={YT_URL(v.youtube_video_id)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.videoLink}
-                    >
-                      {v.title || v.youtube_video_id}
-                      <ExternalLink size={11} />
-                    </a>
-                    <span className={styles.videoCounts}>{v.comments} comentarios</span>
+                    {v.is_canal_b && (
+                      <span className={styles.canalBBadge} title="Canal B — baja resonancia en LatAm">Canal B</span>
+                    )}
+                    <TitleCell video={v} />
                   </td>
                   <td className={styles.tdNum}>{fmtDate(v.published_at)}</td>
                   <td className={styles.tdNum}>{v.views.toLocaleString()}</td>
@@ -288,9 +420,22 @@ export default function Videos() {
                   </td>
                   <td className={styles.tdRet}>
                     <RetentionCell video={v} />
+                    {v.avg_view_percentage > 0 && (
+                      <span style={{ fontSize: 10, color: retColor(v.avg_view_percentage), marginLeft: 4 }}>
+                        {v.avg_view_percentage < RET_RED ? '▼' : v.avg_view_percentage < RET_YELLOW ? '◆' : '▲'}
+                      </span>
+                    )}
                   </td>
                   <td className={styles.tdCtr}>
                     <CTRCell video={v} />
+                    {v.ctr > 0 && (
+                      <span style={{ fontSize: 10, color: ctrColor(v.ctr), marginLeft: 2 }}>
+                        {v.ctr < CTR_RED ? '▼' : v.ctr < CTR_YELLOW ? '◆' : '▲'}
+                      </span>
+                    )}
+                  </td>
+                  <td className={styles.tdCtr}>
+                    <CanalBToggle video={v} />
                   </td>
                 </tr>
               ))}

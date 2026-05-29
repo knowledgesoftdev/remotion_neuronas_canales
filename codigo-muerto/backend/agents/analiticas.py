@@ -8,6 +8,12 @@ from models import ChannelStats, VideoMetrics, Project
 
 CLIENT = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY", ""))
 
+# Benchmark del nicho: documental tech/negocios en español
+# Fuente: análisis NexLev — Money Legends, TheCollapseCo, JunkBondInvestor
+INDUSTRY_CTR_BENCHMARK = 4.0      # %
+INDUSTRY_RETENTION_BENCHMARK = 40.0  # %
+CTR_ALERT_THRESHOLD = 2.0          # Alerta si CTR < 2% (independiente del canal avg)
+
 
 def suggest_video_titles(session: Session) -> dict:
     from models import SuggestedTitle
@@ -30,6 +36,9 @@ def suggest_video_titles(session: Session) -> dict:
     projects = session.exec(select(Project)).all()
     context = _build_context(stats, videos)
 
+    # Canal B: videos marcados explícitamente como de bajo rendimiento en LatAm
+    canal_b = [v for v in videos if v.is_canal_b and v.title]
+
     existing = []
     for v in videos:
         if v.title:
@@ -39,6 +48,15 @@ def suggest_video_titles(session: Session) -> dict:
     avoid_block = ""
     if existing:
         avoid_block = "\n\nTemas YA USADOS — NO repitas ninguno:\n" + "\n".join(existing)
+
+    if canal_b:
+        canal_b_titles = [v.title for v in canal_b]
+        avoid_block += (
+            "\n\nTemas CANAL B (bajo rendimiento en LatAm, NO sugerir ni similares):\n"
+            + "\n".join(f"- {t}" for t in canal_b_titles)
+            + "\n→ Estos temas tienen baja resonancia en el mercado hispanohablante. "
+            "Evita empresas/productos con poca presencia en Latinoamérica."
+        )
 
     msg = CLIENT.messages.create(
         model="claude-opus-4-7",
@@ -83,8 +101,9 @@ Devuelve SOLO un JSON con este formato:
 
 def check_performance_alerts(session: Session) -> dict:
     """
-    Detecta videos publicados hace 2+ días con rendimiento bajo
-    y genera sugerencias de mejora comparando con los mejores videos del canal.
+    Detecta videos publicados hace 2+ días con rendimiento bajo.
+    Compara contra el benchmark del nicho (4% CTR, 40% retención),
+    no solo contra el promedio del canal (que también es bajo).
     """
     videos = session.exec(select(VideoMetrics)).all()
     projects = session.exec(
@@ -92,16 +111,11 @@ def check_performance_alerts(session: Session) -> dict:
     ).all()
 
     if not videos or not projects:
-        return {"alerts": []}
-
-    # Métricas de referencia: top 3 por score
-    scored = [v for v in videos if v.ctr > 0 and v.avg_view_percentage > 0]
-    if not scored:
-        return {"alerts": []}
-
-    scored.sort(key=lambda v: v.ctr * v.avg_view_percentage, reverse=True)
-    ref_ctr = sum(v.ctr for v in scored[:3]) / min(3, len(scored))
-    ref_ret = sum(v.avg_view_percentage for v in scored[:3]) / min(3, len(scored))
+        return {
+            "alerts": [],
+            "ref_ctr": INDUSTRY_CTR_BENCHMARK,
+            "ref_retention": INDUSTRY_RETENTION_BENCHMARK,
+        }
 
     alerts = []
     cutoff = datetime.utcnow() - timedelta(days=2)
@@ -109,29 +123,41 @@ def check_performance_alerts(session: Session) -> dict:
     for project in projects:
         if not project.youtube_video_id:
             continue
-        # Buscar el video en métricas
         video = next((v for v in videos if v.youtube_video_id == project.youtube_video_id), None)
         if not video:
             continue
-        # Solo analizar si fue publicado hace 2+ días (fecha real de publicación)
         publish_date = video.published_at.replace(tzinfo=None) if video.published_at else None
         if not publish_date or publish_date > cutoff:
             continue
-        # Ignorar videos sin suficientes vistas para tener datos representativos
-        if video.views < 15:
+        if video.views < 10:
             continue
 
         issues = []
         suggestions = []
 
-        if video.ctr > 0 and video.ctr < ref_ctr * 0.7:
-            issues.append(f"CTR bajo ({video.ctr:.1f}% vs {ref_ctr:.1f}% de referencia)")
-            suggestions.append("cambiar_titulo")
-            suggestions.append("cambiar_miniatura")
+        # Alerta de CTR: compara contra umbral absoluto Y benchmark
+        if video.ctr > 0:
+            if video.ctr < CTR_ALERT_THRESHOLD:
+                gap = INDUSTRY_CTR_BENCHMARK / max(video.ctr, 0.1)
+                issues.append(
+                    f"CTR {video.ctr:.1f}% — {gap:.0f}x por debajo del benchmark del nicho ({INDUSTRY_CTR_BENCHMARK}%)"
+                )
+                suggestions.append("cambiar_miniatura")
+                if video.ctr < 0.8:
+                    suggestions.append("cambiar_titulo")
 
-        if video.avg_view_percentage > 0 and video.avg_view_percentage < ref_ret * 0.7:
-            issues.append(f"Retención baja ({video.avg_view_percentage:.1f}% vs {ref_ret:.1f}% de referencia)")
+        # Alerta de retención: compara contra benchmark
+        if video.avg_view_percentage > 0 and video.avg_view_percentage < 20.0:
+            issues.append(
+                f"Retención {video.avg_view_percentage:.1f}% — el gancho de los primeros 90s falla "
+                f"(benchmark: {INDUSTRY_RETENTION_BENCHMARK}%)"
+            )
             suggestions.append("mejorar_gancho")
+        elif video.avg_view_percentage > 0 and video.avg_view_percentage < 30.0:
+            issues.append(
+                f"Retención {video.avg_view_percentage:.1f}% — mejorable "
+                f"(benchmark: {INDUSTRY_RETENTION_BENCHMARK}%)"
+            )
 
         if issues:
             alerts.append({
@@ -139,14 +165,18 @@ def check_performance_alerts(session: Session) -> dict:
                 "title": project.title,
                 "youtube_video_id": project.youtube_video_id,
                 "issues": issues,
-                "suggestions": suggestions,
+                "suggestions": list(set(suggestions)),
                 "ctr": video.ctr,
                 "retention": video.avg_view_percentage,
-                "ref_ctr": round(ref_ctr, 1),
-                "ref_retention": round(ref_ret, 1),
+                "ref_ctr": INDUSTRY_CTR_BENCHMARK,
+                "ref_retention": INDUSTRY_RETENTION_BENCHMARK,
             })
 
-    return {"alerts": alerts, "ref_ctr": round(ref_ctr, 1), "ref_retention": round(ref_ret, 1)}
+    return {
+        "alerts": alerts,
+        "ref_ctr": INDUSTRY_CTR_BENCHMARK,
+        "ref_retention": INDUSTRY_RETENTION_BENCHMARK,
+    }
 
 
 def generate_improvement_suggestions(project_id: int, session: Session) -> dict:

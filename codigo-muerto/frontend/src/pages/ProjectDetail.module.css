@@ -409,3 +409,48 @@
 
 @keyframes spin { to { transform: rotate(360deg); } }
 .spin { animation: spin 1.2s linear infinite; }
+
+/* ── Gap 4: Prompt miniatura prominente ── */
+.promptMiniCard {
+  background: rgba(0,212,255,0.05);
+  border: 1px solid rgba(0,212,255,0.25);
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.promptMiniHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.promptMiniTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.promptMiniHint {
+  font-size: 11px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.promptMiniText {
+  font-size: 11px;
+  color: var(--text);
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.5;
+  background: rgba(0,0,0,0.2);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-family: var(--font-mono);
+  max-height: 160px;
+  overflow-y: auto;
+}

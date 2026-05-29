@@ -1,1 +1,1 @@
-from .project import Project, ChannelStats, VideoMetrics, SuggestedTitle
+from .project import Project, ChannelStats, VideoMetrics, SuggestedTitle, TitleChange

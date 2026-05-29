@@ -27,6 +27,7 @@
 
 .summaryVal { font-size: 22px; font-weight: 700; color: var(--text); font-family: var(--font-mono); }
 .summaryLabel { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.summaryBenchmark { font-size: 10px; color: var(--muted); opacity: 0.6; }
 
 .hint {
   display: flex;
@@ -215,3 +216,111 @@
 
 @keyframes spin { to { transform: rotate(360deg); } }
 .spin { animation: spin 1.2s linear infinite; color: var(--muted); }
+
+/* ── Gap 3: Canal B ── */
+.canalBBadge {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1px 5px;
+  background: rgba(240,165,0,0.15);
+  color: #f0a500;
+  border: 1px solid rgba(240,165,0,0.3);
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  margin-bottom: 3px;
+}
+
+.canalBBtn {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: none;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s;
+}
+.canalBBtn:hover { border-color: #f0a500; color: #f0a500; }
+.canalBActive { background: rgba(240,165,0,0.15); border-color: #f0a500; color: #f0a500; }
+
+/* ── Gap 5: Title editing ── */
+.titleCellWrap { display: flex; flex-direction: column; gap: 2px; }
+.titleRow { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+
+.titleEditBtn {
+  opacity: 0;
+  background: none; border: none; cursor: pointer;
+  color: var(--muted); padding: 2px;
+  border-radius: 3px;
+  transition: opacity 0.15s, color 0.15s;
+}
+.row:hover .titleEditBtn { opacity: 1; }
+.titleEditBtn:hover { color: var(--accent); }
+
+.titleHistoryBtn {
+  opacity: 0;
+  background: none; border: none; cursor: pointer;
+  color: var(--muted); padding: 2px;
+  border-radius: 3px;
+  transition: opacity 0.15s, color 0.15s;
+}
+.row:hover .titleHistoryBtn { opacity: 1; }
+.titleHistoryBtn:hover { color: var(--purple); }
+
+.titleEdit {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.titleInput {
+  flex: 1;
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  padding: 3px 6px;
+  color: var(--text);
+  font-size: 12px;
+  min-width: 0;
+}
+.titleCharCount {
+  font-size: 9px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.titleSaveBtn, .titleCancelBtn {
+  background: none; border: none; cursor: pointer;
+  padding: 2px 4px; border-radius: 3px;
+  display: flex; align-items: center;
+}
+.titleSaveBtn { color: #22c55e; }
+.titleCancelBtn { color: #ef4444; }
+.titleSaveBtn:disabled { opacity: 0.4; }
+
+/* History panel */
+.historyPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 6px 8px;
+  background: rgba(139,92,246,0.07);
+  border: 1px solid rgba(139,92,246,0.2);
+  border-radius: 6px;
+  margin-top: 2px;
+}
+.historyEntry {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  font-size: 9px;
+}
+.histOld { color: var(--muted); text-decoration: line-through; max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.histArrow { color: var(--muted); flex-shrink: 0; }
+.histNew { color: var(--text); max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.histDelta { font-family: var(--font-mono); font-weight: 700; flex-shrink: 0; }
+.deltaPos { color: #22c55e; }
+.deltaNeg { color: #ef4444; }
+.histDate { color: var(--muted); margin-left: auto; white-space: nowrap; }

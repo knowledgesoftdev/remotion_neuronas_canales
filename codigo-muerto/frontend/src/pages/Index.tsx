@@ -79,14 +79,31 @@ export default function Index() {
 
   const alerts = alertsData?.alerts ?? []
 
+  const ctrHealthColor = (ctr: number) => {
+    if (ctr <= 0) return 'var(--purple)'
+    if (ctr < 1.5) return 'var(--danger)'
+    if (ctr < 3.0) return '#f0a500'
+    return '#22c55e'
+  }
+
   const statCards = [
-    { label: 'Proyectos', value: stats.total_projects, color: 'var(--purple)' },
-    { label: 'Videos publicados', value: stats.completed_videos, color: 'var(--accent)' },
-    { label: 'Suscriptores', value: stats.subscribers.toLocaleString(), color: 'var(--purple)' },
-    { label: 'Vistas totales', value: stats.total_views.toLocaleString(), color: 'var(--accent)' },
-    { label: 'CTR promedio', value: `${stats.avg_ctr.toFixed(2)}%`, color: 'var(--purple)' },
-    { label: 'Retención prom.', value: stats.avg_retention > 0 ? `${Math.round(stats.avg_retention)}s` : '—', color: 'var(--accent)' },
-    { label: 'Impresiones totales', value: stats.total_impressions > 0 ? fmtNum(stats.total_impressions) : '—', color: 'var(--purple)' },
+    { label: 'Proyectos', value: stats.total_projects, color: 'var(--purple)', benchmark: null },
+    { label: 'Videos publicados', value: stats.completed_videos, color: 'var(--accent)', benchmark: null },
+    { label: 'Suscriptores', value: stats.subscribers.toLocaleString(), color: 'var(--purple)', benchmark: null },
+    { label: 'Vistas totales', value: stats.total_views.toLocaleString(), color: 'var(--accent)', benchmark: null },
+    {
+      label: 'CTR promedio',
+      value: `${stats.avg_ctr.toFixed(2)}%`,
+      color: ctrHealthColor(stats.avg_ctr),
+      benchmark: 'meta: 4%',
+    },
+    {
+      label: 'Retención prom.',
+      value: stats.avg_retention > 0 ? `${Math.round(stats.avg_retention)}s` : '—',
+      color: 'var(--accent)',
+      benchmark: 'meta: 40%',
+    },
+    { label: 'Impresiones totales', value: stats.total_impressions > 0 ? fmtNum(stats.total_impressions) : '—', color: 'var(--purple)', benchmark: null },
   ]
 
   return (
@@ -139,6 +156,9 @@ export default function Index() {
           <div key={card.label} className={styles.card}>
             <span className={styles.cardValue} style={{ color: card.color }}>{card.value}</span>
             <span className={styles.cardLabel}>{card.label}</span>
+            {card.benchmark && (
+              <span className={styles.cardBenchmark}>{card.benchmark}</span>
+            )}
           </div>
         ))}
       </div>
